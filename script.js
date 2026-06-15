@@ -1,0 +1,1412 @@
+/* ==========================================================================
+   RythuMitra – Smart Farming Assistant Client Logic
+   ========================================================================== */
+
+// --- Translation Dictionaries ---
+const translations = {
+  en: {
+    "nav-home": "Home",
+    "nav-detector": "Disease Detection",
+    "nav-advisor": "Fertilizer Advisor",
+    "nav-tracker": "Growth Tracker",
+    "nav-weather": "Weather Alerts",
+    "nav-stats": "Statistics",
+    "nav-faq": "FAQs",
+    "nav-contact": "Contact",
+    
+    "hero-tag": "Empowering Farmers with AI-Based Crop Health Monitoring",
+    "hero-title": "Protect Your Crops with Smart Disease Detection",
+    "hero-subtitle": "Upload crop photos, identify diseases, get treatment suggestions, and improve crop yield.",
+    "btn-detect-crop": "Detect Disease",
+    "btn-learn-more": "Learn More",
+    "hero-panel-title": "Active Crop Scan",
+    "lbl-scan-crop": "Tomato Farm",
+    "hero-panel-alert": "Weather Alert: High humidity levels predicted. Ensure proper spacing to prevent fungal growth.",
+
+    "stat-scans": "Total Disease Scans",
+    "stat-alerts": "Active Alerts",
+    "stat-treats": "Recommended Treatments",
+    "stat-score": "Crop Health Score",
+
+    "det-sec-title": "AI Crop Disease Detection",
+    "det-sec-subtitle": "Upload leaf photos or use our preset sample images to run a local instant check for crop diseases.",
+    "det-card-title": "Scan Crop Image",
+    "lbl-drag-text": "Drag & drop your leaf image here or click to browse",
+    "lbl-file-types": "Supports JPG, PNG, WEBP (Max 5MB)",
+    "lbl-test-presets": "Test with sample leaf images",
+    "lbl-preset-spot": "Tomato (Leaf Spot)",
+    "lbl-preset-mildew": "Wheat (Mildew)",
+    "lbl-preset-healthy": "Rice (Healthy)",
+    
+    "lbl-result-title": "Scan Result",
+    "lbl-severity-txt": "Severity Status",
+    "lbl-symptoms-title": "Symptoms",
+    "lbl-causes-title": "Causes",
+    "lbl-treat-title": "Recommended Treatments",
+    "info-box-title": "Smart Disease Database",
+    "info-box-text": "RythuMitra processes crop foliage patterns through visual analysis to diagnose common leaf spots, mold infections, and pathogen decay. Access detailed guides, spray schedules, and preventive agricultural tips offline.",
+    "lbl-toggle-net": "Simulate Internet Status",
+
+    "fert-title": "Fertilizer Advisor",
+    "fert-desc": "Get tailored NPK fertilizer blends and recommended application dosage based on your crop selection.",
+    "lbl-select-crop": "Select Crop Type",
+    "lbl-opt-disabled": "-- Choose a crop --",
+    "opt-rice": "Rice",
+    "opt-cotton": "Cotton",
+    "opt-wheat": "Wheat",
+    "opt-maize": "Maize",
+    "opt-tomato": "Tomato",
+    "lbl-fert-recommend": "Recommended Recipe",
+    "lbl-recipe-type": "Fertilizer Type",
+    "lbl-recipe-qty": "Quantity per Acre",
+    "lbl-recipe-time": "Application Phase",
+
+    "grow-title": "Crop Growth Tracker",
+    "grow-desc": "Track progress, compute days since sowing, and view your current development cycle stage.",
+    "lbl-track-select": "Select Crop",
+    "lbl-track-date": "Sowing Date",
+    "btn-calculate-growth": "Calculate Progress",
+    "lbl-track-days": "Days Since Sowing:",
+    "lbl-stage-seed": "Seed",
+    "lbl-stage-germ": "Germination",
+    "lbl-stage-veg": "Vegetative",
+    "lbl-stage-flow": "Flowering",
+    "lbl-stage-harv": "Harvest",
+
+    "wea-sec-title": "Local Weather Alerts",
+    "wea-sec-subtitle": "Live environmental conditions and farming guides optimized to prevent disease proliferation.",
+    "wea-dash-title": "Farming Weather Panel",
+    "lbl-wea-sim": "Simulate Weather:",
+    "opt-wea-normal": "Mild & Sunny (Optimal)",
+    "opt-wea-humid": "High Humid & Fungal Risk",
+    "opt-wea-rainy": "Heavy Storms & Wet",
+    "opt-wea-drought": "Dry Heat & Water Shortage",
+    "lbl-wea-temp": "Temperature",
+    "lbl-wea-humid": "Humidity",
+    "lbl-wea-rain": "Rain Chance",
+    "lbl-wea-wind": "Wind Speed",
+
+    "sta-sec-title": "Agricultural Analytics",
+    "sta-sec-subtitle": "Statistical metrics from our aggregate diagnostics showing crop growth rates and pest containment success.",
+    "sta-chart-crop": "Crop Health Distribution (%)",
+    "sta-chart-dis": "Common Disease Occurrence",
+    "sta-chart-yield": "Average Farm Yield Improvement",
+    "lbl-bar-rice": "Rice",
+    "lbl-bar-cotton": "Cotton",
+    "lbl-bar-wheat": "Wheat",
+    "lbl-bar-maize": "Maize",
+    "lbl-bar-tomato": "Tomato",
+    "lbl-leg-spot": "Leaf Spot",
+    "lbl-leg-mildew": "Powdery Mildew",
+    "lbl-leg-healthy": "Healthy Leaves",
+    "lbl-yield-y1": "Year 1 (Initial AI Adoption)",
+    "lbl-yield-y2": "Year 2 (Soil Nutrient Balancing)",
+    "lbl-yield-y3": "Year 3 (Smart Farming Maturity)",
+    "lbl-yield-desc1": "Early disease scan saves",
+    "lbl-yield-desc2": "Optimized fertilizer recipes",
+    "lbl-yield-desc3": "Peak yields & low damage",
+
+    "test-sec-title": "What Farmers Say",
+    "test-sec-subtitle": "Real experiences and feedback from agriculturalists using RythuMitra tools in their fields.",
+    "test-quote-1": "The leaf photo scanner correctly diagnosed the Early Leaf Spot disease on my tomato crop. The organic spray recipe of neem oil saved 80% of my harvest this season.",
+    "test-loc-1": "Tomato Farmer, Guntur",
+    "test-quote-2": "I was confused about NPK ratios for cotton crop. The Fertilizer Advisor computed the exact bag dosage. Crop yields increased significantly with reduced costs.",
+    "test-loc-2": "Cotton Farmer, Warangal",
+    "test-quote-3": "Being able to use the app in Telugu while inside my rural fields offline is a blessing. The sowing tracker timeline prompts me exactly when to fertilize my wheat.",
+    "test-loc-3": "Wheat Cultivator, Indore",
+
+    "faq-sec-title": "Frequently Asked Questions",
+    "faq-sec-subtitle": "Quick answers to common questions about agricultural detection algorithms and offline operations.",
+    "faq-q1": "How does crop disease detection work?",
+    "faq-a1": "Our front-end AI model analyses leaf color distribution, vein structures, and bacterial patch outlines. By comparing these markers against a localized pathology database, it calculates the most likely plant disease with specific matching confidence percentage statistics.",
+    "faq-q2": "Can the website work without an internet connection?",
+    "faq-a2": "Yes! RythuMitra has an Offline mode. Since all disease dictionaries, treatments, fertilizer charts, and sowing calculators are compiled locally in Javascript, the tool is fully operational even when signal drops in remote rural farmlands.",
+    "faq-q3": "How accurate are the fertilizer and chemical dosages?",
+    "faq-a3": "The recommendation matrices are calibrated according to guidelines from agricultural extension offices. However, values are designed as general templates. We advise checking soil salinity and matching specific local crop parameters before extensive treatment implementation.",
+
+    "con-sec-title": "Get in Touch",
+    "con-sec-subtitle": "Reach out to agricultural counselors for query clarifications, field updates, or system diagnostics support.",
+    "con-info-title": "Support Office",
+    "con-info-desc": "Our counselors respond to critical agricultural inquiries, pest outbreaks, and soil health management queries.",
+    "lbl-con-loc": "Agri-Tech Hub, Sector 5, Hyderabad, India",
+    "con-form-title": "Send a Message",
+    "lbl-form-name": "Full Name",
+    "lbl-form-phone": "Mobile Number",
+    "lbl-form-phone-hint": "Enter 10-digit mobile number",
+    "lbl-form-crop": "Crop Type",
+    "lbl-form-msg": "Message",
+    "btn-submit-form": "Submit Enquiry",
+    "lbl-modal-title": "Enquiry Submitted!",
+    "lbl-modal-desc": "Thank you. An agricultural specialist will call your mobile number within 24 hours to assist with your crop condition.",
+    "footer-desc": "Empowering local cultivators with advanced offline diagnostic models, weather warnings, and direct agronomy advisors to secure harvests and increase crop health.",
+    "footer-lbl-links": "Quick Links",
+    "footer-lbl-social": "Connect with Us",
+    "footer-social-desc": "Follow our media accounts for regional farming news, workshops, and crop tips."
+  },
+  te: {
+    "nav-home": "హోమ్",
+    "nav-detector": "తెగుళ్ల గుర్తింపు",
+    "nav-advisor": "ఎరువుల సలహా",
+    "nav-tracker": "పంట ఎదుగుదల",
+    "nav-weather": "వాతావరణ హెచ్చరికలు",
+    "nav-stats": "గణాంకాలు",
+    "nav-faq": "ప్రశ్నలు",
+    "nav-contact": "సంప్రదించండి",
+
+    "hero-tag": "AI-ఆధారిత పంట ఆరోగ్య పర్యవేక్షణతో రైతులకు సాధికారత",
+    "hero-title": "స్మార్ట్ తెగుళ్ల గుర్తింపుతో పంటలను రక్షించండి",
+    "hero-subtitle": "పంట ఫోటోలను అప్‌లోడ్ చేయండి, తెగుళ్లను గుర్తించండి, నివారణ చికిత్సలు పొందండి మరియు దిగుబడిని పెంచండి.",
+    "btn-detect-crop": "తెగులును గుర్తించండి",
+    "btn-learn-more": "మరింత సమాచారం",
+    "hero-panel-title": "యాక్టివ్ పంట స్కానింగ్",
+    "lbl-scan-crop": "టొమాటో పంట",
+    "hero-panel-alert": "వాతావరణ హెచ్చరిక: అధిక తేమ నమోదు కావచ్చు. ఫంగస్ వ్యాప్తిని నివారించడానికి తగిన దూరం పాటించండి.",
+
+    "stat-scans": "మొత్తం తెగులు స్కాన్‌లు",
+    "stat-alerts": "క్రియాశీల హెచ్చరికలు",
+    "stat-treats": "సిఫార్సు చేసిన చికిత్సలు",
+    "stat-score": "పంట ఆరోగ్య స్కోర్",
+
+    "det-sec-title": "AI పంట తెగుళ్ల గుర్తింపు",
+    "det-sec-subtitle": "ఆకుల ఫోటోలను అప్‌లోడ్ చేయండి లేదా పంటల తెగుళ్లను వెంటనే పరీక్షించడానికి సిద్ధంగా ఉన్న నమూనా చిత్రాలను ఉపయోగించండి.",
+    "det-card-title": "పంట చిత్రాన్ని స్కాన్ చేయండి",
+    "lbl-drag-text": "ఆకు చిత్రాన్ని ఇక్కడ లాగి వదలండి లేదా బ్రౌజ్ చేయడానికి క్లిక్ చేయండి",
+    "lbl-file-types": "JPG, PNG, WEBP ఫైళ్లను సపోర్ట్ చేస్తుంది (గరిష్టంగా 5MB)",
+    "lbl-test-presets": "నమూనా ఆకులతో పరీక్షించండి",
+    "lbl-preset-spot": "టొమాటో (ఆకు మచ్చ)",
+    "lbl-preset-mildew": "గోధుమ (బూజు తెగులు)",
+    "lbl-preset-healthy": "వరి (ఆరోగ్యకరమైనది)",
+
+    "lbl-result-title": "స్కాన్ ఫలితం",
+    "lbl-severity-txt": "తీవ్రత స్థాయి",
+    "lbl-symptoms-title": "లక్షణాలు",
+    "lbl-causes-title": "కారణాలు",
+    "lbl-treat-title": "సిఫార్సు చేయబడిన చికిత్సలు",
+    "info-box-title": "స్మార్ట్ తెగుళ్ల డేటాబేస్",
+    "info-box-text": "రైతుమిత్ర పంట ఆకుల నమూనాలను దృశ్య విశ్లేషణ ద్వారా పరిశీలించి సాధారణ మచ్చలు, బూజు మరియు తెగుళ్లను గుర్తిస్తుంది. వివరణాత్మక మార్గదర్శకాలు మరియు చికిత్సలను ఇంటర్నెట్ లేకపోయినా పొందవచ్చు.",
+    "lbl-toggle-net": "ఇంటర్నెట్ అనుకరణ",
+
+    "fert-title": "ఎరువుల సలహాదారు",
+    "fert-desc": "మీరు ఎంచుకున్న పంట ఆధారంగా తగిన NPK ఎరువుల మిశ్రమాలను మరియు సిఫార్సు చేసిన మోతాదును పొందండి.",
+    "lbl-select-crop": "పంట రకాన్ని ఎంచుకోండి",
+    "lbl-opt-disabled": "-- పంటను ఎంచుకోండి --",
+    "opt-rice": "వరి",
+    "opt-cotton": "పత్తి",
+    "opt-wheat": "గోధుమ",
+    "opt-maize": "మొక్కజొన్న",
+    "opt-tomato": "టొమాటో",
+    "lbl-fert-recommend": "సిఫార్సు చేయబడిన మిశ్రమం",
+    "lbl-recipe-type": "ఎరువు రకం",
+    "lbl-recipe-qty": "ఎకరానికి కావలసిన పరిమాణం",
+    "lbl-recipe-time": "ఎరువులు వేయవలసిన దశ",
+
+    "grow-title": "పంట ఎదుగుదల ట్రాకర్",
+    "grow-desc": "పంట ప్రగతిని పర్యవేక్షించండి, విత్తినప్పటి నుండి రోజులను లెక్కించండి మరియు ప్రస్తుత ఎదుగుదల దశను చూడండి.",
+    "lbl-track-select": "పంటను ఎంచుకోండి",
+    "lbl-track-date": "విత్తిన తేదీ",
+    "btn-calculate-growth": "ప్రగతిని లెక్కించండి",
+    "lbl-track-days": "విత్తినప్పటి నుండి రోజులు:",
+    "lbl-stage-seed": "విత్తనం",
+    "lbl-stage-germ": "మొలకెత్తడం",
+    "lbl-stage-veg": "శాఖీయ దశ",
+    "lbl-stage-flow": "పూత దశ",
+    "lbl-stage-harv": "కోత దశ",
+
+    "wea-sec-title": "స్థానిక వాతావరణ హెచ్చరికలు",
+    "wea-sec-subtitle": "తెగుళ్లు వ్యాపించకుండా నిరోధించడానికి వాతావరణ పరిస్థితులు మరియు సూచనలు.",
+    "wea-dash-title": "వ్యవసాయ వాతావరణ ప్యానెల్",
+    "lbl-wea-sim": "వాతావరణాన్ని మార్చండి:",
+    "opt-wea-normal": "సాధారణ ఎండ (అనుకూలం)",
+    "opt-wea-humid": "అధిక తేమ (ఫంగస్ ప్రమాదం)",
+    "opt-wea-rainy": "భారీ వర్షాలు & తడి",
+    "opt-wea-drought": "అధిక వేడి (నీటి కొరత)",
+    "lbl-wea-temp": "ఉష్ణోగ్రత",
+    "lbl-wea-humid": "తేమ",
+    "lbl-wea-rain": "వర్ష సూచన",
+    "lbl-wea-wind": "గాలి వేగం",
+
+    "sta-sec-title": "వ్యవసాయ గణాంకాలు",
+    "sta-sec-subtitle": "మా పంట విశ్లేషణల ద్వారా సేకరించిన ఎదుగుదల రేట్లు మరియు తెగుళ్ల నివారణ విజయాలు.",
+    "sta-chart-crop": "పంట ఆరోగ్య పంపిణీ (%)",
+    "sta-chart-dis": "సాధారణ తెగుళ్ల వ్యాప్తి",
+    "sta-chart-yield": "సగటు పంట దిగుబడి మెరుగుదల",
+    "lbl-bar-rice": "వరి",
+    "lbl-bar-cotton": "పత్తి",
+    "lbl-bar-wheat": "గోధుమ",
+    "lbl-bar-maize": "మొక్కజొన్న",
+    "lbl-bar-tomato": "టొమాటో",
+    "lbl-leg-spot": "ఆకు మచ్చ తెగులు",
+    "lbl-leg-mildew": "బూజు తెగులు",
+    "lbl-leg-healthy": "ఆరోగ్యకరమైన ఆకులు",
+    "lbl-yield-y1": "సంవత్సరం 1 (ప్రారంభ AI వినియోగం)",
+    "lbl-yield-y2": "సంవత్సరం 2 (పోషకాల సమతుల్యత)",
+    "lbl-yield-y3": "సంవత్సరం 3 (స్మార్ట్ వ్యవసాయ పరిపక్వత)",
+    "lbl-yield-desc1": "తెగుళ్ల ముందస్తు గుర్తింపు పొదుపు",
+    "lbl-yield-desc2": "సరైన ఎరువుల వాడకం",
+    "lbl-yield-desc3": "గరిష్ట దిగుబడులు & తక్కువ నష్టం",
+
+    "test-sec-title": "రైతులు ఏమంటున్నారు",
+    "test-sec-subtitle": "తమ పొలాల్లో రైతుమిత్రను ఉపయోగిస్తున్న రైతుల నిజమైన అనుభవాలు మరియు అభిప్రాయాలు.",
+    "test-quote-1": "ఆకు స్కాన్ నా టొమాటో పంటలో ఆకు మచ్చ తెగులును సరిగ్గా గుర్తించింది. వేప నూనె వాడకం వల్ల ఈ సీజన్‌లో నా పంట 80% కాపాడుకోగలిగాను.",
+    "test-loc-1": "టొమాటో రైతు, గుంటూరు",
+    "test-quote-2": "పత్తి పంటకు NPK నిష్పత్తుల గురించి చాలా గందరగోళం ఉండేది. రైతుమిత్ర ఎకరానికి సరైన మోతాదును సూచించింది. ఖర్చులు తగ్గి దిగుబడి పెరిగింది.",
+    "test-loc-2": "పత్తి రైతు, వరంగల్",
+    "test-quote-3": "పొలాల్లో ఇంటర్నెట్ లేకపోయినా తెలుగులో ఈ యాప్ పని చేయడం చాలా ఉపయోగకరం. గోధుమ పంటకు ఎప్పుడు ఎరువులు వేయాలో సరిగ్గా అలర్ట్ చేస్తుంది.",
+    "test-loc-3": "గోధుమ రైతు, ఇండోర్",
+
+    "faq-sec-title": "తరచుగా అడిగే ప్రశ్నలు",
+    "faq-sec-subtitle": "తెగుళ్ల గుర్తింపు మరియు ఇంటర్నెట్ లేకుండా పని చేసే విధానంపై సాధారణ సందేహాలు.",
+    "faq-q1": "పంట తెగుళ్ల గుర్తింపు ఎలా పనిచేస్తుంది?",
+    "faq-a1": "మా AI మోడల్ ఆకు రంగు, ఈనెల నిర్మాణం మరియు మచ్చలను విశ్లేషిస్తుంది. వీటిని తెగుళ్ల డేటాబేస్‌తో పోల్చి ఏ రకమైన వ్యాధి సోకిందో ఖచ్చితమైన శాతంతో లెక్కిస్తుంది.",
+    "faq-q2": "ఇంటర్నెట్ లేకుండా యాప్ పనిచేస్తుందా?",
+    "faq-a2": "అవును! రైతుమిత్ర ఆఫ్‌లైన్ మోడ్‌లో పనిచేస్తుంది. తెగుళ్ల సమాచారం, నివారణలు, ఎరువుల చార్ట్‌లు అన్ని మీ ఫోన్లోనే స్టోర్ అవుతాయి, కాబట్టి సిగ్నల్ లేని మారుమూల పొలాల్లో కూడా వాడుకోవచ్చు.",
+    "faq-q3": "సిఫార్సు చేసిన ఎరువుల మోతాదు ఎంతవరకు నమ్మదగినది?",
+    "faq-a3": "ఈ సూచనలు వ్యవసాయ అధికారుల మార్గదర్శకాలకు అనుగుణంగా రూపొందించబడ్డాయి. అయితే, నేల పరీక్షలు మరియు స్థానిక వాతావరణ పరిస్థితులకు అనుగుణంగా మార్పులు చేసుకోవడం మంచిది.",
+
+    "con-sec-title": "మమ్మల్ని సంప్రదించండి",
+    "con-sec-subtitle": "సందేహాలు, తెగుళ్ల సమస్యలు లేదా ఇతర సహాయం కోసం వ్యవసాయ నిపుణులను సంప్రదించండి.",
+    "con-info-title": "సహాయక కేంద్రం",
+    "con-info-desc": "మా నిపుణులు పంట సమస్యలు, వ్యాధులు మరియు నేల ఆరోగ్య నిర్వహణపై సమాధానాలు ఇస్తారు.",
+    "lbl-con-loc": "అగ్రి-టెక్ హబ్, సెక్టార్ 5, హైదరాబాద్, భారతదేశం",
+    "con-form-title": "సందేశం పంపండి",
+    "lbl-form-name": "పూర్తి పేరు",
+    "lbl-form-phone": "మొబైల్ సంఖ్య",
+    "lbl-form-phone-hint": "10 అంకెల మొబైల్ నంబర్ నమోదు చేయండి",
+    "lbl-form-crop": "పంట రకం",
+    "lbl-form-msg": "సందేశం",
+    "btn-submit-form": "వివరాలను పంపండి",
+    "lbl-modal-title": "సమర్పణ విజయవంతమైంది!",
+    "lbl-modal-desc": "ధన్యవాదాలు. పంట సమస్య నివారణకు సహాయం చేయడానికి వ్యవసాయ నిపుణులు 24 గంటల్లో మీ మొబైల్‌కు కాల్ చేస్తారు.",
+    "footer-desc": "ఆఫ్‌లైన్ వ్యాధి నిర్ధారణ, వాతావరణ హెచ్చరికలు మరియు వ్యవసాయ సలహాల ద్వారా స్థానిక రైతులకు సహాయం చేస్తూ పంట నష్టాలను తగ్గిస్తుంది.",
+    "footer-lbl-links": "త్వరిత లింకులు",
+    "footer-lbl-social": "సోషల్ మీడియా",
+    "footer-social-desc": "వ్యవసాయ వార్తలు, వర్క్‌షాప్‌లు మరియు పంటల చిట్కాల కోసం మమ్మల్ని ఫాలో అవ్వండి."
+  },
+  hi: {
+    "nav-home": "होम",
+    "nav-detector": "रोग की पहचान",
+    "nav-advisor": "उर्वरक सलाह",
+    "nav-tracker": "फसल प्रगति",
+    "nav-weather": "मौसम अलर्ट",
+    "nav-stats": "आँकड़े",
+    "nav-faq": "अक्सर पूछे जाने वाले प्रश्न",
+    "nav-contact": "संपर्क करें",
+
+    "hero-tag": "AI-आधारित फसल स्वास्थ्य निगरानी के साथ किसानों का सशक्तीकरण",
+    "hero-title": "स्मार्ट रोग पहचान के साथ अपनी फसलें बचाएं",
+    "hero-subtitle": "पत्तियों की फोटो अपलोड करें, बीमारियों की पहचान करें, समाधान पाएं और फसल की पैदावार में सुधार करें।",
+    "btn-detect-crop": "रोग का पता लगाएं",
+    "btn-learn-more": "और जानें",
+    "hero-panel-title": "सक्रिय फसल स्कैन",
+    "lbl-scan-crop": "टमाटर का खेत",
+    "hero-panel-alert": "मौसम अलर्ट: हवा में नमी अधिक है। फंगल संक्रमण से बचने के लिए पौधों के बीच पर्याप्त दूरी रखें।",
+
+    "stat-scans": "कुल बीमारी स्कैन",
+    "stat-alerts": "सक्रिय अलर्ट",
+    "stat-treats": "सुझाए गए उपचार",
+    "stat-score": "फसल स्वास्थ्य स्कोर",
+
+    "det-sec-title": "AI फसल रोग पहचान",
+    "det-sec-subtitle": "रोग का तुरंत पता लगाने के लिए पत्तियों की तस्वीरें अपलोड करें या नीचे दिए गए नमूनों का उपयोग करें।",
+    "det-card-title": "फसल की छवि स्कैन करें",
+    "lbl-drag-text": "पत्ती की तस्वीर यहाँ खींचें या ब्राउज़ करने के लिए क्लिक करें",
+    "lbl-file-types": "JPG, PNG, WEBP फाइलों को सपोर्ट करता है (अधिकतम 5MB)",
+    "lbl-test-presets": "नमूना पत्तियों के साथ परीक्षण करें",
+    "lbl-preset-spot": "टमाटर (पत्ती का धब्बा)",
+    "lbl-preset-mildew": "गेहूं (पाउडर फफूंदी)",
+    "lbl-preset-healthy": "धान (स्वस्थ)",
+
+    "lbl-result-title": "स्कैन परिणाम",
+    "lbl-severity-txt": "तीव्रता की स्थिति",
+    "lbl-symptoms-title": "लक्षण",
+    "lbl-causes-title": "कारण",
+    "lbl-treat-title": "अनुशंसित उपचार",
+    "info-box-title": "स्मार्ट रोग डेटाबेस",
+    "info-box-text": "ऋतुमित्र दृश्य विश्लेषण द्वारा पत्तियों में धब्बे, फफूंदी और कीड़ों की पहचान करता है। बिना इंटरनेट के भी आप सभी निदान और उपचारों की जानकारी प्राप्त कर सकते हैं।",
+    "lbl-toggle-net": "इंटरनेट सिम्युलेटर",
+
+    "fert-title": "उर्वरक सलाहकार",
+    "fert-desc": "अपनी चुनी हुई फसल के अनुसार सही NPK उर्वरक मात्रा और डालने के समय की जानकारी प्राप्त करें।",
+    "lbl-select-crop": "फसल का चयन करें",
+    "lbl-opt-disabled": "-- फसल चुनें --",
+    "opt-rice": "धान",
+    "opt-cotton": "कपास",
+    "opt-wheat": "गेहूं",
+    "opt-maize": "मक्का",
+    "opt-tomato": "टमाटर",
+    "lbl-fert-recommend": "अनुशंसित उर्वरक नुस्खा",
+    "lbl-recipe-type": "उर्वरक प्रकार",
+    "lbl-recipe-qty": "प्रति एकड़ मात्रा",
+    "lbl-recipe-time": "डालने का सही चरण",
+
+    "grow-title": "फसल विकास ट्रैकर",
+    "grow-desc": "फसल की प्रगति को ट्रैक करें, बोने के बाद के दिन गिनें और फसल चक्र के चरण देखें।",
+    "lbl-track-select": "फसल चुनें",
+    "lbl-track-date": "बोने की तारीख",
+    "btn-calculate-growth": "प्रगति की गणना करें",
+    "lbl-track-days": "बोने के बाद से दिन:",
+    "lbl-stage-seed": "बीज",
+    "lbl-stage-germ": "अंकुरण",
+    "lbl-stage-veg": "वानस्पतिक अवस्था",
+    "lbl-stage-flow": "फूल आने का चरण",
+    "lbl-stage-harv": "कटाई",
+
+    "wea-sec-title": "स्थानीय मौसम अलर्ट",
+    "wea-sec-subtitle": "फसलों को बीमारियों से सुरक्षित रखने के लिए मौसम की वर्तमान स्थिति और सुरक्षा उपाय।",
+    "wea-dash-title": "कृषि मौसम पैनल",
+    "lbl-wea-sim": "मौसम बदलें:",
+    "opt-wea-normal": "हल्की धूप (अनुकूल)",
+    "opt-wea-humid": "उच्च आर्द्रता (फंगस का खतरा)",
+    "opt-wea-rainy": "भारी बारिश और नमी",
+    "opt-wea-drought": "सूखा और तेज गर्मी",
+    "lbl-wea-temp": "तापमान",
+    "lbl-wea-humid": "नमी",
+    "lbl-wea-rain": "बारिश की संभावना",
+    "lbl-wea-wind": "हवा की गति",
+
+    "sta-sec-title": "कृषि सांख्यिकी",
+    "sta-sec-subtitle": "फसलों की वृद्धि दर और रोग नियंत्रण की सफलता को दर्शाते हुए हमारे विश्लेषणात्मक आँकड़े।",
+    "sta-chart-crop": "फसल स्वास्थ्य वितरण (%)",
+    "sta-chart-dis": "सामान्य बीमारियों का प्रकोप",
+    "sta-chart-yield": "औसत फसल पैदावार में सुधार",
+    "lbl-bar-rice": "धान",
+    "lbl-bar-cotton": "कपास",
+    "lbl-bar-wheat": "गेहूं",
+    "lbl-bar-maize": "मक्का",
+    "lbl-bar-tomato": "टमाटर",
+    "lbl-leg-spot": "पत्ती का धब्बा",
+    "lbl-leg-mildew": "पाउडर फफूंदी",
+    "lbl-leg-healthy": "स्वस्थ पत्तियां",
+    "lbl-yield-y1": "वर्ष 1 (प्रारंभिक AI तकनीक अपनाना)",
+    "lbl-yield-y2": "वर्ष 2 (उचित पोषण संतुलन)",
+    "lbl-yield-y3": "वर्ष 3 (उन्नत कृषि परिपक्वता)",
+    "lbl-yield-desc1": "शीघ्र रोग निदान से बचत",
+    "lbl-yield-desc2": "उर्वरक की सही मात्रा",
+    "lbl-yield-desc3": "अधिकतम पैदावार और न्यूनतम नुकसान",
+
+    "test-sec-title": "किसानों की राय",
+    "test-sec-subtitle": "ऋतुमित्र का उपयोग करने वाले किसानों के वास्तविक अनुभव और प्रतिक्रिया।",
+    "test-quote-1": "पत्ती स्कैनर ने मेरी टमाटर की फसल में बीमारी की सही पहचान की। नीम के तेल के घोल के छिड़काव ने इस सीजन में मेरी 80% फसल को बचा लिया।",
+    "test-loc-1": "टमाटर किसान, गुंटूर",
+    "test-quote-2": "मैं कपास की फसल के लिए उर्वरक अनुपात को लेकर उलझन में था। ऋतुमित्र ने सही मात्रा बताई, जिससे लागत कम हुई और उपज में काफी सुधार हुआ।",
+    "test-loc-2": "कपास किसान, वारंगल",
+    "test-quote-3": "खेतों में बिना इंटरनेट के भी हिंदी और क्षेत्रीय भाषाओं में इस ऐप का चलना एक वरदान है। यह सही समय पर उर्वरक डालने की याद दिलाता है।",
+    "test-loc-3": "गेहूं किसान, इंदौर",
+
+    "faq-sec-title": "अक्सर पूछे जाने वाले प्रश्न",
+    "faq-sec-subtitle": "बीमारी पहचान प्रणाली और ऑफलाइन कार्य प्रणाली के बारे में सामान्य प्रश्न।",
+    "faq-q1": "फसल रोग पहचान कैसे काम करती है?",
+    "faq-a1": "हमारा AI मॉडल पत्ती के रंग, शिराओं की बनावट और धब्बों का विश्लेषण करता है। इसकी तुलना रोग डेटाबेस से करके बीमारी का प्रतिशत निकाला जाता है।",
+    "faq-q2": "क्या यह वेबसाइट बिना इंटरनेट के काम कर सकती है?",
+    "faq-a2": "हाँ! ऋतुमित्र में एक ऑफलाइन मोड है। चूंकि बीमारी की जानकारी और उर्वरक चार्ट आपके डिवाइस पर ही रहते हैं, यह मरुस्थली क्षेत्रों में भी काम करता है।",
+    "faq-q3": "उर्वरक की सुझाई गई मात्रा कितनी सही है?",
+    "faq-a3": "ये सिफारिशें कृषि विकास केंद्र के दिशा-निर्देशों पर आधारित हैं। हालांकि, अपनी मिट्टी की जांच और स्थानीय परिस्थितियों के अनुसार बदलाव करना बेहतर है।",
+
+    "con-sec-title": "संपर्क करें",
+    "con-sec-subtitle": "कृषि समस्याओं, बीमारियों या अन्य मदद के लिए हमारे विशेषज्ञों से बात करें।",
+    "con-info-title": "सहायता कार्यालय",
+    "con-info-desc": "हमारे सलाहकार फसलों के कीड़ों, बीमारियों और मिट्टी के स्वास्थ्य पर मार्गदर्शन देते हैं।",
+    "lbl-con-loc": "एग्री-टेक हब, सेक्टर 5, हैदराबाद, भारत",
+    "con-form-title": "संदेश भेजें",
+    "lbl-form-name": "पूरा नाम",
+    "lbl-form-phone": "मोबाइल नंबर",
+    "lbl-form-phone-hint": "10 अंकों का मोबाइल नंबर दर्ज करें",
+    "lbl-form-crop": "फसल का प्रकार",
+    "lbl-form-msg": "संदेश",
+    "btn-submit-form": "पूछताछ सबमिट करें",
+    "lbl-modal-title": "पूछताछ दर्ज हो गई है!",
+    "lbl-modal-desc": "धन्यवाद। सहायता प्रदान करने के लिए हमारे कृषि सलाहकार 24 घंटे के भीतर आपके मोबाइल नंबर पर संपर्क करेंगे।",
+    "footer-desc": "ऑफलाइन रोग निदान, मौसम चेतावनी और कृषि सलाह के माध्यम से किसानों की फसलों को सुरक्षित रखने में मदद करता है।",
+    "footer-lbl-links": "त्वरित लिंक",
+    "footer-lbl-social": "सोशल मीडिया",
+    "footer-social-desc": "कृषि समाचार, कार्यशालाओं और सुझावों के लिए हमसे जुड़ें।"
+  },
+  ta: {
+    "nav-home": "முகப்பு",
+    "nav-detector": "நோய் கண்டறிதல்",
+    "nav-advisor": "உர ஆலோசனை",
+    "nav-tracker": "வளர்ச்சி டிராக்கர்",
+    "nav-weather": "வானிலை எச்சரிக்கைகள்",
+    "nav-stats": "புள்ளிவிவரங்கள்",
+    "nav-faq": "கேள்விகள்",
+    "nav-contact": "தொடர்பு",
+
+    "hero-tag": "AI-அடிப்படையிலான பயிர் சுகாதார கண்காணிப்பு மூலம் விவசாயிகளுக்கு அதிகாரம்",
+    "hero-title": "ஸ்மார்ட் நோய் கண்டறிதல் மூலம் உங்கள் பயிர்களைப் பாதுகாக்கவும்",
+    "hero-subtitle": "பயிர் புகைப்படங்களைப் பதிவேற்றவும், நோய்களைக் கண்டறியவும், சிகிச்சை பரிந்துரைகளைப் பெறவும் மற்றும் பயிர் விளைச்சலை மேம்படுத்தவும்.",
+    "btn-detect-crop": "நோயைக் கண்டறி",
+    "btn-learn-more": "மேலும் அறிய",
+    "hero-panel-title": "செயலில் பயிர் ஸ்கேனிங்",
+    "lbl-scan-crop": "தக்காளி தோட்டம்",
+    "hero-panel-alert": "வானிலை எச்சரிக்கை: அதிக ஈரப்பதம் கணிக்கப்பட்டுள்ளது. பூஞ்சை வளர்ச்சியைத் தடுக்க பயிர்களுக்கு இடையே போதுமான இடைவெளி விடவும்.",
+
+    "stat-scans": "மொத்த நோய் ஸ்கேன்கள்",
+    "stat-alerts": "செயலில் உள்ள எச்சரிக்கைகள்",
+    "stat-treats": "பரிந்துரைக்கப்பட்ட சிகிச்சைகள்",
+    "stat-score": "பயிர் சுகாதார மதிப்பெண்",
+
+    "det-sec-title": "AI பயிர் நோய் கண்டறிதல்",
+    "det-sec-subtitle": "நோய்களைத் துல்லியமாக கண்டறிய இலைகளின் புகைப்படங்களைப் பதிவேற்றவும் அல்லது கீழே உள்ள மாதிரிகளைப் பயன்படுத்தவும்.",
+    "det-card-title": "பயிர் இலை ஸ்கேன் செய்க",
+    "lbl-drag-text": "இலையின் படத்தை இங்கே இழுத்துப் போடுங்கள் அல்லது கிளிக் செய்து தேடவும்",
+    "lbl-file-types": "JPG, PNG, WEBP கோப்புகளை ஆதரிக்கிறது (அதிகபட்சம் 5MB)",
+    "lbl-test-presets": "மாதிரி இலைகளுடன் சோதிக்கவும்",
+    "lbl-preset-spot": "தக்காளி (இலை புள்ளி நோய்)",
+    "lbl-preset-mildew": "கோதுமை (சாம்பல் நோய்)",
+    "lbl-preset-healthy": "நெல் (ஆரோக்கியமானது)",
+
+    "lbl-result-title": "ஸ்கேன் முடிவு",
+    "lbl-severity-txt": "தீவிரத்தன்மை நிலை",
+    "lbl-symptoms-title": "அறிகுறிகள்",
+    "lbl-causes-title": "காரணங்கள்",
+    "lbl-treat-title": "பரிந்துரைக்கப்பட்ட சிகிச்சைகள்",
+    "info-box-title": "ஸ்மார்ட் நோய் தரவுத்தளம்",
+    "info-box-text": "உழவன்மித்ரா இலைகளின் வடிவங்களை காட்சி பகுப்பாய்வு மூலம் ஆராய்ந்து இலைப்புள்ளி, பூஞ்சை நோய்களைக் கண்டறிகிறது. இணையம் இல்லாமலேயே அனைத்து ஆலோசனைகளையும் பெறலாம்.",
+    "lbl-toggle-net": "இணைய சிமுலேட்டர்",
+
+    "fert-title": "உர ஆலோசகர்",
+    "fert-desc": "உங்கள் பயிர் தேர்வின் அடிப்படையில் உகந்த NPK உர விகிதங்கள் மற்றும் பரிந்துரைக்கப்பட்ட அளவுகளைப் பெறுங்கள்.",
+    "lbl-select-crop": "பயிர் வகையைத் தேர்ந்தெடுக்கவும்",
+    "lbl-opt-disabled": "-- பயிரைத் தேர்ந்தெடுக்கவும் --",
+    "opt-rice": "நெல்",
+    "opt-cotton": "பருத்தி",
+    "opt-wheat": "கோதுமை",
+    "opt-maize": "சோளம்",
+    "opt-tomato": "தக்காளி",
+    "lbl-fert-recommend": "பரிந்துரைக்கப்பட்ட உர அளவு",
+    "lbl-recipe-type": "உர வகை",
+    "lbl-recipe-qty": "ஏக்கருக்கு தேவையான அளவு",
+    "lbl-recipe-time": "உரமிடும் பருவம்",
+
+    "grow-title": "பயிர் வளர்ச்சி டிராக்கர்",
+    "grow-desc": "பயிரின் வளர்ச்சியை கண்காணிக்கவும், விதைத்த நாட்களை கணக்கிடவும் மற்றும் தற்போதைய வளர்ச்சி நிலையை அறியவும்.",
+    "lbl-track-select": "பயிரைத் தேர்ந்தெடு",
+    "lbl-track-date": "விதைத்த தேதி",
+    "btn-calculate-growth": "வளர்ச்சியை கணக்கிடு",
+    "lbl-track-days": "விதைத்ததில் இருந்து நாட்கள்:",
+    "lbl-stage-seed": "விதை",
+    "lbl-stage-germ": "முளைத்தல்",
+    "lbl-stage-veg": "வளர் பருவம்",
+    "lbl-stage-flow": "பூக்கும் பருவம்",
+    "lbl-stage-harv": "அறுவடை",
+
+    "wea-sec-title": "உள்ளூர் வானிலை எச்சரிக்கைகள்",
+    "wea-sec-subtitle": "பயிர்கள் நோய்களிலிருந்து பாதுகாக்க வானிலை நிலவரங்கள் மற்றும் பாதுகாப்பு வழிமுறைகள்.",
+    "wea-dash-title": "விவசாய வானிலை பேனல்",
+    "lbl-wea-sim": "வானிலை நிலையை மாற்றുക:",
+    "opt-wea-normal": "மிதமான வெயில் (சாதகமானது)",
+    "opt-wea-humid": "அதிக ஈரப்பதம் (பூஞ்சை ஆபத்து)",
+    "opt-wea-rainy": "கனமழை மற்றும் ஈரப்பதம்",
+    "opt-wea-drought": "வறட்சி மற்றும் வெப்பம்",
+    "lbl-wea-temp": "வெப்பநிலை",
+    "lbl-wea-humid": "ஈரப்பதம்",
+    "lbl-wea-rain": "மழைக்கான வாய்ப்பு",
+    "lbl-wea-wind": "காற்றின் வேகம்",
+
+    "sta-sec-title": "விவசாய புள்ளிவிவரங்கள்",
+    "sta-sec-subtitle": "எங்கள் பகுப்பாய்வு மூலம் சேகரிக்கப்பட்ட பயிர் வளர்ச்சி விகிதம் மற்றும் நோய் கட்டுப்பாட்டு வெற்றிகள்.",
+    "sta-chart-crop": "பயிர் சுகாதார விநியோகம் (%)",
+    "sta-chart-dis": "பொதுவான நோய்களின் பரவல்",
+    "sta-chart-yield": "சராசரி பயிர் விளைச்சல் மேம்பாடு",
+    "lbl-bar-rice": "நெல்",
+    "lbl-bar-cotton": "பருத்தி",
+    "lbl-bar-wheat": "கோதுமை",
+    "lbl-bar-maize": "சோளம்",
+    "lbl-bar-tomato": "தக்காளி",
+    "lbl-leg-spot": "இலைப்புள்ளி நோய்",
+    "lbl-leg-mildew": "சாம்பல் நோய்",
+    "lbl-leg-healthy": "ஆரோக்கியமான இலைகள்",
+    "lbl-yield-y1": "ஆண்டு 1 (ஆரம்ப AI பயன்பாடு)",
+    "lbl-yield-y2": "ஆண்டு 2 (முறையான ஊட்டச்சத்துக்கள்)",
+    "lbl-yield-y3": "ஆண்டு 3 (அதிநவீன விவசாய முதிர்ச்சி)",
+    "lbl-yield-desc1": "முன்கூட்டியே கண்டறிந்து சேமிப்பு",
+    "lbl-yield-desc2": "முறையான உரப் பயன்பாடு",
+    "lbl-yield-desc3": "அதிகபட்ச விளைச்சல் & குறைந்த சேதம்",
+
+    "test-sec-title": "விவசாயிகள் என்ன சொல்கிறார்கள்",
+    "test-sec-subtitle": "தங்கள் வயல்களில் உழவன்மித்ராவைப் பயன்படுத்தும் விவசாயிகளின் அனுபவங்கள் மற்றும் கருத்துக்கள்.",
+    "test-quote-1": "இலை ஸ்கேனர் தக்காளி பயிரில் உள்ள இலைப்புள்ளி நோயை சரியாகக் கண்டறிந்தது. வேப்பெண்ணெய் கரைசலை தெளித்ததால் இந்த பருவத்தில் 80% பயிரை காப்பாற்றினேன்.",
+    "test-loc-1": "தக்காளி விவசாயி, குண்டூர்",
+    "test-quote-2": "பருத்தி பயிருக்கான உர விகிதங்கள் குறித்து குழப்பம் இருந்தது. உழவன்மித்ரா ஏக்கருக்கு தேவையான உர அளவை சரியாக கணக்கிட்டது. உற்பத்தி செலவு குறைந்து பயிர் விளைச்சல் அதிகரித்துள்ளது.",
+    "test-loc-2": "பருத்தி விவசாயி, வாரங்கல்",
+    "test-quote-3": "வயல்வெளிகளில் இணையம் இல்லாவிட்டாலும் தமிழில் இந்த செயலி வேலை செய்வது ஒரு வரப்பிரசாதமாகும். இது உரமிடும் நேரத்தை நினைவூட்டுகிறது.",
+    "test-loc-3": "கோதுமை விவசாயி, இந்தூர்",
+
+    "faq-sec-title": "அடிக்கடி கேட்கப்படும் கேள்விகள்",
+    "faq-sec-subtitle": "நோய் கண்டறிதல் மற்றும் இணையம் இல்லாத செயல்பாடு பற்றிய பொதுவான கேள்விகள்.",
+    "faq-q1": "பயிர் நோய் கண்டறிதல் எவ்வாறு செயல்படுகிறது?",
+    "faq-a1": "எங்கள் AI மாதிரி இலையின் நிறம், நரம்பு அமைப்பு மற்றும் புள்ளிகளை ஆய்வு செய்கிறது. இதை நோய் தரவுத்தளத்துடன் ஒப்பிட்டு நோயின் தீவிரத்தை லெக்கிடுகிறது.",
+    "faq-q2": "இந்த வலைத்தளம் இணையம் இல்லாமல் வேலை செய்யுமா?",
+    "faq-a2": "ஆம்! உழவன்மித்ராவில் ஆஃப்லைன் பயன்முறை உள்ளது. நோய் தரவுகள் மற்றும் உர அட்டவணைகள் உங்கள் சாதனத்திலேயே சேமிக்கப்படுவதால், நெட்வொர்க் இல்லாத இடங்களிலும் வேலை செய்யும்.",
+    "faq-q3": "பரிந்துரைக்கப்பட்ட உர அளவு எவ்வளவு துல்லியமானது?",
+    "faq-a3": "இவை வேளாண் ஆராய்ச்சி நிலையங்களின் வழிகாட்டுதல்களின்படி வடிவமைக்கப்பட்டுள்ளன. இருப்பினும், மண் பரிசோதனைக்கு ஏற்ப உர அளவை மாற்றிக் கொள்வது சிறந்தது.",
+
+    "con-sec-title": "தொடர்பு கொள்ள",
+    "con-sec-subtitle": "பயிர் நோய்கள், உரங்கள் அல்லது பிற உதவிகளுக்கு எங்களது வேளாண் நிபுணர்களைத் தொடர்பு கொள்ளுங்கள்.",
+    "con-info-title": "உதவி மையம்",
+    "con-info-desc": "பயிர் புழுக்கள், நோய்கள் மற்றும் மண் ஆரோக்கிய மேலாண்மை குறித்து ஆலோசனைகள் வழங்கப்படுகிறது.",
+    "lbl-con-loc": "அக்ரி-டெக் ஹப், செக்டார் 5, ஹைதராபாத், இந்தியா",
+    "con-form-title": "செய்தி அனுப்புக",
+    "lbl-form-name": "முழு பெயர்",
+    "lbl-form-phone": "கைபேசி எண்",
+    "lbl-form-phone-hint": "10 இலக்க கைபேசி எண்ணை உள்ளிடவும்",
+    "lbl-form-crop": "பயிர் வகை",
+    "lbl-form-msg": "செய்தி",
+    "btn-submit-form": "கேள்விகளை அனுப்பவும்",
+    "lbl-modal-title": "கேள்விகள் அனுப்பப்பட்டது!",
+    "lbl-modal-desc": "நன்றி. உங்கள் பயிர் பிரச்சனைகளுக்கு உதவ எங்களது வேளாண் ஆலோசகர் 24 மணி நேரத்திற்குள் உங்களைத் தொடர்புகொள்வார்.",
+    "footer-desc": "ஆஃப்லைன் நோய் கண்டறிதல், வானிலை எச்சரிக்கை மற்றும் விவசாய ஆலோசனைகள் மூலம் பயிர்களைப் பாதுகாத்து இழப்புகளைத் தவிர்க்க உதவுகிறது.",
+    "footer-lbl-links": "விரைவு இணைப்புகள்",
+    "footer-lbl-social": "சமூக ஊடகங்கள்",
+    "footer-social-desc": "வேளாண் செய்திகள் மற்றும் பயிற்சிகளுக்கு எங்களை பின்தொடரவும்."
+  }
+};
+
+// --- Mock Databases ---
+const diseaseDatabase = {
+  leaf_spot: {
+    diseaseName: "Early Leaf Spot (Septoria)",
+    confidence: "95%",
+    severity: "high",
+    severityVal: 85,
+    symptoms: {
+      en: "Small circular dark spots appearing first on older lower leaves, developing yellow halos. Leaves eventually yellow and drop.",
+      te: "ఆకులపై చిన్న చిన్న గుండ్రటి నల్లటి మచ్చలు ఏర్పడి పసుపు రంగు వలయాలుగా మారుతాయి. ఆకులు ఎండిపోయి రాలిపోతాయి.",
+      hi: "पत्तियों पर छोटे गोलाकार काले धब्बे बनते हैं, जिनके चारों ओर पीले घेरे होते हैं। पत्तियां अंततः पीली होकर गिर जाती हैं।",
+      ta: "இலைகளில் சிறிய வட்ட வடிவ கரும்புள்ளிகள் தோன்றி, மஞ்சள் வளையங்களாக மாறும். இலைகள் இறுதியில் பழுத்து உதிர்ந்துவிடும்."
+    },
+    causes: {
+      en: "Fungal pathogen Septoria lycopersici. Spreads in high moisture, damp leaves, overhead watering, and warm temperatures.",
+      te: "సెప్టోరియా లైకోపెర్సిసి అనే ఫంగస్ వల్ల వస్తుంది. అధిక తేమ, తడి ఆకులు మరియు వేడి వాతావరణంలో వేగంగా వ్యాపిస్తుంది.",
+      hi: "सेप्टोरिया लाइकोपेर्सिकी नामक कवक। अधिक नमी, गीली पत्तियों, ऊपर से पानी डालने और गर्म तापमान में फैलता है।",
+      ta: "செப்டோரியா லைகோபெர்சிசி என்ற பூஞ்சை. அதிக ஈரப்பதம், ஈரமான இலைகள் மற்றும் வெப்பமான காலநிலையில் வேகமாக பரவுகிறது."
+    },
+    organic: {
+      en: "Spray copper-based organic fungicides or liquid neem oil formulation weekly. Prune lower affected leaves to increase aeration.",
+      te: "రాగి ఆధారిత సేంద్రీయ శిలీంద్ర నాశకాలు లేదా వేప నూనె ద్రావణాన్ని ప్రతి వారం పిచికారీ చేయండి. గాలి ప్రసరణ కోసం కింది ఆకులను కత్తిరించండి.",
+      hi: "तांबा आधारित जैविक कवकनाशी या तरल नीम के तेल का साप्ताहिक छिड़काव करें। हवा के प्रवाह के लिए नीचे की प्रभावित पत्तियों को छाँटें।",
+      ta: "செம்பு சார்ந்த கரிம பூஞ்சைக் கொல்லிகள் அல்லது வேப்பெண்ணெய் கரைசலை வாரந்தோறும் தெளிக்கவும். காற்றோட்டத்திற்காக பாதிக்கப்பட்ட கீழ் இலைகளை கத்தரிக்கவும்."
+    },
+    chemical: {
+      en: "Apply Chlorothalonil, Mancozeb, or Difenoconazole sprays as per package labels.",
+      te: "ప్యాకేజీ లేబుల్ సూచనల ప్రకారం క్లోరోథలోనిల్, మాంకోజెబ్ లేదా డిఫెనోకోనజోల్ పిచికారీ చేయండి.",
+      hi: "पैकेज निर्देशों के अनुसार क्लोरोथैलोनिल, मैंकोजेब या डिफेनोकोनाज़ोल का छिड़काव करें।",
+      ta: "அறிவுறுத்தல்களின்படி குளோரோதலோனில், மேங்கோசெப் அல்லது டிஃபெனோகோனசோல் தெளிக்கவும்."
+    },
+    prevention: {
+      en: "Avoid sprinkler watering (water roots directly), practice crop rotation, weed cleanups, and leave spacing between plants.",
+      te: "చిలకరింపు నీటి పద్ధతిని నివారించండి (నేరుగా వేర్లకు నీరు పెట్టండి), పంట మార్పిడి చేయండి మరియు మొక్కల మధ్య తగిన దూరం ఉంచండి.",
+      hi: "छिड़काव विधि से सिंचाई से बचें (सीधे जड़ों में पानी दें), फसल चक्र अपनाएं और पौधों के बीच पर्याप्त दूरी रखें।",
+      ta: "தெளிப்பு நீர் பாசனத்தை தவிர்க்கவும் (நேரடியாக வேர்களுக்கு நீர் பாய்ச்சவும்), பயிர் சுழற்சி முறை மற்றும் பயிர்களுக்கு இடையே இடைவெளி விடவும்."
+    }
+  },
+  mildew: {
+    diseaseName: "Powdery Mildew Fungal Infection",
+    confidence: "88%",
+    severity: "medium",
+    severityVal: 55,
+    symptoms: {
+      en: "White powdery talcum-like spots on upper leaf surfaces and stems. Foliage turns brown, curled, and growth is stunted.",
+      te: "ఆకుల పైభాగంలో మరియు కాండం మీద తెల్లటి బూజు లాంటి మచ్చలు ఏర్పడతాయి. ఆకులు ముడుచుకుపోయి పెరుగుదల ఆగిపోతుంది.",
+      hi: "पत्तियों की ऊपरी सतह और तनों पर सफेद पाउडर जैसे धब्बे। पत्तियां भूरी होकर सिकुड़ जाती हैं और विकास रुक जाता है।",
+      ta: "இலைகளின் மேல் பகுதி மற்றும் தண்டுகளில் வெள்ளை நிற மாவு போன்ற புள்ளிகள் தோன்றும். இலைகள் சுருண்டு வளர்ச்சி தடைபடும்."
+    },
+    causes: {
+      en: "Fungal pathogens thriving in warm days and cool humid nights with dense shaded canopies limiting solar exposure.",
+      te: "పగటిపూట వేడి మరియు రాత్రి పూట చల్లని తేమతో కూడిన వాతావరణం, సూర్యరశ్మి తగలని దట్టమైన తోటల్లో ఇది వ్యాపిస్తుంది.",
+      hi: "दिन में गर्मी और रात में ठंडी आर्द्रता। धूप न मिलने और घने पौधों के बीच यह कवक तेजी से फैलता है।",
+      ta: "பகலில் வெப்பம் மற்றும் இரவில் குளிர்ந்த ஈரப்பதம். சூரிய ஒளி படாத அடர்ந்த பயிர்களில் இந்த பூஞ்சை வேகமாக பரவுகிறது."
+    },
+    organic: {
+      en: "Apply potassium bicarbonate spray, dilute milk formulations, or sulfur dust. Thin crops to enhance solar penetration.",
+      te: "పొటాషియం బైకార్బోనేట్ స్ప్రే, పలచబరిచిన పాలు లేదా సల్ఫర్ పొడిని ఉపయోగించండి. సూర్యరశ్మి కోసం పంటను పలచబరచండి.",
+      hi: "पोटेशियम बाइकार्बोनेट स्प्रे, पतला दूध या सल्फर धूल का प्रयोग करें। धूप के लिए घने पौधों को छाँटें।",
+      ta: "பொட்டாசியம் பைகார்பனேட் தெளிப்பு, நீர்த்த பால் அல்லது கந்தக தூள் பயன்படுத்தவும். சூரிய ஒளி பட பயிர்களை கத்தரிக்கவும்."
+    },
+    chemical: {
+      en: "Foliar spray of Myclobutanil or Triadimefon immediately on initial spot detection.",
+      te: "మొదటి మచ్చ కనిపించిన వెంటనే మైక్లోబుటానిల్ లేదా ట్రయాడిమెఫాన్ పిచికారీ చేయండి.",
+      hi: "शुरुआती लक्षण दिखते ही मायक्लोबुटानिल या ट्रायडेमीफोन का छिड़काव करें।",
+      ta: "அறிகுறிகள் தென்பட்டவுடன் மைக்லோபுடானில் அல்லது ட்ரைடிமெஃபோன் தெளிக்கவும்."
+    },
+    prevention: {
+      en: "Plant disease-resistant crop varieties in open areas with high solar exposure. Avoid high nitrogen fertilizer excess.",
+      te: "ఎండ బాగా తగిలే ప్రదేశాలలో తెగుళ్లను తట్టుకునే రకాలను నాటండి. నత్రజని ఎరువుల అధిక వినియోగాన్ని నివారించండి.",
+      hi: "तेज धूप वाले क्षेत्रों में रोग-प्रतिरोधी किस्में लगाएं। नाइट्रोजन युक्त उर्वरकों के अत्यधिक उपयोग से बचें।",
+      ta: "சூரிய ஒளி நன்றாக படும் இடங்களில் நோய் எதிர்ப்பு ரகங்களை பயிரிடவும். நைட்ரஜன் உரங்களை அதிகமாக பயன்படுத்துவதை தவிர்க்கவும்."
+    }
+  },
+  healthy: {
+    diseaseName: "Healthy Leaf Structure",
+    confidence: "97%",
+    severity: "low",
+    severityVal: 10,
+    symptoms: {
+      en: "No visual spots, lesions, or molds. Natural rich chlorophyll green color and normal robust vein texture.",
+      te: "ఎటువంటి మచ్చలు, బూజు లేదా గాయాలు లేవు. ఆకు సహజమైన పచ్చటి రంగుతో ఆరోగ్యంగా బలంగా ఉంది.",
+      hi: "कोई धब्बा, फफूंदी या घाव नहीं है। पत्ती अपने प्राकृतिक हरे रंग में स्वस्थ और मजबूत है।",
+      ta: "இலைகளில் புள்ளிகளோ, பூஞ்சையோ இல்லை. இலை இயற்கையான பச்சை நிறத்துடன் ஆரோக்கியமாக உள்ளது."
+    },
+    causes: {
+      en: "Good soil aeration, balanced nutrient intake, regular pest management, and ideal weather parameters.",
+      te: "మంచి నేల సారం, సమతుల్య పోషకాలు, క్రమబద్ధమైన తెగుళ్ల నివారణ మరియు అనుకూల వాతావరణ పరిస్థితులు.",
+      hi: "मिट्टी की अच्छी गुणवत्ता, संतुलित पोषण, नियमित कीट प्रबंधन और अनुकूल मौसम की स्थिति।",
+      ta: "நல்ல மண் வளம், சமச்சீர் ஊட்டச்சத்துக்கள், வழக்கமான பூச்சி மேலாண்மை மற்றும் சாதகமான வானிலை."
+    },
+    organic: {
+      en: "No pesticide spray needed. Keep applying routine organic compost and monitor leaves periodically.",
+      te: "ఎటువంటి పురుగుమందు పిచికారీ అవసరం లేదు. సేంద్రీయ ఎరువులను సాధారణంగా వేస్తూ పంటను పర్యవేక్షించండి.",
+      hi: "किसी कीटनाशक के छिड़काव की आवश्यकता नहीं है। जैविक खाद का सामान्य उपयोग जारी रखें और निगरानी करें।",
+      ta: "பூச்சிக்கொல்லி தெளிக்க தேவையில்லை. வழக்கமான இயற்கை உரங்களை இட்டு இலைகளை கண்காணித்து வரவும்."
+    },
+    chemical: {
+      en: "None required. Maintain current schedule.",
+      te: "రసాయనాలు అవసరం లేదు. ప్రస్తుత పద్ధతులనే కొనసాగించండి.",
+      hi: "रसायनों की कोई आवश्यकता नहीं है। वर्तमान दिनचर्या बनाए रखें।",
+      ta: "இரசாயனங்கள் தேவையில்லை. தற்போதைய பராமரிப்பையே தொடரவும்."
+    },
+    prevention: {
+      en: "Maintain weed-free crop fields, regular crop rotation, and periodic monitoring.",
+      te: "పొలంలో కలుపు లేకుండా చూసుకోండి, క్రమబద్ధమైన పంట మార్పిడి మరియు పంటను గమనిస్తూ ఉండటం మంచిది.",
+      hi: "खेतों को खरपतवार मुक्त रखें, फसल चक्र का पालन करें और नियमित रूप से फसल की जांच करते रहें।",
+      ta: "வயலில் களைகள் இல்லாமல் பார்த்துக் கொள்ளவும், பயிர் சுழற்சி முறை மற்றும் இலைகளை தொடர்ந்து கண்காணிக்கவும்."
+    }
+  }
+};
+
+const fertilizerDatabase = {
+  rice: { type: "NPK 14-14-14 / Urea", quantity: "95 kg per acre", time: "Tillering Stage (20 days)" },
+  cotton: { type: "NPK 10-26-26 / Potash", quantity: "110 kg per acre", time: "Square Formation (45 days)" },
+  wheat: { type: "NPK 12-32-16 / DAP", quantity: "85 kg per acre", time: "Crown Root Stage (21 days)" },
+  maize: { type: "NPK 15-15-15 / Zinc Sol.", quantity: "100 kg per acre", time: "Knee-High Stage (35 days)" },
+  tomato: { type: "NPK 5-10-10 / Calcium Nitrate", quantity: "65 kg per acre", time: "Flowering & Fruit Setting (50 days)" }
+};
+
+const cropGrowthStages = {
+  rice: { germination: 10, vegetative: 55, flowering: 90, harvest: 120 },
+  cotton: { germination: 15, vegetative: 60, flowering: 120, harvest: 180 },
+  wheat: { germination: 10, vegetative: 60, flowering: 90, harvest: 130 },
+  maize: { germination: 12, vegetative: 50, flowering: 85, harvest: 115 },
+  tomato: { germination: 14, vegetative: 45, flowering: 80, harvest: 110 }
+};
+
+const weatherSimulations = {
+  normal: { temp: "28°C", humidity: "55%", rain: "10%", wind: "12 km/h", alertText: "Atmospheric parameters represent normal farming margins. Fine conditions to apply liquid crop stimulants and check leaves for general development indices.", alertClass: "safe", alertHeader: "Mild & Sunny Status" },
+  humid: { temp: "31°C", humidity: "88%", rain: "40%", wind: "8 km/h", alertText: "Warning: Extremely high humidity detected. Fungal spores (Mildew, Leaf Spot) multiply rapidly in humid stagnant canopy air. Clear weeds to enhance ground ventilation.", alertClass: "danger", alertHeader: "Fungal Outbreak Risk Alert" },
+  rainy: { temp: "23°C", humidity: "95%", rain: "90%", wind: "22 km/h", alertText: "Heavy rain alert. Avoid chemical spraying as it will wash away. Check drainage trenches immediately to prevent root drowning/water logging.", alertClass: "warning", alertHeader: "Rainfall & Water Log Warning" },
+  drought: { temp: "39°C", humidity: "20%", rain: "0%", wind: "18 km/h", alertText: "Water deficit alert. Soils are drying rapidly causing plant thermal stress. Irrigate early morning or sunset. Check growth rates closely.", alertClass: "warning", alertHeader: "Thermal & Soil Aridity Caution" }
+};
+
+// Global active language state
+let currentLanguage = "en";
+
+// --- Document Loaded Initializer ---
+document.addEventListener("DOMContentLoaded", () => {
+  initNavbar();
+  initLanguageSwitcher();
+  initOfflineDetector();
+  initCounters();
+  initDiseaseScanner();
+  initFertilizerAdvisor();
+  initGrowthTracker();
+  initWeatherAlerts();
+  initFAQAccordion();
+  initContactForm();
+});
+
+// --- Sticky Navigation & Hamburger Menu ---
+function initNavbar() {
+  const header = document.getElementById("main-header");
+  const menuToggle = document.getElementById("menu-toggle-btn");
+  const navLinksMenu = document.getElementById("nav-links-menu");
+  
+  // Sticky scroll background
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
+    
+    // Auto active navbar link highlighting
+    highlightActiveLink();
+  });
+
+  // Mobile menu click toggle
+  menuToggle.addEventListener("click", () => {
+    menuToggle.classList.toggle("active");
+    navLinksMenu.classList.toggle("active");
+  });
+
+  // Close mobile menu on links click
+  const navLinks = navLinksMenu.querySelectorAll("a");
+  navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      menuToggle.classList.remove("active");
+      navLinksMenu.classList.remove("active");
+    });
+  });
+}
+
+function highlightActiveLink() {
+  const sections = document.querySelectorAll("section[id]");
+  const scrollPosition = window.scrollY + 150;
+
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.offsetHeight;
+    const sectionId = section.getAttribute("id");
+    const activeLink = document.querySelector(`.nav-links a[href="#${sectionId}"]`);
+
+    if (activeLink && scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+      document.querySelectorAll(".nav-links a").forEach(el => el.classList.remove("active"));
+      activeLink.classList.add("active");
+    }
+  });
+}
+
+// --- Language Selector Action ---
+function initLanguageSwitcher() {
+  const langSelect = document.getElementById("language-select");
+  langSelect.addEventListener("change", (e) => {
+    currentLanguage = e.target.value;
+    updateUILanguage(currentLanguage);
+  });
+}
+
+function updateUILanguage(lang) {
+  const dict = translations[lang] || translations["en"];
+  
+  // Update elements by ID matching dictionary keys
+  Object.keys(dict).forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+      // If it's a select or input with special structures we handle it, otherwise plain textContent
+      if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
+        if (id === "contact-name") el.placeholder = (lang === "te" ? "రామేష్ ప్రసాద్" : (lang === "hi" ? "रमेश प्रसाद" : "Ramesh Prasad"));
+        if (id === "contact-phone") el.placeholder = "9876543210";
+        if (id === "contact-message") el.placeholder = (lang === "te" ? "పంట పరిస్థితిని రాయండి..." : (lang === "hi" ? "फसल की स्थिति लिखें..." : "Enter crop condition or questions..."));
+      } else {
+        el.textContent = dict[id];
+      }
+    }
+  });
+
+  // Redraw/re-render active result elements to update texts
+  const currentResult = document.getElementById("scan-result-card");
+  if (currentResult.style.display === "block" && window.lastDetectedDisease) {
+    displayDiseaseResult(window.lastDetectedDisease);
+  }
+}
+
+// --- Offline Mode Simulator ---
+function initOfflineDetector() {
+  const badge = document.getElementById("offline-badge");
+  const badgeText = document.getElementById("status-text");
+  const simSwitch = document.getElementById("online-switch");
+
+  function updateStatus(isOnline) {
+    if (isOnline) {
+      badge.classList.remove("offline");
+      badgeText.textContent = currentLanguage === "te" ? "ఆన్‌లైన్" : (currentLanguage === "hi" ? "ऑनलाइन" : (currentLanguage === "ta" ? "ஆன்லைன்" : "Online"));
+      simSwitch.checked = true;
+    } else {
+      badge.classList.add("offline");
+      badgeText.textContent = currentLanguage === "te" ? "ఆఫ్‌లైన్" : (currentLanguage === "hi" ? "ऑफ़लाइन" : (currentLanguage === "ta" ? "ஆஃப்லைன்" : "Offline"));
+      simSwitch.checked = false;
+    }
+  }
+
+  // Monitor physical connection
+  window.addEventListener("online", () => {
+    // Only update if simulator doesn't override it
+    updateStatus(true);
+  });
+  window.addEventListener("offline", () => {
+    updateStatus(false);
+  });
+
+  // Simulator toggle switch
+  simSwitch.addEventListener("change", (e) => {
+    updateStatus(e.target.checked);
+  });
+
+  // Initial call
+  updateStatus(navigator.onLine);
+}
+
+// --- Animated Stats Counters ---
+function initCounters() {
+  const counters = document.querySelectorAll(".counter");
+  const percents = document.querySelectorAll(".counter-percent");
+  
+  const animateStats = (entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Run standard counters
+        counters.forEach(counter => {
+          const target = +counter.getAttribute("data-target");
+          let count = 0;
+          const speed = target / 80; // duration speed adjustment
+          
+          const updateCount = () => {
+            count += speed;
+            if (count < target) {
+              counter.textContent = Math.floor(count);
+              setTimeout(updateCount, 15);
+            } else {
+              counter.textContent = target;
+            }
+          };
+          updateCount();
+        });
+
+        // Run percentage health score
+        percents.forEach(percent => {
+          const target = +percent.getAttribute("data-target");
+          let count = 0;
+          
+          const updatePercent = () => {
+            count++;
+            if (count <= target) {
+              percent.textContent = count + "%";
+              setTimeout(updatePercent, 10);
+            } else {
+              percent.textContent = target + "%";
+            }
+          };
+          updatePercent();
+        });
+
+        // Disconnect after animation completes
+        observer.disconnect();
+      }
+    });
+  };
+
+  const observerOptions = { threshold: 0.1 };
+  const observer = new IntersectionObserver(animateStats, observerOptions);
+  
+  // Target dashboard stats block
+  const statsSection = document.querySelector(".dashboard-sec");
+  if (statsSection) {
+    observer.observe(statsSection);
+  }
+}
+
+// --- Disease Detection Scanner Module ---
+function initDiseaseScanner() {
+  const dropZone = document.getElementById("drop-zone");
+  const fileInput = document.getElementById("file-input");
+  const previewBox = document.getElementById("preview-box");
+  const imgPreview = document.getElementById("image-preview");
+  const scannerLine = document.getElementById("scanner-line");
+  const scanningMsg = document.getElementById("scanning-progress");
+  const dragText = document.getElementById("lbl-drag-text");
+  const fileTypesText = document.getElementById("lbl-file-types");
+  const uploadIcon = dropZone.querySelector(".upload-icon");
+
+  // Sample leaf presets buttons
+  const presetSpot = document.getElementById("preset-leaf-spot");
+  const presetMildew = document.getElementById("preset-mildew");
+  const presetHealthy = document.getElementById("preset-healthy");
+
+  // Drag & drop triggers
+  dropZone.addEventListener("dragover", (e) => {
+    e.preventDefault();
+    dropZone.style.backgroundColor = "var(--accent)";
+  });
+
+  dropZone.addEventListener("dragleave", () => {
+    dropZone.style.backgroundColor = "var(--bg-soft)";
+  });
+
+  dropZone.addEventListener("drop", (e) => {
+    e.preventDefault();
+    dropZone.style.backgroundColor = "var(--bg-soft)";
+    const files = e.dataTransfer.files;
+    if (files.length > 0) {
+      processImageFile(files[0]);
+    }
+  });
+
+  // Clicking zone triggers input file
+  dropZone.addEventListener("click", (e) => {
+    // Avoid re-triggering file choose dialog if clicking sample preset inside uploader card (not uploader zone itself)
+    if (e.target.tagName !== "INPUT" && !e.target.closest(".preview-container")) {
+      fileInput.click();
+    }
+  });
+
+  fileInput.addEventListener("change", (e) => {
+    if (e.target.files.length > 0) {
+      processImageFile(e.target.files[0]);
+    }
+  });
+
+  // Presets load triggers
+  presetSpot.addEventListener("click", () => {
+    runMockScan("assets/leaf_spot.png", "leaf_spot");
+  });
+  presetMildew.addEventListener("click", () => {
+    runMockScan("assets/powdery_mildew.png", "mildew");
+  });
+  presetHealthy.addEventListener("click", () => {
+    runMockScan("assets/healthy_leaf.png", "healthy");
+  });
+
+  function processImageFile(file) {
+    if (!file.type.match("image.*")) {
+      alert("Please upload a valid image file (PNG, JPG).");
+      return;
+    }
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      // Randomly assign one of the disease states for user uploaded file
+      const diseases = ["leaf_spot", "mildew", "healthy"];
+      const randomDisease = diseases[Math.floor(Math.random() * diseases.length)];
+      runMockScan(e.target.result, randomDisease);
+    };
+    reader.readAsDataURL(file);
+  }
+
+  function runMockScan(imageSrc, diseaseKey) {
+    // Display elements
+    dragText.style.display = "none";
+    fileTypesText.style.display = "none";
+    if (uploadIcon) uploadIcon.style.display = "none";
+    
+    previewBox.style.display = "block";
+    imgPreview.src = imageSrc;
+    scannerLine.style.display = "block";
+    scanningMsg.style.display = "flex";
+    
+    // Hide previous result card
+    document.getElementById("scan-result-card").style.display = "none";
+
+    // Progress updates text
+    const scanningMessages = {
+      en: ["Initializing camera pixels...", "Matching leaf structure vectors...", "Mapping leaf spot lesions...", "Generating diagnostics..."],
+      te: ["కెమెరా పిక్సెల్స్ ప్రారంభిస్తోంది...", "ఆకు నిర్మాణాన్ని సరిపోలుస్తోంది...", "ఆకు మచ్చలను విశ్లేషిస్తోంది...", "ఫలితాన్ని సిద్ధం చేస్తోంది..."],
+      hi: ["कैमरा पिक्सेल प्रारंभ कर रहा है...", "पत्ती की संरचना का मिलान...", "पत्ती के धब्बों का विश्लेषण...", "स्कैन रिपोर्ट तैयार हो रही है..."],
+      ta: ["கேமரா பிக்சல்களை சரிசெய்கிறது...", "இலையின் வடிவமைப்பை ஒப்பிடுகிறது...", "இலை புள்ளிகளை ஆராய்கிறது...", "அறிக்கையை தயார் செய்கிறது..."]
+    };
+
+    const currentMsgs = scanningMessages[currentLanguage] || scanningMessages["en"];
+    const textLabel = document.getElementById("lbl-scanning-msg");
+    
+    let step = 0;
+    textLabel.textContent = currentMsgs[0];
+    
+    const interval = setInterval(() => {
+      step++;
+      if (step < currentMsgs.length) {
+        textLabel.textContent = currentMsgs[step];
+      }
+    }, 500);
+
+    // End scanning after 2 seconds
+    setTimeout(() => {
+      clearInterval(interval);
+      scannerLine.style.display = "none";
+      scanningMsg.style.display = "none";
+      
+      // Store globally for lang swap redraw
+      window.lastDetectedDisease = diseaseKey;
+      
+      displayDiseaseResult(diseaseKey);
+    }, 2000);
+  }
+}
+
+function displayDiseaseResult(diseaseKey) {
+  const data = diseaseDatabase[diseaseKey];
+  const resultCard = document.getElementById("scan-result-card");
+  
+  if (!data) return;
+
+  resultCard.style.display = "block";
+
+  // Update headers
+  document.getElementById("lbl-result-title").textContent = data.diseaseName;
+  document.getElementById("lbl-confidence").textContent = `${data.confidence} ${currentLanguage === "te" ? "ఖచ్చితత్వం" : (currentLanguage === "hi" ? "सटीकता" : (currentLanguage === "ta" ? "துல்லியம்" : "Confidence"))}`;
+
+  // Update Severity Meter
+  const severityText = document.getElementById("lbl-severity-level");
+  const severityBar = document.getElementById("severity-bar");
+  
+  // Clear classes
+  severityBar.className = "severity-bar-fill";
+  
+  const sevLabel = currentLanguage === "te" ? 
+    { low: "తక్కువ", medium: "మధ్యస్థం", high: "అధికం" } : 
+    (currentLanguage === "hi" ? 
+      { low: "कम", medium: "मध्यम", high: "उच्च" } : 
+      (currentLanguage === "ta" ?
+        { low: "குறைவு", medium: "நடுத்தரம்", high: "அதிதீவிரம்" } :
+        { low: "Low", medium: "Medium", high: "High" }
+      )
+    );
+
+  if (data.severity === "high") {
+    severityText.textContent = sevLabel.high;
+    severityText.style.color = "var(--sev-high)";
+    severityBar.classList.add("high");
+  } else if (data.severity === "medium") {
+    severityText.textContent = sevLabel.medium;
+    severityText.style.color = "var(--sev-med)";
+    severityBar.classList.add("medium");
+  } else {
+    severityText.textContent = sevLabel.low;
+    severityText.style.color = "var(--sev-low)";
+    severityBar.classList.add("low");
+  }
+
+  // Adjust bar percentage width with animation delay
+  setTimeout(() => {
+    severityBar.style.width = data.severityVal + "%";
+  }, 100);
+
+  // Update Details using appropriate language structures
+  document.getElementById("res-symptoms").textContent = data.symptoms[currentLanguage] || data.symptoms["en"];
+  document.getElementById("res-causes").textContent = data.causes[currentLanguage] || data.causes["en"];
+  document.getElementById("res-treat-org").textContent = data.organic[currentLanguage] || data.organic["en"];
+  document.getElementById("res-treat-chem").textContent = data.chemical[currentLanguage] || data.chemical["en"];
+  document.getElementById("res-treat-prev").textContent = data.prevention[currentLanguage] || data.prevention["en"];
+  
+  // Smooth scroll down to results
+  resultCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+// --- Fertilizer Recommendation Selector ---
+function initFertilizerAdvisor() {
+  const cropSelect = document.getElementById("fertilizer-crop-select");
+  const resultBox = document.getElementById("fertilizer-result-box");
+
+  cropSelect.addEventListener("change", (e) => {
+    const val = e.target.value;
+    const data = fertilizerDatabase[val];
+    
+    if (data) {
+      resultBox.style.display = "block";
+      
+      // Update results
+      document.getElementById("fert-val-type").textContent = data.type;
+      
+      // Localized translations for quantity and time variables if needed
+      document.getElementById("fert-val-quantity").textContent = translateVariableString(data.quantity);
+      document.getElementById("fert-val-time").textContent = translateVariableString(data.time);
+    }
+  });
+}
+
+function translateVariableString(str) {
+  // Simple replacement mapping for numbers and common words in Telugu/Hindi
+  if (currentLanguage === "te") {
+    return str
+      .replace("kg per acre", "కిలోలు ఎకరానికి")
+      .replace("Tillering Stage", "పిలక దశ")
+      .replace("days", "రోజులు")
+      .replace("Square Formation", "మొగ్గ దశ")
+      .replace("Crown Root Stage", "వేరు వ్యవస్థ దశ")
+      .replace("Knee-High Stage", "మోకాలి ఎత్తు దశ")
+      .replace("Flowering & Fruit Setting", "పూత మరియు కాయ దశ");
+  }
+  if (currentLanguage === "hi") {
+    return str
+      .replace("kg per acre", "किलोग्राम प्रति एकड़")
+      .replace("Tillering Stage", "कल्ले फूटने की अवस्था")
+      .replace("days", "दिन")
+      .replace("Square Formation", "डोडियाँ बनते समय")
+      .replace("Crown Root Stage", "शीर्ष जड़ फूटने की अवस्था")
+      .replace("Knee-High Stage", "घुटने तक ऊँचाई की अवस्था")
+      .replace("Flowering & Fruit Setting", "फूल और फल बनते समय");
+  }
+  if (currentLanguage === "ta") {
+    return str
+      .replace("kg per acre", "கிலோ ஏக்கருக்கு")
+      .replace("Tillering Stage", "தூர் கட்டும் பருவம்")
+      .replace("days", "நாட்கள்")
+      .replace("Square Formation", "சதுர வடிவம் (மொட்டு)")
+      .replace("Crown Root Stage", "முடி வேர் பருவம்")
+      .replace("Knee-High Stage", "முழங்கால் அளவு உயரம்")
+      .replace("Flowering & Fruit Setting", "பூக்கும் & காய் காய்க்கும் பருவம்");
+  }
+  return str;
+}
+
+// --- Crop Growth Timeline Calculator ---
+function initGrowthTracker() {
+  const cropSelect = document.getElementById("tracker-crop-select");
+  const dateInput = document.getElementById("sowing-date-input");
+  const calcBtn = document.getElementById("btn-calculate-growth");
+  const resultBox = document.getElementById("growth-result-box");
+  const daysText = document.getElementById("growth-days-count");
+  const timelineFill = document.getElementById("growth-timeline-line");
+
+  // Set default date picker value to 30 days ago to show an active growth stage on load
+  const defaultDate = new Date();
+  defaultDate.setDate(defaultDate.getDate() - 35);
+  dateInput.value = defaultDate.toISOString().split('T')[0];
+
+  calcBtn.addEventListener("click", () => {
+    const crop = cropSelect.value;
+    const dateVal = dateInput.value;
+
+    if (!dateVal) {
+      alert("Please pick a sowing date.");
+      return;
+    }
+
+    const sowingDate = new Date(dateVal);
+    const currentDate = new Date();
+    
+    // Time difference calculation
+    const timeDiff = currentDate.getTime() - sowingDate.getTime();
+    const daysElapsed = Math.floor(timeDiff / (1000 * 3600 * 24));
+
+    if (daysElapsed < 0) {
+      alert(currentLanguage === "te" ? "విత్తిన తేదీ భవిష్యత్తులో ఉండకూడదు." : (currentLanguage === "hi" ? "बोने की तारीख भविष्य की नहीं हो सकती।" : "Sowing date cannot be in the future."));
+      return;
+    }
+
+    resultBox.style.display = "block";
+    
+    // Update elapsed days text
+    const labelDays = currentLanguage === "te" ? "రోజులు" : (currentLanguage === "hi" ? "दिन" : (currentLanguage === "ta" ? "நாட்கள்" : "Days"));
+    daysText.textContent = `${daysElapsed} ${labelDays}`;
+
+    // Calculate current growth stage node based on days threshold
+    updateGrowthStageNodes(crop, daysElapsed);
+  });
+}
+
+function updateGrowthStageNodes(crop, days) {
+  const thresholds = cropGrowthStages[crop];
+  const nodes = [
+    { id: "node-seed", width: 0 },
+    { id: "node-germ", width: 25 },
+    { id: "node-veg", width: 50 },
+    { id: "node-flow", width: 75 },
+    { id: "node-harv", width: 100 }
+  ];
+
+  // Reset all classes
+  nodes.forEach(n => {
+    const nodeEl = document.getElementById(n.id);
+    nodeEl.classList.remove("active", "completed");
+  });
+
+  let currentStageIndex = 0; // 0 = Seed, 1 = Germ, 2 = Veg, 3 = Flow, 4 = Harv
+
+  if (days <= 0) {
+    currentStageIndex = 0;
+  } else if (days <= thresholds.germination) {
+    currentStageIndex = 1;
+  } else if (days <= thresholds.vegetative) {
+    currentStageIndex = 2;
+  } else if (days <= thresholds.flowering) {
+    currentStageIndex = 3;
+  } else {
+    currentStageIndex = 4;
+  }
+
+  // Animate timeline line fill width percentage
+  const timelineFill = document.getElementById("growth-timeline-line");
+  const targetWidth = nodes[currentStageIndex].width;
+  timelineFill.style.width = targetWidth + "%";
+
+  // Add active/completed classes to nodes
+  for (let i = 0; i < nodes.length; i++) {
+    const nodeEl = document.getElementById(nodes[i].id);
+    if (i < currentStageIndex) {
+      nodeEl.classList.add("completed");
+    } else if (i === currentStageIndex) {
+      nodeEl.classList.add("active");
+    }
+  }
+}
+
+// --- Weather Alerts Simulation Module ---
+function initWeatherAlerts() {
+  const simSelect = document.getElementById("weather-sim-select");
+  const tempVal = document.getElementById("weather-val-temp");
+  const humidVal = document.getElementById("weather-val-humidity");
+  const rainVal = document.getElementById("weather-val-rain");
+  const windVal = document.getElementById("weather-val-wind");
+  const alertCard = document.getElementById("weather-alert-card");
+  const alertHeader = document.getElementById("lbl-alert-status");
+  const alertText = document.getElementById("weather-alert-text");
+
+  simSelect.addEventListener("change", (e) => {
+    const key = e.target.value;
+    const simData = weatherSimulations[key];
+
+    if (simData) {
+      // Update values
+      tempVal.textContent = simData.temp;
+      humidVal.textContent = simData.humidity;
+      rainVal.textContent = simData.rain;
+      windVal.textContent = simData.wind;
+
+      // Update Card Visuals & Class Colors
+      alertCard.className = "alert-box " + simData.alertClass;
+      
+      // Update Header Text with Icon
+      let iconSvg = "";
+      if (simData.alertClass === "safe") {
+        iconSvg = `<svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:currentColor;"><path d="M10,17L5,12L6.41,10.58L10,14.17L17.59,6.58L19,8L10,17Z"/></svg>`;
+      } else if (simData.alertClass === "danger") {
+        iconSvg = `<svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:currentColor;"><path d="M12,2L1,21H23L12,2M12,6L19.53,19H4.47L12,6M11,10V14H13V10H11M11,16V18H13V16H11Z"/></svg>`;
+      } else {
+        iconSvg = `<svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:currentColor;"><path d="M12,2C6.48,2 2,6.48 2,12C2,17.52 6.48,22 12,22C17.52,22 22,17.52 22,12C22,6.48 17.52,2 12,2M13,17H11V15H13V17M13,13H11V7H13V13Z"/></svg>`;
+      }
+
+      // Dynamic translation of alert box
+      alertHeader.innerHTML = iconSvg + " " + translateWeatherHeader(simData.alertHeader);
+      alertText.textContent = translateWeatherText(key);
+    }
+  });
+}
+
+function translateWeatherHeader(title) {
+  if (currentLanguage === "te") {
+    return title
+      .replace("Mild & Sunny Status", "సాధారణ వాతావరణం")
+      .replace("Fungal Outbreak Risk Alert", "ఫంగస్ తెగులు వచ్చే ప్రమాదం ఉంది")
+      .replace("Rainfall & Water Log Warning", "భారీ వర్షపాతం - మురుగునీటి హెచ్చరిక")
+      .replace("Thermal & Soil Aridity Caution", "అధిక వేడి - నేల ఎండడం హెచ్చరిక");
+  }
+  if (currentLanguage === "hi") {
+    return title
+      .replace("Mild & Sunny Status", "सामान्य धूप स्थिति")
+      .replace("Fungal Outbreak Risk Alert", "फंगल संक्रमण का जोखिम अलर्ट")
+      .replace("Rainfall & Water Log Warning", "भारी वर्षा - जलभराव चेतावनी")
+      .replace("Thermal & Soil Aridity Caution", "अत्यधिक गर्मी - शुष्कता चेतावनी");
+  }
+  if (currentLanguage === "ta") {
+    return title
+      .replace("Mild & Sunny Status", "மிதமான வெயில் நிலை")
+      .replace("Fungal Outbreak Risk Alert", "பூஞ்சை தொற்று ஆபத்து எச்சரிக்கை")
+      .replace("Rainfall & Water Log Warning", "கனமழை - நீர் தேங்கும் எச்சரிக்கை")
+      .replace("Thermal & Soil Aridity Caution", "அதிக வெப்பம் - வறட்சி எச்சரிக்கை");
+  }
+  return title;
+}
+
+function translateWeatherText(key) {
+  const alerts = {
+    normal: {
+      en: "Atmospheric parameters represent normal farming margins. Fine conditions to apply liquid crop stimulants and check leaves for general development indices.",
+      te: "వాతావరణ పరిస్థితులు సాధారణ పరిధిలోనే ఉన్నాయి. ద్రవ రూప సేంద్రీయ ఎరువులను పిచికారీ చేయడానికి మరియు ఆకులను గమనించడానికి అనుకూల సమయం.",
+      hi: "वायुमंडलीय स्थितियां सामान्य सीमा में हैं। तरल जैविक खाद का छिड़काव करने और पत्तियों की सामान्य जांच करने के लिए अनुकूल समय है।",
+      ta: "வானிலை நிலவரங்கள் சாதாரணமாக உள்ளன. திரவ இயற்கை உரங்களை தெளிப்பதற்கும் இலைகளை பரிசோதிப்பதற்கும் இதுவே நல்ல நேரம்."
+    },
+    humid: {
+      en: "Warning: Extremely high humidity detected. Fungal spores (Mildew, Leaf Spot) multiply rapidly in humid stagnant canopy air. Clear weeds to enhance ground ventilation.",
+      te: "హెచ్చరిక: గాలిలో అత్యధిక తేమ నమోదు కావడమైనది. ఇటువంటి సమయాల్లో బూజు మరియు ఆకు మచ్చ తెగుళ్లు వేగంగా వ్యాపిస్తాయి. పొలంలో గాలి ప్రసరణ పెంచడానికి కలుపును శుభ్రం చేయండి.",
+      hi: "चेतावनी: हवा में अत्यधिक नमी दर्ज की गई है। इस समय फफूंदी और धब्बा रोग तेजी से फैल सकते हैं। हवा के प्रवाह को बढ़ाने के लिए खरपतवार साफ करें।",
+      ta: "எச்சரிக்கை: காற்றில் அதிக ஈரப்பதம் பதிவாகியுள்ளது. இக்காலத்தில் சாம்பல் நோய் மற்றும் இலைப்புள்ளி நோய்கள் வேகமாக பரவும். காற்றோட்டத்தை அதிகரிக்க களைகளை அகற்றுங்கள்."
+    },
+    rainy: {
+      en: "Heavy rain alert. Avoid chemical spraying as it will wash away. Check drainage trenches immediately to prevent root drowning/water logging.",
+      te: "భారీ వర్ష సూచన. ఎరువులు లేదా రసాయనాల పిచికారీని నివారించండి. పొలంలో నీరు నిల్వ ఉండకుండా కాలువలను వెంటనే శుభ్రపరచండి.",
+      hi: "भारी बारिश की चेतावनी। रासायनिक छिड़काव से बचें क्योंकि यह धुल जाएगा। जलभराव को रोकने के लिए खेतों की जल निकासी नालियों की तुरंत जांच करें।",
+      ta: "கனமழை எச்சரிக்கை. உரங்கள் தெளிப்பதை தவிர்க்கவும். வயலில் தண்ணீர் தேங்குவதை தடுக்க வடிகால் வாய்க்கால்களை உடனடியாக சரிசெய்யவும்."
+    },
+    drought: {
+      en: "Water deficit alert. Soils are drying rapidly causing plant thermal stress. Irrigate early morning or sunset. Check growth rates closely.",
+      te: "నీటి కొరత హెచ్చరిక. నేలలు వేగంగా ఎండిపోవడం వల్ల మొక్కలకు ఒత్తిడి పెరుగుతుంది. ఉదయాన్నే లేదా సాయంత్రం వేళల్లో నీటి తడులు అందించండి.",
+      hi: "पानी की कमी की चेतावनी। मिट्टी तेजी से सूख रही है जिससे पौधों पर तनाव बढ़ रहा है। सुबह जल्दी या शाम के समय सिंचाई करें।",
+      ta: "தண்ணீர் பற்றாக்குறை எச்சரிக்கை. மண் வேகமாக காய்வதால் பயிர்கள் வாடக்கூடும். அதிகாலை அல்லது மாலையில் நீர் பாய்ச்சவும்."
+    }
+  };
+
+  return alerts[key][currentLanguage] || alerts[key]["en"];
+}
+
+// --- FAQ Accordion Interactive Panel ---
+function initFAQAccordion() {
+  const faqHeaders = document.querySelectorAll(".faq-header");
+
+  faqHeaders.forEach(header => {
+    header.addEventListener("click", () => {
+      const item = header.parentElement;
+      const content = item.querySelector(".faq-content");
+      
+      // Close other panels
+      const allItems = document.querySelectorAll(".faq-item");
+      allItems.forEach(i => {
+        if (i !== item) {
+          i.classList.remove("active");
+          i.querySelector(".faq-content").style.maxHeight = null;
+        }
+      });
+
+      // Toggle current panel
+      item.classList.toggle("active");
+      
+      if (item.classList.contains("active")) {
+        content.style.maxHeight = content.scrollHeight + "px";
+      } else {
+        content.style.maxHeight = null;
+      }
+    });
+  });
+}
+
+// --- Contact Form Validation & Popup ---
+function initContactForm() {
+  const form = document.getElementById("agri-contact-form");
+  const modal = document.getElementById("success-modal-overlay");
+  const closeBtn = document.getElementById("success-modal-close-btn");
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    
+    // Check mobile number validity (10 digits)
+    const phoneInput = document.getElementById("contact-phone").value.trim();
+    const phonePattern = /^[0-9]{10}$/;
+
+    if (!phonePattern.test(phoneInput)) {
+      alert(currentLanguage === "te" ? "దయచేసి సరైన 10 అంకెల మొబైల్ సంఖ్యను నమోదు చేయండి." : (currentLanguage === "hi" ? "कृपया एक मान्य 10 अंकों का मोबाइल नंबर दर्ज करें।" : "Please enter a valid 10-digit mobile number."));
+      return;
+    }
+
+    // Success popup display trigger
+    modal.classList.add("active");
+  });
+
+  closeBtn.addEventListener("click", () => {
+    modal.classList.remove("active");
+    form.reset();
+  });
+
+  // Close modal when clicking on overlay background
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.classList.remove("active");
+      form.reset();
+    }
+  });
+}
+
+// --- Statistics Chart Visual Animation ---
+window.addEventListener("load", () => {
+  // Animate Crop health bar charts columns on page load
+  const barRice = document.getElementById("bar-rice");
+  const barCotton = document.getElementById("bar-cotton");
+  const barWheat = document.getElementById("bar-wheat");
+  const barMaize = document.getElementById("bar-maize");
+  const barTomato = document.getElementById("bar-tomato");
+
+  if (barRice) {
+    setTimeout(() => {
+      barRice.style.height = "90%";
+      barCotton.style.height = "75%";
+      barWheat.style.height = "88%";
+      barMaize.style.height = "82%";
+      barTomato.style.height = "68%";
+    }, 400);
+  }
+});

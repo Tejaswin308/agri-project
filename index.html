@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="RythuMitra - Smart Farming Assistant. Empowering farmers with AI-based crop health monitoring, disease detection, weather alerts, fertilizer advice, and growth tracker.">
+  <title>RythuMitra – Smart Farming Assistant</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ==========================================
+       Header / Navigation Bar
+       ========================================== -->
+  <header id="main-header">
+    <div class="nav-container">
+      <a href="#home" class="logo">
+        <svg viewBox="0 0 24 24">
+          <path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L7.66,17.12C8.74,17.68 9.9,18 11.1,18C16.5,18 20.2,12.5 20.2,12.5C20.2,12.5 16,13.9 12.5,11.5C11.55,10.85 10.5,10 9,10C7.5,10 6,11 6,11C6,11 7.5,9.5 9,9.5C11.5,9.5 13.3,10.92 14.65,11.83C17.15,13.5 20,12 20,12C20,12 18,9.5 17,8M12.5,2C9,2 6,5 6,5C6,5 8,4 10.5,5.5C11.45,6.07 12.5,7 14,7C15.5,7 17,6 17,6C17,6 15.5,7.5 14,7.5C11.5,7.5 9.7,6.08 8.35,5.17C5.85,3.5 3,5 3,5C3,5 5,2.5 6,1.5C7,0.5 9,0 11,0C12,0 13.5,0.5 14.5,1C14,1.35 13.25,1.7 12.5,2Z"/>
+        </svg>
+        <span class="logo-text">RythuMitra</span>
+      </a>
+      
+      <div class="header-actions">
+        <!-- Online/Offline Badge -->
+        <div class="online-status-badge" id="offline-badge">
+          <span class="status-dot"></span>
+          <span id="status-text">Online</span>
+        </div>
+
+        <nav>
+          <ul class="nav-links" id="nav-links-menu">
+            <li><a href="#home" class="active" id="nav-home">Home</a></li>
+            <li><a href="#disease-detector" id="nav-detector">Disease Detection</a></li>
+            <li><a href="#crop-advisor" id="nav-advisor">Fertilizer Advisor</a></li>
+            <li><a href="#growth-tracker" id="nav-tracker">Growth Tracker</a></li>
+            <li><a href="#weather-alerts" id="nav-weather">Weather Alerts</a></li>
+            <li><a href="#statistics" id="nav-stats">Statistics</a></li>
+            <li><a href="#faq" id="nav-faq">FAQs</a></li>
+            <li><a href="#contact" id="nav-contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Language Switcher -->
+        <div class="lang-selector">
+          <select id="language-select" aria-label="Select Language">
+            <option value="en">English</option>
+            <option value="te">తెలుగు (Telugu)</option>
+            <option value="hi">हिन्दी (Hindi)</option>
+            <option value="ta">தமிழ் (Tamil)</option>
+          </select>
+        </div>
+
+        <button class="menu-toggle" id="menu-toggle-btn" aria-label="Toggle Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       Hero Section
+       ========================================== -->
+  <section id="home" class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <span class="hero-tagline" id="hero-tag">Empowering Farmers with AI-Based Crop Health Monitoring</span>
+        <h1 id="hero-title">Protect Your Crops with Smart Disease Detection</h1>
+        <p id="hero-subtitle">Upload crop photos, identify diseases, get treatment suggestions, and improve crop yield.</p>
+        <div class="hero-buttons">
+          <a href="#disease-detector" class="btn btn-primary" id="btn-detect-crop">Detect Disease</a>
+          <a href="#about-info" class="btn btn-secondary" id="btn-learn-more">Learn More</a>
+        </div>
+      </div>
+      
+      <div class="hero-visual">
+        <div class="hero-card">
+          <div class="hero-card-header">
+            <h3 id="hero-panel-title">Active Crop Scan</h3>
+            <span class="scan-pulse"></span>
+          </div>
+          <div class="hero-card-stat">
+            <span class="label" id="lbl-scan-crop">Tomato Farm</span>
+            <span class="value">98.4% Health</span>
+          </div>
+          <div class="hero-card-bar">
+            <div class="hero-card-progress"></div>
+          </div>
+          <div class="hero-feature-pill">
+            <svg viewBox="0 0 24 24">
+              <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M11,17H13V15H11V17M11,13H13V7H11V13Z"/>
+            </svg>
+            <p id="hero-panel-alert">Weather Alert: High humidity levels predicted. Ensure proper spacing to prevent fungal growth.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       Farmer Dashboard Section (Scans, Alerts, Treatments, Health Score)
+       ========================================== -->
+  <section class="dashboard-sec">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M15.5,14L20.5,19L19,20.5L14,15.5V14.71L13.73,14.43C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.43,13.73L14.71,14H15.5M9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14Z"/>
+            </svg>
+          </div>
+          <div class="stat-info">
+            <h3 class="counter" data-target="1248">0</h3>
+            <p id="stat-scans">Total Disease Scans</p>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M12,2L1,21H23L12,2M12,6L19.53,19H4.47L12,6M11,10V14H13V10H11M11,16V18H13V16H11Z"/>
+            </svg>
+          </div>
+          <div class="stat-info">
+            <h3 class="counter" data-target="3">0</h3>
+            <p id="stat-alerts">Active Alerts</p>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M4.5,10.5C3.67,10.5 3,11.17 3,12C3,12.83 3.67,13.5 4.5,13.5C5.33,13.5 6,12.83 6,12C6,11.17 5.33,10.5 4.5,10.5M4.5,4.5C3.67,4.5 3,5.17 3,6C3,6.83 3.67,7.5 4.5,7.5C5.33,7.5 6,6.83 6,6C6,5.17 5.33,4.5 4.5,4.5M4.5,16.5C3.67,16.5 3,17.17 3,18C3,18.83 3.67,19.5 4.5,19.5C5.33,19.5 6,18.83 6,18C6,17.17 5.33,16.5 4.5,16.5M8,13H21V11H8V13M8,7H21V5H8V7M8,19H21V17H8V19Z"/>
+            </svg>
+          </div>
+          <div class="stat-info">
+            <h3 class="counter" data-target="14">0</h3>
+            <p id="stat-treats">Recommended Treatments</p>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.41,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.59,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"/>
+            </svg>
+          </div>
+          <div class="stat-info">
+            <h3 class="counter-percent" data-target="92">0</h3>
+            <p id="stat-score">Crop Health Score</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       Disease Detection Section
+       ========================================== -->
+  <section id="disease-detector" class="section-padding">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2 id="det-sec-title">AI Crop Disease Detection</h2>
+        <p id="det-sec-subtitle">Upload leaf photos or use our preset sample images to run a local instant check for crop diseases.</p>
+      </div>
+
+      <div class="detect-layout">
+        <!-- Detection Interaction Card -->
+        <div class="detect-card">
+          <h3 id="det-card-title">
+            <svg viewBox="0 0 24 24"><path d="M4,4H7L9,2H15L17,4H20A2,2 0 0,1 22,6V18A2,2 0 0,1 20,20H4A2,2 0 0,1 2,18V6A2,2 0 0,1 4,4M12,7A5,5 0 0,0 7,12A5,5 0 0,0 12,17A5,5 0 0,0 17,12A5,5 0 0,0 12,7M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9Z"/></svg>
+            Scan Crop Image
+          </h3>
+          
+          <!-- Drag & Drop Uploader -->
+          <div class="upload-zone" id="drop-zone">
+            <svg class="upload-icon" viewBox="0 0 24 24">
+              <path d="M19.35,10.04C18.67,6.59 15.64,4 12,4C9.11,4 6.6,5.64 5.35,8.04C2.34,8.36 0,10.91 0,14C0,17.1 2.9,20 6,20H19C21.76,20 24,17.76 24,15C24,12.36 21.95,10.22 19.35,10.04M19,18H6C3.79,18 2,16.21 2,14C2,11.95 3.53,10.24 5.56,10.03L6.63,9.92L7.13,8.97C8.08,7.14 9.94,6 12,6C14.89,6 17.39,8.08 17.85,10.95L18.12,12.58L19.74,12.69C21.05,12.78 22,13.81 22,15C22,16.65 20.65,18 19,18M8,13H11V17H13V13H16L12,9L8,13Z"/>
+            </svg>
+            <p id="lbl-drag-text">Drag & drop your leaf image here or click to browse</p>
+            <span id="lbl-file-types">Supports JPG, PNG, WEBP (Max 5MB)</span>
+            <input type="file" id="file-input" accept="image/*">
+            
+            <!-- Scanning Preview overlay -->
+            <div class="preview-container" id="preview-box">
+              <img id="image-preview" src="#" alt="Uploaded leaf preview">
+              <div class="scan-line" id="scanner-line"></div>
+            </div>
+          </div>
+
+          <div class="scanning-text" id="scanning-progress">
+            <svg viewBox="0 0 24 24" class="status-dot" style="width:16px;height:16px;fill:var(--primary);"></svg>
+            <span id="lbl-scanning-msg">Analysing leaf patterns...</span>
+          </div>
+
+          <!-- Clickable preset samples -->
+          <div class="sample-presets">
+            <p id="lbl-test-presets">Test with sample leaf images</p>
+            <div class="presets-grid">
+              <button class="preset-btn" id="preset-leaf-spot">
+                <img src="assets/leaf_spot.png" alt="Leaf Spot tomato crop">
+                <span id="lbl-preset-spot">Tomato (Leaf Spot)</span>
+              </button>
+              <button class="preset-btn" id="preset-mildew">
+                <img src="assets/powdery_mildew.png" alt="Powdery Mildew wheat crop">
+                <span id="lbl-preset-mildew">Wheat (Mildew)</span>
+              </button>
+              <button class="preset-btn" id="preset-healthy">
+                <img src="assets/healthy_leaf.png" alt="Healthy rice crop leaf">
+                <span id="lbl-preset-healthy">Rice (Healthy)</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dynamic Results sidebar display -->
+        <div class="detect-sidebar">
+          <div class="result-card" id="scan-result-card">
+            <div class="result-card-header">
+              <h4 id="lbl-result-title">Scan Result</h4>
+              <span class="confidence-badge" id="lbl-confidence">94% Confidence</span>
+            </div>
+
+            <!-- Severity meter -->
+            <div class="severity-container" id="severity-panel">
+              <div class="severity-label">
+                <span id="lbl-severity-txt">Severity Status</span>
+                <span id="lbl-severity-level" style="color:var(--sev-high)">High</span>
+              </div>
+              <div class="severity-bar-bg">
+                <div class="severity-bar-fill" id="severity-bar"></div>
+              </div>
+            </div>
+
+            <!-- Diagnostic reports details list -->
+            <div class="result-details">
+              <div class="result-detail-item">
+                <h5 id="lbl-symptoms-title">
+                  <svg viewBox="0 0 24 24"><path d="M12,2C6.47,2 2,6.47 2,12C2,17.53 6.47,22 12,22C17.53,22 22,17.53 22,12C22,6.47 17.53,2 12,2M13,17H11V15H13V17M13,13H11V7H13V13Z"/></svg>
+                  Symptoms
+                </h5>
+                <p id="res-symptoms">Small, circular water-soaked spots on older leaves, which gradually turn brown with black halos.</p>
+              </div>
+
+              <div class="result-detail-item">
+                <h5 id="lbl-causes-title">
+                  <svg viewBox="0 0 24 24"><path d="M11,9H13V7H11V9M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M11,17H13V11H11V17Z"/></svg>
+                  Causes
+                </h5>
+                <p id="res-causes">Fungal pathogen Septoria lycopersici, aggravated by warm weather, high moisture, and dense crop foliage.</p>
+              </div>
+
+              <div class="result-detail-item">
+                <h5 id="lbl-treat-title">
+                  <svg viewBox="0 0 24 24"><path d="M19,3H5C3.89,3 3,3.89 3,5V19C3,20.1 3.89,21 5,21H19C20.1,21 21,20.1 21,19V5C21,3.89 20.1,3 19,3M19,19H5V5H19V19M17,12H14V9H10V12H7V14H10V17H14V14H17V12Z"/></svg>
+                  Recommended Treatments
+                </h5>
+                <p><strong>Organic:</strong> <span id="res-treat-org">Apply Neem oil solution or copper fungicide sprays weekly. Remove infected residues.</span></p>
+                <p style="margin-top:8px;"><strong>Chemical:</strong> <span id="res-treat-chem">Spray Mancozeb or Chlorothalonil according to label dosage.</span></p>
+                <p style="margin-top:8px;"><strong>Prevention:</strong> <span id="res-treat-prev">Water at the base of plants, space out crops, crop rotation.</span></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Static info guides side boxes -->
+          <div class="info-box" id="about-info">
+            <h3 id="info-box-title">
+              <svg viewBox="0 0 24 24"><path d="M12,20A8,8 0 1,1 20,12A8,8 0 0,1 12,20M12,2A10,10 0 1,0 22,12A10,10 0 0,0 12,2M12.5,7H11V10H9V11.5H11V15H9V16.5H14.5V15H12.5V8.5H14.5V7Z"/></svg>
+              Smart Disease database
+            </h3>
+            <p id="info-box-text">RythuMitra processes crop foliage patterns through visual analysis to diagnose common leaf spots, mold infections, and pathogen decay. Access detailed guides, spray schedules, and preventive agricultural tips offline.</p>
+            
+            <!-- Offline toggle simulator widget -->
+            <div class="sim-switch">
+              <span class="sim-switch-label" id="lbl-toggle-net">Simulate Internet Status</span>
+              <label class="switch" for="online-switch">
+                <input type="checkbox" id="online-switch" checked>
+                <span class="slider"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       Fertilizer Advisor & Crop Growth Tracker Sections
+       ========================================== -->
+  <section id="crop-advisor" class="section-padding" style="background-color: var(--white);">
+    <div class="container crop-tools-grid">
+      
+      <!-- Card 1: Fertilizer recommendation system -->
+      <div class="tool-card">
+        <h3 id="fert-title">
+          <svg viewBox="0 0 24 24"><path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L7.66,17.12C8.74,17.68 9.9,18 11.1,18C16.5,18 20.2,12.5 20.2,12.5C20.2,12.5 16,13.9 12.5,11.5C11.55,10.85 10.5,10 9,10C7.5,10 6,11 6,11C6,11 7.5,9.5 9,9.5C11.5,9.5 13.3,10.92 14.65,11.83C17.15,13.5 20,12 20,12C20,12 18,9.5 17,8M12.5,2C9,2 6,5 6,5C6,5 8,4 10.5,5.5C11.45,6.07 12.5,7 14,7C15.5,7 17,6 17,6C17,6 15.5,7.5 14,7.5C11.5,7.5 9.7,6.08 8.35,5.17C5.85,3.5 3,5 3,5C3,5 5,2.5 6,1.5C7,0.5 9,0 11,0C12,0 13.5,0.5 14.5,1C14,1.35 13.25,1.7 12.5,2Z"/></svg>
+          Fertilizer Advisor
+        </h3>
+        <p class="description" id="fert-desc">Get tailored NPK fertilizer blends and recommended application dosage based on your crop selection.</p>
+        
+        <div class="form-group">
+          <label for="fertilizer-crop-select" id="lbl-select-crop">Select Crop Type</label>
+          <select id="fertilizer-crop-select" class="form-control">
+            <option value="" disabled selected id="lbl-opt-disabled">-- Choose a crop --</option>
+            <option value="rice" id="opt-rice">Rice</option>
+            <option value="cotton" id="opt-cotton">Cotton</option>
+            <option value="wheat" id="opt-wheat">Wheat</option>
+            <option value="maize" id="opt-maize">Maize</option>
+            <option value="tomato" id="opt-tomato">Tomato</option>
+          </select>
+        </div>
+
+        <!-- Advisor recommendations card output -->
+        <div class="advisor-result" id="fertilizer-result-box">
+          <h4 id="lbl-fert-recommend">Recommended Recipe</h4>
+          <div class="advisor-result-grid">
+            <div class="adv-item">
+              <span id="lbl-recipe-type">Fertilizer Type</span>
+              <p id="fert-val-type">NPK 15-15-15</p>
+            </div>
+            <div class="adv-item">
+              <span id="lbl-recipe-qty">Quantity per Acre</span>
+              <p id="fert-val-quantity">120 kg</p>
+            </div>
+            <div class="adv-item">
+              <span id="lbl-recipe-time">Application Phase</span>
+              <p id="fert-val-time">Tillering Stage</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Crop growth stage tracker timeline -->
+      <div class="tool-card" id="growth-tracker">
+        <h3 id="grow-title">
+          <svg viewBox="0 0 24 24"><path d="M19,3H14.82C14.4,1.84 13.3,1 12,1C10.7,1 9.6,1.84 9.18,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M12,3A1,1 0 0,1 13,4A1,1 0 0,1 12,5A1,1 0 0,1 11,4A1,1 0 0,1 12,3M14,17H7V15H14V17M17,13H7V11H17V13M17,9H7V7H17V9Z"/></svg>
+          Crop Growth Tracker
+        </h3>
+        <p class="description" id="grow-desc">Track progress, compute days since sowing, and view your current development cycle stage.</p>
+        
+        <div class="form-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+          <div>
+            <label for="tracker-crop-select" id="lbl-track-select">Select Crop</label>
+            <select id="tracker-crop-select" class="form-control">
+              <option value="rice" id="opt-track-rice">Rice</option>
+              <option value="cotton" id="opt-track-cotton">Cotton</option>
+              <option value="wheat" id="opt-track-wheat">Wheat</option>
+              <option value="maize" id="opt-track-maize">Maize</option>
+              <option value="tomato" id="opt-track-tomato">Tomato</option>
+            </select>
+          </div>
+          <div>
+            <label for="sowing-date-input" id="lbl-track-date">Sowing Date</label>
+            <input type="date" id="sowing-date-input" class="form-control">
+          </div>
+        </div>
+
+        <button class="btn btn-primary btn-small" id="btn-calculate-growth" style="width:100%;">Calculate Progress</button>
+
+        <!-- Growth calculations timeline card output -->
+        <div class="growth-result" id="growth-result-box">
+          <div class="growth-summary">
+            <span id="lbl-track-days">Days Since Sowing:</span>
+            <span id="growth-days-count">42 Days</span>
+          </div>
+
+          <!-- Timeline progress indicator graphics -->
+          <div class="timeline-container">
+            <div class="timeline-line-bg"></div>
+            <div class="timeline-line-fill" id="growth-timeline-line"></div>
+            
+            <div class="timeline-nodes">
+              <div class="timeline-node" id="node-seed">
+                <div class="node-dot">1</div>
+                <div class="node-label" id="lbl-stage-seed">Seed</div>
+              </div>
+              <div class="timeline-node" id="node-germ">
+                <div class="node-dot">2</div>
+                <div class="node-label" id="lbl-stage-germ">Germination</div>
+              </div>
+              <div class="timeline-node" id="node-veg">
+                <div class="node-dot">3</div>
+                <div class="node-label" id="lbl-stage-veg">Vegetative</div>
+              </div>
+              <div class="timeline-node" id="node-flow">
+                <div class="node-dot">4</div>
+                <div class="node-label" id="lbl-stage-flow">Flowering</div>
+              </div>
+              <div class="timeline-node" id="node-harv">
+                <div class="node-dot">5</div>
+                <div class="node-label" id="lbl-stage-harv">Harvest</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- ==========================================
+       Weather Based Alerts Section
+       ========================================== -->
+  <section id="weather-alerts" class="section-padding weather-sec">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2 id="wea-sec-title">Local Weather Alerts</h2>
+        <p id="wea-sec-subtitle">Live environmental conditions and farming guides optimized to prevent disease proliferation.</p>
+      </div>
+
+      <div class="weather-layout">
+        <!-- Weather widgets parameters dashboard -->
+        <div class="weather-dashboard">
+          <div class="weather-header-flex">
+            <h3 id="wea-dash-title">Farming Weather Panel</h3>
+            <!-- Weather conditions simulation drop -->
+            <div class="weather-sim-panel">
+              <label for="weather-sim-select" id="lbl-wea-sim">Simulate Weather:</label>
+              <select id="weather-sim-select" aria-label="Select Weather Condition">
+                <option value="normal" id="opt-wea-normal">Mild & Sunny (Optimal)</option>
+                <option value="humid" id="opt-wea-humid">High Humid & Fungal Risk</option>
+                <option value="rainy" id="opt-wea-rainy">Heavy Storms & Wet</option>
+                <option value="drought" id="opt-wea-drought">Dry Heat & Water Shortage</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="weather-metrics-grid">
+            <div class="metric-card">
+              <svg class="metric-icon" viewBox="0 0 24 24">
+                <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12.5,7H11V13H17V11.5H12.5V7Z"/>
+              </svg>
+              <div class="metric-val" id="weather-val-temp">28°C</div>
+              <div class="metric-label" id="lbl-wea-temp">Temperature</div>
+            </div>
+
+            <div class="metric-card">
+              <svg class="metric-icon" viewBox="0 0 24 24">
+                <path d="M12,20A6,6 0 0,1 6,14C6,10 12,3.25 12,3.25C12,3.25 18,10 18,14A6,6 0 0,1 12,20M12,5.5C10.5,7.56 8,11.23 8,14A4,4 0 0,0 12,18A4,4 0 0,0 16,14C16,11.23 13.5,7.56 12,5.5Z"/>
+              </svg>
+              <div class="metric-val" id="weather-val-humidity">55%</div>
+              <div class="metric-label" id="lbl-wea-humid">Humidity</div>
+            </div>
+
+            <div class="metric-card">
+              <svg class="metric-icon" viewBox="0 0 24 24">
+                <path d="M12,6C9.79,6 8,7.79 8,10V16H16V10C16,7.79 14.21,6 12,6M5,10A2,2 0 0,1 7,8H7.5C8.36,4.5 11.5,2 15,2A7,7 0 0,1 22,9V18H18V20H16V18H8V20H6V18H2V9A2,2 0 0,1 5,10Z"/>
+              </svg>
+              <div class="metric-val" id="weather-val-rain">10%</div>
+              <div class="metric-label" id="lbl-wea-rain">Rain Chance</div>
+            </div>
+
+            <div class="metric-card">
+              <svg class="metric-icon" viewBox="0 0 24 24">
+                <path d="M12.72,2.03C12.42,2.03 12.11,2.14 11.88,2.37L3.37,10.88C2.9,11.35 2.9,12.11 3.37,12.58L11.88,21.09C12.35,21.56 13.11,21.56 13.58,21.09L22.09,12.58C22.56,12.11 22.56,11.35 22.09,10.88L13.58,2.37C13.35,2.14 13.04,2.03 12.72,2.03M12.72,4L19.72,11L12.72,18L5.72,11L12.72,4Z"/>
+              </svg>
+              <div class="metric-val" id="weather-val-wind">12 km/h</div>
+              <div class="metric-label" id="lbl-wea-wind">Wind Speed</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Weather alert description column -->
+        <div class="weather-sidebar">
+          <div class="alert-box safe" id="weather-alert-card">
+            <h4 id="lbl-alert-status">
+              <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:currentColor;"><path d="M10,17L5,12L6.41,10.58L10,14.17L17.59,6.58L19,8L10,17Z"/></svg>
+              Mild & Sunny Status
+            </h4>
+            <p id="weather-alert-text">Atmospheric parameters represent normal farming margins. Fine conditions to apply liquid crop stimulants and check leaves for general development indices.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       Statistics & Custom CSS/JS Charts
+       ========================================== -->
+  <section id="statistics" class="section-padding stats-charts-sec">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2 id="sta-sec-title">Agricultural Analytics</h2>
+        <p id="sta-sec-subtitle">Statistical metrics from our aggregate diagnostics showing crop growth rates and pest containment success.</p>
+      </div>
+
+      <div class="charts-layout-grid">
+        <!-- Chart 1: Bar Chart -->
+        <div class="chart-card">
+          <h3 id="sta-chart-crop">Crop Health Distribution (%)</h3>
+          
+          <div class="bar-chart-container">
+            <div class="bar-column">
+              <div class="bar-fill" id="bar-rice" style="height: 0%;"><span class="bar-val">90%</span></div>
+              <div class="bar-label" id="lbl-bar-rice">Rice</div>
+            </div>
+            <div class="bar-column">
+              <div class="bar-fill" id="bar-cotton" style="height: 0%;"><span class="bar-val">75%</span></div>
+              <div class="bar-label" id="lbl-bar-cotton">Cotton</div>
+            </div>
+            <div class="bar-column">
+              <div class="bar-fill" id="bar-wheat" style="height: 0%;"><span class="bar-val">88%</span></div>
+              <div class="bar-label" id="lbl-bar-wheat">Wheat</div>
+            </div>
+            <div class="bar-column">
+              <div class="bar-fill" id="bar-maize" style="height: 0%;"><span class="bar-val">82%</span></div>
+              <div class="bar-label" id="lbl-bar-maize">Maize</div>
+            </div>
+            <div class="bar-column">
+              <div class="bar-fill" id="bar-tomato" style="height: 0%;"><span class="bar-val">68%</span></div>
+              <div class="bar-label" id="lbl-bar-tomato">Tomato</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chart 2: Donut Circular Chart -->
+        <div class="chart-card">
+          <h3 id="sta-chart-dis">Common Disease Occurrence</h3>
+          
+          <div class="donut-chart-flex">
+            <!-- Conic gradient background controlled by JS -->
+            <div class="donut-graphic" id="donut-canvas">
+              <div class="donut-inner-hole">
+                <span id="lbl-total-occur">45%</span>
+                <label id="lbl-occur-tag">Leaf Spot</label>
+              </div>
+            </div>
+
+            <div class="donut-legend">
+              <div class="legend-item">
+                <div class="legend-color" style="background-color: var(--primary);"></div>
+                <span id="lbl-leg-spot">Leaf Spot</span>
+                <span class="legend-val">45%</span>
+              </div>
+              <div class="legend-item">
+                <div class="legend-color" style="background-color: var(--secondary);"></div>
+                <span id="lbl-leg-mildew">Powdery Mildew</span>
+                <span class="legend-val">30%</span>
+              </div>
+              <div class="legend-item">
+                <div class="legend-color" style="background-color: var(--accent-gold);"></div>
+                <span id="lbl-leg-healthy">Healthy Leaves</span>
+                <span class="legend-val">25%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3: Yield Improvements CSS Cards -->
+        <div class="yield-comparison">
+          <h3 class="text-center" id="sta-chart-yield">Average Farm Yield Improvement</h3>
+          <div class="yield-grid">
+            <div class="yield-card">
+              <h4 id="lbl-yield-y1">Year 1 (Initial AI Adoption)</h4>
+              <div class="yield-percentage">+12%</div>
+              <p id="lbl-yield-desc1">Early disease scan saves</p>
+            </div>
+            <div class="yield-card">
+              <h4 id="lbl-yield-y2">Year 2 (Soil Nutrient Balancing)</h4>
+              <div class="yield-percentage">+24%</div>
+              <p id="lbl-yield-desc2">Optimized fertilizer recipes</p>
+            </div>
+            <div class="yield-card">
+              <h4 id="lbl-yield-y3">Year 3 (Smart Farming Maturity)</h4>
+              <div class="yield-percentage">+38%</div>
+              <p id="lbl-yield-desc3">Peak yields & low damage</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       Testimonials Section
+       ========================================== -->
+  <section class="section-padding testimonials-sec">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2 id="test-sec-title">What Farmers Say</h2>
+        <p id="test-sec-subtitle">Real experiences and feedback from agriculturalists using RythuMitra tools in their fields.</p>
+      </div>
+
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="quote" id="test-quote-1">The leaf photo scanner correctly diagnosed the Early Leaf Spot disease on my tomato crop. The organic spray recipe of neem oil saved 80% of my harvest this season.</p>
+          <div class="farmer-profile">
+            <img class="farmer-avatar" src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=150&auto=format&fit=crop&q=80" alt="Farmer Ramesh Kumar">
+            <div class="farmer-details">
+              <h5>Ramesh Kumar</h5>
+              <span id="test-loc-1">Tomato Farmer, Guntur</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="quote" id="test-quote-2">I was confused about NPK ratios for cotton crop. The Fertilizer Advisor computed the exact bag dosage. Crop yields increased significantly with reduced costs.</p>
+          <div class="farmer-profile">
+            <img class="farmer-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80" alt="Farmer Balaji Rao">
+            <div class="farmer-details">
+              <h5>Balaji Rao</h5>
+              <span id="test-loc-2">Cotton Farmer, Warangal</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="quote" id="test-quote-3">Being able to use the app in Telugu while inside my rural fields offline is a blessing. The sowing tracker timeline prompts me exactly when to fertilize my wheat.</p>
+          <div class="farmer-profile">
+            <img class="farmer-avatar" src="https://images.unsplash.com/photo-1548142813-c348350df52b?w=150&auto=format&fit=crop&q=80" alt="Farmer Laxmi Patel">
+            <div class="farmer-details">
+              <h5>Laxmi Patel</h5>
+              <span id="test-loc-3">Wheat Cultivator, Indore</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       FAQ Accordion Section
+       ========================================== -->
+  <section id="faq" class="section-padding faq-sec">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2 id="faq-sec-title">Frequently Asked Questions</h2>
+        <p id="faq-sec-subtitle">Quick answers to common questions about agricultural detection algorithms and offline operations.</p>
+      </div>
+
+      <div class="faq-container">
+        <div class="faq-item">
+          <button class="faq-header">
+            <h4 id="faq-q1">How does crop disease detection work?</h4>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-content">
+            <p id="faq-a1">Our front-end AI model analyses leaf color distribution, vein structures, and bacterial patch outlines. By comparing these markers against a localized pathology database, it calculates the most likely plant disease with specific matching confidence percentage statistics.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-header">
+            <h4 id="faq-q2">Can the website work without an internet connection?</h4>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-content">
+            <p id="faq-a2">Yes! RythuMitra has an Offline mode. Since all disease dictionaries, treatments, fertilizer charts, and sowing calculators are compiled locally in Javascript, the tool is fully operational even when signal drops in remote rural farmlands.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-header">
+            <h4 id="faq-q3">How accurate are the fertilizer and chemical dosages?</h4>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-content">
+            <p id="faq-a3">The recommendation matrices are calibrated according to guidelines from agricultural extension offices. However, values are designed as general templates. We advise checking soil salinity and matching specific local crop parameters before extensive treatment implementation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       Contact Form & Popup Section
+       ========================================== -->
+  <section id="contact" class="section-padding contact-sec">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2 id="con-sec-title">Get in Touch</h2>
+        <p id="con-sec-subtitle">Reach out to agricultural counselors for query clarifications, field updates, or system diagnostics support.</p>
+      </div>
+
+      <div class="contact-layout">
+        <!-- Info column -->
+        <div class="contact-info-panel">
+          <h3 id="con-info-title">Support Office</h3>
+          <p id="con-info-desc">Our counselors respond to critical agricultural inquiries, pest outbreaks, and soil health management queries.</p>
+          
+          <div class="contact-details-list">
+            <div class="contact-detail-row">
+              <div class="detail-icon-circle">
+                <svg viewBox="0 0 24 24"><path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"/></svg>
+              </div>
+              <p>+91 1800-425-1666 (Toll-Free)</p>
+            </div>
+            <div class="contact-detail-row">
+              <div class="detail-icon-circle">
+                <svg viewBox="0 0 24 24"><path d="M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4M20,8L12,13L4,8V6L12,11L20,6V8Z"/></svg>
+              </div>
+              <p>counselor@rythumitra.org</p>
+            </div>
+            <div class="contact-detail-row">
+              <div class="detail-icon-circle">
+                <svg viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z"/></svg>
+              </div>
+              <p id="lbl-con-loc">Agri-Tech Hub, Sector 5, Hyderabad, India</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form column -->
+        <div class="contact-form-card">
+          <h3 id="con-form-title">Send a Message</h3>
+          <form id="agri-contact-form">
+            <div class="form-group">
+              <label for="contact-name" id="lbl-form-name">FullName</label>
+              <input type="text" id="contact-name" class="form-control" placeholder="Ramesh Prasad" required>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-phone" id="lbl-form-phone">Mobile Number</label>
+              <input type="tel" id="contact-phone" class="form-control" placeholder="9876543210" required>
+              <small style="color:var(--text-muted);font-size:0.8rem;" id="lbl-form-phone-hint">Enter 10-digit mobile number</small>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-crop" id="lbl-form-crop">Crop Type</label>
+              <select id="contact-crop" class="form-control">
+                <option value="rice" id="opt-form-rice">Rice</option>
+                <option value="cotton" id="opt-form-cotton">Cotton</option>
+                <option value="wheat" id="opt-form-wheat">Wheat</option>
+                <option value="maize" id="opt-form-maize">Maize</option>
+                <option value="tomato" id="opt-form-tomato">Tomato</option>
+                <option value="other" id="opt-form-other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-message" id="lbl-form-msg">Message</label>
+              <textarea id="contact-message" rows="4" class="form-control" placeholder="Enter crop condition or questions..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%;" id="btn-submit-form">Submit Enquiry</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       Success Overlay Modal
+       ========================================== -->
+  <div class="modal-overlay" id="success-modal-overlay">
+    <div class="success-modal">
+      <div class="success-icon-circle">
+        <svg viewBox="0 0 24 24">
+          <path d="M12,2C6.48,2 2,6.48 2,12C2,17.52 6.48,22 12,22C17.52,22 22,17.52 22,12C22,6.48 17.52,2 12,2M10,17L5,12L6.41,10.58L10,14.17L17.59,6.58L19,8L10,17Z"/>
+        </svg>
+      </div>
+      <h3 id="lbl-modal-title">Enquiry Submitted!</h3>
+      <p id="lbl-modal-desc">Thank you. An agricultural specialist will call your mobile number within 24 hours to assist with your crop condition.</p>
+      <button class="btn btn-primary" id="success-modal-close-btn" style="width: 100%;">OK</button>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       Footer Section
+       ========================================== -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-about">
+        <h4>
+          <svg viewBox="0 0 24 24">
+            <path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L7.66,17.12C8.74,17.68 9.9,18 11.1,18C16.5,18 20.2,12.5 20.2,12.5C20.2,12.5 16,13.9 12.5,11.5C11.55,10.85 10.5,10 9,10C7.5,10 6,11 6,11C6,11 7.5,9.5 9,9.5C11.5,9.5 13.3,10.92 14.65,11.83C17.15,13.5 20,12 20,12C20,12 18,9.5 17,8M12.5,2C9,2 6,5 6,5C6,5 8,4 10.5,5.5C11.45,6.07 12.5,7 14,7C15.5,7 17,6 17,6C17,6 15.5,7.5 14,7.5C11.5,7.5 9.7,6.08 8.35,5.17C5.85,3.5 3,5 3,5C3,5 5,2.5 6,1.5C7,0.5 9,0 11,0C12,0 13.5,0.5 14.5,1C14,1.35 13.25,1.7 12.5,2Z"/>
+          </svg>
+          RythuMitra
+        </h4>
+        <p id="footer-desc">Empowering local cultivators with advanced offline diagnostic models, weather warnings, and direct agronomy advisors to secure harvests and increase crop health.</p>
+      </div>
+
+      <div class="footer-links">
+        <h4 id="footer-lbl-links">Quick Links</h4>
+        <ul>
+          <li><a href="#home" id="flink-home">Home</a></li>
+          <li><a href="#disease-detector" id="flink-detector">Disease Detection</a></li>
+          <li><a href="#crop-advisor" id="flink-advisor">Fertilizer Advisor</a></li>
+          <li><a href="#growth-tracker" id="flink-tracker">Growth Tracker</a></li>
+          <li><a href="#weather-alerts" id="flink-weather">Weather Alerts</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-social">
+        <h4 id="footer-lbl-social">Connect with Us</h4>
+        <p id="footer-social-desc">Follow our media accounts for regional farming news, workshops, and crop tips.</p>
+        <div class="social-icons-flex">
+          <a href="#" class="social-icon-btn" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.2 10.44 21.95V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.95C18.34 21.2 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg>
+          </a>
+          <a href="#" class="social-icon-btn" aria-label="Twitter">
+            <svg viewBox="0 0 24 24"><path d="M22.46,6C21.69,6.35 20.86,6.58 20,6.69C20.88,6.16 21.56,5.32 21.88,4.31C21.05,4.81 20.13,5.16 19.16,5.36C18.37,4.5 17.26,4 16,4C13.65,4 11.73,5.92 11.73,8.29C11.73,8.63 11.77,8.96 11.84,9.27C8.28,9.09 5.11,7.38 3,4.79C2.63,5.42 2.42,6.16 2.42,6.94C2.42,8.43 3.17,9.75 4.33,10.5C3.62,10.48 2.96,10.28 2.38,9.96C2.38,10 2.38,10 2.38,10.06C2.38,12.14 3.86,13.87 5.83,14.27C5.47,14.37 5.1,14.42 4.72,14.42C4.45,14.42 4.18,14.39 3.93,14.34C4.48,16.04 6.06,17.28 7.93,17.31C6.47,18.46 4.62,19.14 2.61,19.14C2.26,19.14 1.93,19.12 1.6,19.08C3.5,20.3 5.76,21 8.18,21C16.08,21 20.4,14.45 20.4,8.76C20.4,8.57 20.4,8.39 20.39,8.2C21.23,7.6 21.96,6.85 22.46,6Z"/></svg>
+          </a>
+          <a href="#" class="social-icon-btn" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4A3.6,3.6 0 0,0 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6A3.6,3.6 0 0,0 16.4,4H7.6M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5Z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-copyright">
+      <p>&copy; 2026 RythuMitra. All rights reserved. Empowering farmers with AI-based agriculture assistants.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
