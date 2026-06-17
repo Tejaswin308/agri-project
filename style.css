@@ -234,7 +234,7 @@ header.scrolled {
   display: flex;
   list-style: none;
   align-items: center;
-  gap: 24px;
+  gap: 16px;
 }
 
 .nav-links a {
@@ -242,6 +242,7 @@ header.scrolled {
   color: var(--text-main);
   padding: 6px 4px;
   position: relative;
+  font-size: 0.9rem;
 }
 
 .nav-links a::after {
