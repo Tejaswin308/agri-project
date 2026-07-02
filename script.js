@@ -194,7 +194,7 @@ const translations = {
     "opt-cotton": "పత్తి",
     "opt-wheat": "గోధుమ",
     "opt-maize": "మొక్కజొన్న",
-    "opt-tomato": "టొమాటో",
+    "opt-tomato": "టమాటా",
     "lbl-fert-recommend": "సిఫార్సు చేయబడిన మిశ్రమం",
     "lbl-recipe-type": "ఎరువు రకం",
     "lbl-recipe-qty": "ఎకరానికి కావలసిన పరిమాణం",
@@ -471,7 +471,7 @@ const translations = {
     "opt-rice": "நெல்",
     "opt-cotton": "பருத்தி",
     "opt-wheat": "கோதுமை",
-    "opt-maize": "சோளம்",
+    "opt-maize": "மக்காச்சோளம்",
     "opt-tomato": "தக்காளி",
     "lbl-fert-recommend": "பரிந்துரைக்கப்பட்ட உர அளவு",
     "lbl-recipe-type": "உர வகை",
@@ -745,11 +745,11 @@ const translations = {
     "fert-desc": "ನಿಮ್ಮ ಬೆಳೆಗೆ ಅನುಗುಣವಾಗಿ ಸೂಕ್ತ NPK ಗೊಬ್ಬರದ ಪ್ರಮಾಣ ಮತ್ತು ಬಳಸುವ ಸಮಯವನ್ನು ತಿಳಿದುಕೊಳ್ಳಿ.",
     "lbl-select-crop": "ಬೆಳೆ ಆಯ್ಕೆಮಾಡಿ",
     "lbl-opt-disabled": "-- ಬೆಳೆ ಆಯ್ಕೆ ಮಾಡಿ --",
-    "opt-rice": "ಭತ್ತ",
+    "opt-rice": "ಅಕ್ಕಿ",
     "opt-cotton": "ಹತ್ತಿ",
     "opt-wheat": "ಗೋಧಿ",
-    "opt-maize": "ಮೆಕ್ಕೆಜೋಳ",
-    "opt-tomato": "ಟೊಮೆಟೊ",
+    "opt-maize": "ಜೋಳ",
+    "opt-tomato": "ಟೊಮೇಟೊ",
     "lbl-fert-recommend": "ಶಿಫಾರಸು ಮಾಡಿದ ಮಿಶ್ರಣ",
     "lbl-recipe-type": "ಗೊಬ್ಬರದ ಪ್ರಕಾರ",
     "lbl-recipe-qty": "ಎಕರೆಗೆ ಬೇಕಾಗುವ ಪ್ರಮಾಣ",
@@ -1097,6 +1097,19 @@ function updateUILanguage(lang) {
         el.textContent = dict[id];
       }
     }
+  });
+
+  // Update crop dropdown options while preserving current selections
+  const cropSelects = document.querySelectorAll("#fertilizer-crop-select, #tracker-crop-select, #contact-crop");
+  cropSelects.forEach(select => {
+    const currentValue = select.value;
+    Array.from(select.options).forEach(opt => {
+      const val = opt.value;
+      if (val && dict[`opt-${val}`]) {
+        opt.textContent = dict[`opt-${val}`];
+      }
+    });
+    select.value = currentValue;
   });
 
   // Redraw/re-render active result elements to update texts
