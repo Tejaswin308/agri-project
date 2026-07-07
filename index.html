@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="RythuMitra - Smart Farming Assistant. Empowering farmers with AI-based crop health monitoring, disease detection, weather alerts, fertilizer advice, and growth tracker.">
   <title>RythuMitra – Smart Farming Assistant</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -264,6 +265,14 @@
                 <p style="margin-top:8px;"><strong>Prevention:</strong> <span id="res-treat-prev">Water at the base of plants, space out crops, crop rotation.</span></p>
               </div>
             </div>
+            
+            <!-- Find Nearby Centers Button -->
+            <button class="btn btn-primary" id="btn-find-centers" style="width: 100%; margin-top: 25px; display: flex; align-items: center; justify-content: center; gap: 10px;">
+              <svg viewBox="0 0 24 24" style="width: 20px; height: 20px; fill: currentColor;">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+              </svg>
+              <span id="lbl-btn-find-centers">Find Nearby Agriculture Centers</span>
+            </button>
           </div>
 
           <!-- Static info guides side boxes -->
@@ -281,6 +290,48 @@
                 <input type="checkbox" id="online-switch" checked>
                 <span class="slider"></span>
               </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nearby Agriculture Centers Container -->
+      <div id="nearby-centers-container" class="nearby-centers-container" style="display: none; margin-top: 45px;">
+        <!-- Recommended Services based on disease -->
+        <div class="recommendations-card" id="recommendations-panel">
+          <h4 id="lbl-recommend-title" class="recommendations-title">Recommended Services for Detected Disease</h4>
+          <p id="lbl-recommend-desc" class="recommendations-desc">Based on the detected disease, we recommend visiting the following support centers:</p>
+          <div class="recommendations-badges" id="recommendations-badges-list">
+            <!-- Badges will be generated dynamically based on disease -->
+          </div>
+        </div>
+
+        <!-- Search Header and States -->
+        <div class="centers-search-header" style="margin-top: 30px;">
+          <h3 id="lbl-nearby-title">Nearby Agriculture Centers</h3>
+          <div class="status-indicator" id="nearby-status-msg" style="display: none;">
+            <span class="loading-spinner"></span>
+            <span id="lbl-loading-text">Searching for nearby agriculture centers...</span>
+          </div>
+          <div class="error-msg-box" id="nearby-error-box" style="display: none;">
+            <svg viewBox="0 0 24 24" style="width: 24px; height: 24px; fill: currentColor; margin-right: 10px;">
+              <path d="M12,2L1,21H23L12,2M12,6L19.53,19H4.47L12,6M11,10V14H13V10H11M11,16V18H13V16H11Z"/>
+            </svg>
+            <span id="lbl-error-gps">Location access was denied. Please enable GPS location permissions to find agricultural support centers near you.</span>
+          </div>
+        </div>
+
+        <!-- Map and Cards Grid -->
+        <div class="nearby-grid">
+          <!-- Interactive Map -->
+          <div class="map-wrapper">
+            <div id="nearby-map"></div>
+          </div>
+
+          <!-- Cards List -->
+          <div class="centers-list-wrapper">
+            <div class="centers-list" id="centers-list-cards">
+              <!-- Cards rendered dynamically -->
             </div>
           </div>
         </div>
@@ -810,6 +861,7 @@
     </div>
   </footer>
 
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <script src="script.js"></script>
 </body>
 </html>
