@@ -539,87 +539,216 @@
         <p id="sta-sec-subtitle">Statistical metrics from our aggregate diagnostics showing crop growth rates and pest containment success.</p>
       </div>
 
+      <!-- Top Row: Premium Stats Cards (Under-hero style) -->
+      <div class="stats-premium-row">
+        <div class="stats-card-premium">
+          <div class="stats-card-icon-wrapper" style="background-color: rgba(255, 179, 0, 0.15); color: var(--accent-gold);">
+            <svg viewBox="0 0 24 24" style="width:28px;height:28px;fill:currentColor;"><path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M11,17H13V15H11V17M11,13H13V7H11V13Z"/></svg>
+          </div>
+          <div class="stats-card-info">
+            <h3 id="stats-val-accuracy">98.4%</h3>
+            <p id="stats-lbl-accuracy">Verified Diagnostics Accuracy</p>
+          </div>
+        </div>
+
+        <div class="stats-card-premium">
+          <div class="stats-card-icon-wrapper" style="background-color: rgba(76, 175, 80, 0.15); color: var(--online);">
+            <svg viewBox="0 0 24 24" style="width:28px;height:28px;fill:currentColor;"><path d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M11.5,6H13V12L16.25,13.91L15.5,15.13L11.5,12.75V6Z"/></svg>
+          </div>
+          <div class="stats-card-info">
+            <h3 id="stats-val-speed">&lt; 1.2s</h3>
+            <p id="stats-lbl-speed">Instant Offline Response</p>
+          </div>
+        </div>
+
+        <div class="stats-card-premium">
+          <div class="stats-card-icon-wrapper" style="background-color: rgba(30, 136, 229, 0.15); color: #1e88e5;">
+            <svg viewBox="0 0 24 24" style="width:28px;height:28px;fill:currentColor;"><path d="M16,13C15.71,13 15.38,13 15.03,13.05C16.19,13.89 17,15 17,16.5V19H21V16.5C21,14.67 17.67,13.75 16,13M8,13C6.33,13 3,13.92 3,15.75V19H13V15.75C13,13.92 9.67,13 8,13M8,5A4,4 0 0,0 4,9A4,4 0 0,0 8,13A4,4 0 0,0 12,9A4,4 0 0,0 8,5M16,5E15.42,5 14.86,5.18C15.56,6.16 16,7.5 16,9C16,10.5 15.56,11.84 14.86,12.82C15.42,13 16,13 16,13A4,4 0 0,0 20,9A4,4 0 0,0 16,5Z"/></svg>
+          </div>
+          <div class="stats-card-info">
+            <h3 id="stats-val-users">50,000+</h3>
+            <p id="stats-lbl-users">Farming Scans Globally</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Middle Row: Charts & Analytics -->
       <div class="charts-layout-grid">
-        <!-- Chart 1: Bar Chart -->
-        <div class="chart-card">
+        <!-- Chart 1: Bar Chart (Crop Health) -->
+        <div class="chart-card-premium">
           <h3 id="sta-chart-crop">Crop Health Distribution (%)</h3>
           
-          <div class="bar-chart-container">
-            <div class="bar-column">
-              <div class="bar-fill" id="bar-rice" style="height: 0%;"><span class="bar-val">90%</span></div>
+          <div class="bar-chart-container-premium">
+            <div class="bar-column-premium">
+              <div class="bar-wrapper-premium">
+                <div class="bar-fill-premium" id="bar-rice" style="height: 0%;">
+                  <span class="peak-badge-premium" id="lbl-badge-rice">90% Peak</span>
+                </div>
+              </div>
               <div class="bar-label" id="lbl-bar-rice">Rice</div>
             </div>
-            <div class="bar-column">
-              <div class="bar-fill" id="bar-cotton" style="height: 0%;"><span class="bar-val">75%</span></div>
+            
+            <div class="bar-column-premium">
+              <div class="bar-wrapper-premium">
+                <div class="bar-fill-premium" id="bar-cotton" style="height: 0%;">
+                  <span class="bar-val-premium">75%</span>
+                </div>
+              </div>
               <div class="bar-label" id="lbl-bar-cotton">Cotton</div>
             </div>
-            <div class="bar-column">
-              <div class="bar-fill" id="bar-wheat" style="height: 0%;"><span class="bar-val">88%</span></div>
+
+            <div class="bar-column-premium">
+              <div class="bar-wrapper-premium">
+                <div class="bar-fill-premium" id="bar-wheat" style="height: 0%;">
+                  <span class="bar-val-premium">88%</span>
+                </div>
+              </div>
               <div class="bar-label" id="lbl-bar-wheat">Wheat</div>
             </div>
-            <div class="bar-column">
-              <div class="bar-fill" id="bar-maize" style="height: 0%;"><span class="bar-val">82%</span></div>
+
+            <div class="bar-column-premium">
+              <div class="bar-wrapper-premium">
+                <div class="bar-fill-premium" id="bar-maize" style="height: 0%;">
+                  <span class="bar-val-premium">82%</span>
+                </div>
+              </div>
               <div class="bar-label" id="lbl-bar-maize">Maize</div>
             </div>
-            <div class="bar-column">
-              <div class="bar-fill" id="bar-tomato" style="height: 0%;"><span class="bar-val">68%</span></div>
+
+            <div class="bar-column-premium">
+              <div class="bar-wrapper-premium">
+                <div class="bar-fill-premium" id="bar-tomato" style="height: 0%;">
+                  <span class="bar-val-premium">68%</span>
+                </div>
+              </div>
               <div class="bar-label" id="lbl-bar-tomato">Tomato</div>
             </div>
           </div>
         </div>
 
-        <!-- Chart 2: Donut Circular Chart -->
-        <div class="chart-card">
-          <h3 id="sta-chart-dis">Common Disease Occurrence</h3>
-          
-          <div class="donut-chart-flex">
-            <!-- Conic gradient background controlled by JS -->
-            <div class="donut-graphic" id="donut-canvas">
-              <div class="donut-inner-hole">
-                <span id="lbl-total-occur">45%</span>
-                <label id="lbl-occur-tag">Leaf Spot</label>
+        <!-- Chart 2: Grouped Bar Chart (Monthly diagnostics by Crop) -->
+        <div class="chart-card-premium">
+          <h3 id="sta-chart-dis">Monthly Diagnostics by Season</h3>
+          <div class="grouped-chart-container">
+            <!-- Rabi Season Group -->
+            <div class="group-column">
+              <div class="grouped-bars">
+                <!-- Rice bar (dark green) -->
+                <div class="bar-group-wrapper">
+                  <div class="bar-group-fill color-rice" id="grp-r-rice" style="height: 0%;" title="Rice: 45 Scans"><span class="grp-bar-val">45</span></div>
+                </div>
+                <!-- Wheat bar (gold) -->
+                <div class="bar-group-wrapper">
+                  <div class="bar-group-fill color-wheat" id="grp-r-wheat" style="height: 0%;" title="Wheat: 85 Scans"><span class="grp-bar-val">85</span></div>
+                </div>
+                <!-- Tomato bar (peach) -->
+                <div class="bar-group-wrapper">
+                  <div class="bar-group-fill color-tomato" id="grp-r-tomato" style="height: 0%;" title="Tomato: 30 Scans"><span class="grp-bar-val">30</span></div>
+                </div>
               </div>
+              <div class="bar-label" id="lbl-grp-rabi">Rabi (Winter)</div>
             </div>
 
-            <div class="donut-legend">
-              <div class="legend-item">
-                <div class="legend-color" style="background-color: var(--primary);"></div>
-                <span id="lbl-leg-spot">Leaf Spot</span>
-                <span class="legend-val">45%</span>
+            <!-- Kharif Season Group -->
+            <div class="group-column">
+              <div class="grouped-bars">
+                <div class="bar-group-wrapper">
+                  <div class="bar-group-fill color-rice" id="grp-k-rice" style="height: 0%;" title="Rice: 90 Scans"><span class="grp-bar-val">90</span></div>
+                </div>
+                <div class="bar-group-wrapper">
+                  <div class="bar-group-fill color-wheat" id="grp-k-wheat" style="height: 0%;" title="Wheat: 15 Scans"><span class="grp-bar-val">15</span></div>
+                </div>
+                <div class="bar-group-wrapper">
+                  <div class="bar-group-fill color-tomato" id="grp-k-tomato" style="height: 0%;" title="Tomato: 55 Scans"><span class="grp-bar-val">55</span></div>
+                </div>
               </div>
-              <div class="legend-item">
-                <div class="legend-color" style="background-color: var(--secondary);"></div>
-                <span id="lbl-leg-mildew">Powdery Mildew</span>
-                <span class="legend-val">30%</span>
+              <div class="bar-label" id="lbl-grp-kharif">Kharif (Monsoon)</div>
+            </div>
+
+            <!-- Zaid Season Group -->
+            <div class="group-column">
+              <div class="grouped-bars">
+                <div class="bar-group-wrapper">
+                  <div class="bar-group-fill color-rice" id="grp-z-rice" style="height: 0%;" title="Rice: 20 Scans"><span class="grp-bar-val">20</span></div>
+                </div>
+                <div class="bar-group-wrapper">
+                  <div class="bar-group-fill color-wheat" id="grp-z-wheat" style="height: 0%;" title="Wheat: 35 Scans"><span class="grp-bar-val">35</span></div>
+                </div>
+                <div class="bar-group-wrapper">
+                  <div class="bar-group-fill color-tomato" id="grp-z-tomato" style="height: 0%;" title="Tomato: 80 Scans"><span class="grp-bar-val">80</span></div>
+                </div>
               </div>
-              <div class="legend-item">
-                <div class="legend-color" style="background-color: var(--accent-gold);"></div>
-                <span id="lbl-leg-healthy">Healthy Leaves</span>
-                <span class="legend-val">25%</span>
+              <div class="bar-label" id="lbl-grp-zaid">Zaid (Summer)</div>
+            </div>
+
+            <!-- Legend for the grouped chart -->
+            <div class="grouped-legend">
+              <div class="g-legend-item">
+                <div class="g-legend-dot color-rice"></div>
+                <span id="lbl-leg-rice">Rice</span>
+              </div>
+              <div class="g-legend-item">
+                <div class="g-legend-dot color-wheat"></div>
+                <span id="lbl-leg-wheat">Wheat</span>
+              </div>
+              <div class="g-legend-item">
+                <div class="g-legend-dot color-tomato"></div>
+                <span id="lbl-leg-tomato">Tomato</span>
               </div>
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- Section 3: Yield Improvements CSS Cards -->
-        <div class="yield-comparison">
-          <h3 class="text-center" id="sta-chart-yield">Average Farm Yield Improvement</h3>
-          <div class="yield-grid">
-            <div class="yield-card">
-              <h4 id="lbl-yield-y1">Year 1 (Initial AI Adoption)</h4>
-              <div class="yield-percentage">+12%</div>
-              <p id="lbl-yield-desc1">Early disease scan saves</p>
+      <!-- Bottom Row: Tilted Fan-Out Use Case Cards -->
+      <div class="deck-title-wrapper text-center">
+        <h3 id="sta-chart-yield">Core System Capabilities</h3>
+      </div>
+      <div class="tilted-card-deck-wrapper">
+        <div class="tilted-card-deck">
+          <!-- Card 1 (Sage green-gray) -->
+          <div class="deck-card card-sage">
+            <div class="deck-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M19.35,10.04C18.67,6.59 15.64,4 12,4C9.11,4 6.6,5.64 5.35,8.04C2.34,8.36 0,10.91 0,14C0,17.1 2.9,20 6,20H19C21.76,20 24,17.76 24,15C24,12.36 21.95,10.22 19.35,10.04Z"/></svg>
             </div>
-            <div class="yield-card">
-              <h4 id="lbl-yield-y2">Year 2 (Soil Nutrient Balancing)</h4>
-              <div class="yield-percentage">+24%</div>
-              <p id="lbl-yield-desc2">Optimized fertilizer recipes</p>
+            <h4 id="use-offline-title">100% Offline Mode</h4>
+            <p id="use-offline-desc">Diagnose crop diseases instantly directly in remote fields without cellular network or internet coverage.</p>
+          </div>
+
+          <!-- Card 2 (Cool gray-blue) -->
+          <div class="deck-card card-blue">
+            <div class="deck-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L7.66,17.12C8.74,17.68 9.9,18 11.1,18C16.5,18 20.2,12.5 20.2,12.5C20.2,12.5 16,13.9 12.5,11.5C11.55,10.85 10.5,10 9,10C7.5,10 6,11 6,11C6,11 7.5,9.5 9,9.5C11.5,9.5 13.3,10.92 14.65,11.83C17.15,13.5 20,12 20,12C20,12 18,9.5 17,8Z"/></svg>
             </div>
-            <div class="yield-card">
-              <h4 id="lbl-yield-y3">Year 3 (Smart Farming Maturity)</h4>
-              <div class="yield-percentage">+38%</div>
-              <p id="lbl-yield-desc3">Peak yields & low damage</p>
+            <h4 id="use-soil-title">NPK Soil Balancing</h4>
+            <p id="use-soil-desc">Calculate tailored chemical and organic fertilizer dosages customized for your soil profile and crops.</p>
+          </div>
+
+          <!-- Card 3 (Soft beige-gold) -->
+          <div class="deck-card card-beige">
+            <div class="deck-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12.5,7H11V13H17V11.5H12.5V7Z"/></svg>
             </div>
+            <h4 id="use-weather-title">Climate-Risk Warnings</h4>
+            <p id="use-weather-desc">Monitor local temperature and humidity indicators to avoid high-risk fungal and bacterial outbreaks.</p>
+          </div>
+
+          <!-- Card 4 (Warm peach) -->
+          <div class="deck-card card-peach">
+            <div class="deck-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"/></svg>
+            </div>
+            <h4 id="use-contact-title">Agronomy Counselors</h4>
+            <p id="use-contact-desc">Submit visual diagnostic logs to receive direct phone guidance from qualified agricultural advisors.</p>
+          </div>
+
+          <!-- Card 5 (Muted lavender) -->
+          <div class="deck-card card-lavender">
+            <div class="deck-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M19,3H14.82C14.4,1.84 13.3,1 12,1C10.7,1 9.6,1.84 9.18,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M12,3A1,1 0 0,1 13,4A1,1 0 0,1 12,5A1,1 0 0,1 11,4A1,1 0 0,1 12,3M14,17H7V15H14V17M17,13H7V11H17V13M17,9H7V7H17V9Z"/></svg>
+            </div>
+            <h4 id="use-yield-title">Growth Milestones</h4>
+            <p id="use-yield-desc">Monitor sowing dates, vegetative stages, flowering triggers, and harvest timeline projections in real time.</p>
           </div>
         </div>
       </div>

@@ -89,22 +89,25 @@ const translations = {
     "sta-sec-title": "Agricultural Analytics",
     "sta-sec-subtitle": "Statistical metrics from our aggregate diagnostics showing crop growth rates and pest containment success.",
     "sta-chart-crop": "Crop Health Distribution (%)",
-    "sta-chart-dis": "Common Disease Occurrence",
-    "sta-chart-yield": "Average Farm Yield Improvement",
-    "lbl-bar-rice": "Rice",
-    "lbl-bar-cotton": "Cotton",
-    "lbl-bar-wheat": "Wheat",
-    "lbl-bar-maize": "Maize",
-    "lbl-bar-tomato": "Tomato",
-    "lbl-leg-spot": "Leaf Spot",
-    "lbl-leg-mildew": "Powdery Mildew",
-    "lbl-leg-healthy": "Healthy Leaves",
-    "lbl-yield-y1": "Year 1 (Initial AI Adoption)",
-    "lbl-yield-y2": "Year 2 (Soil Nutrient Balancing)",
-    "lbl-yield-y3": "Year 3 (Smart Farming Maturity)",
-    "lbl-yield-desc1": "Early disease scan saves",
-    "lbl-yield-desc2": "Optimized fertilizer recipes",
-    "lbl-yield-desc3": "Peak yields & low damage",
+    "sta-chart-dis": "Monthly Diagnostics by Season",
+    "sta-chart-yield": "Core System Capabilities",
+    "stats-lbl-accuracy": "Verified Diagnostics Accuracy",
+    "stats-lbl-speed": "Instant Offline Response",
+    "stats-lbl-users": "Farming Scans Globally",
+    "lbl-badge-rice": "90% Peak",
+    "lbl-grp-rabi": "Rabi (Winter)",
+    "lbl-grp-kharif": "Kharif (Monsoon)",
+    "lbl-grp-zaid": "Zaid (Summer)",
+    "use-offline-title": "100% Offline Mode",
+    "use-offline-desc": "Diagnose crop diseases instantly directly in remote fields without cellular network or internet coverage.",
+    "use-soil-title": "NPK Soil Balancing",
+    "use-soil-desc": "Calculate tailored chemical and organic fertilizer dosages customized for your soil profile and crops.",
+    "use-weather-title": "Climate-Risk Warnings",
+    "use-weather-desc": "Monitor local temperature and humidity indicators to avoid high-risk fungal and bacterial outbreaks.",
+    "use-contact-title": "Agronomy Counselors",
+    "use-contact-desc": "Submit visual diagnostic logs to receive direct phone guidance from qualified agricultural advisors.",
+    "use-yield-title": "Growth Milestones",
+    "use-yield-desc": "Monitor sowing dates, vegetative stages, flowering triggers, and harvest timeline projections in real time.",
 
     "test-sec-title": "What Farmers Say",
     "test-sec-subtitle": "Real experiences and feedback from agriculturalists using RythuMitra tools in their fields.",
@@ -238,22 +241,25 @@ const translations = {
     "sta-sec-title": "వ్యవసాయ గణాంకాలు",
     "sta-sec-subtitle": "మా పంట విశ్లేషణల ద్వారా సేకరించిన ఎదుగుదల రేట్లు మరియు తెగుళ్ల నివారణ విజయాలు.",
     "sta-chart-crop": "పంట ఆరోగ్య పంపిణీ (%)",
-    "sta-chart-dis": "సాధారణ తెగుళ్ల వ్యాప్తి",
-    "sta-chart-yield": "సగటు పంట దిగుబడి మెరుగుదల",
-    "lbl-bar-rice": "వరి",
-    "lbl-bar-cotton": "పత్తి",
-    "lbl-bar-wheat": "గోధుమ",
-    "lbl-bar-maize": "మొక్కజొన్న",
-    "lbl-bar-tomato": "టొమాటో",
-    "lbl-leg-spot": "ఆకు మచ్చ తెగులు",
-    "lbl-leg-mildew": "బూజు తెగులు",
-    "lbl-leg-healthy": "ఆరోగ్యకరమైన ఆకులు",
-    "lbl-yield-y1": "సంవత్సరం 1 (ప్రారంభ AI వినియోగం)",
-    "lbl-yield-y2": "సంవత్సరం 2 (పోషకాల సమతుల్యత)",
-    "lbl-yield-y3": "సంవత్సరం 3 (స్మార్ట్ వ్యవసాయ పరిపక్వత)",
-    "lbl-yield-desc1": "తెగుళ్ల ముందస్తు గుర్తింపు పొదుపు",
-    "lbl-yield-desc2": "సరైన ఎరువుల వాడకం",
-    "lbl-yield-desc3": "గరిష్ట దిగుబడులు & తక్కువ నష్టం",
+    "sta-chart-dis": "సీజన్ల వారీగా నెలవారీ వ్యాధి గుర్తింపు",
+    "sta-chart-yield": "కీలక వ్యవస్థా సామర్థ్యాలు",
+    "stats-lbl-accuracy": "ధృవీకరించబడిన వ్యాధి నిర్ధారణ ఖచ్చితత్వం",
+    "stats-lbl-speed": "తక్షణ ఆఫ్‌లైన్ ప్రతిస్పందన",
+    "stats-lbl-users": "ప్రపంచవ్యాప్తంగా పంట స్కాన్‌లు",
+    "lbl-badge-rice": "90% గరిష్టం",
+    "lbl-grp-rabi": "రబీ (చలికాలం)",
+    "lbl-grp-kharif": "ఖరీఫ్ (వర్షాకాలం)",
+    "lbl-grp-zaid": "జైద్ (వేసవికాలం)",
+    "use-offline-title": "100% ఆఫ్‌లైన్ మోడ్",
+    "use-offline-desc": "మొబైల్ నెట్‌వర్క్ లేదా ఇంటర్నెట్ లేకపోయినా పొలాల్లోనే పంట వ్యాధులను వెంటనే గుర్తించండి.",
+    "use-soil-title": "NPK నేల పోషకాల సమతుల్యత",
+    "use-soil-desc": "మీ పంటలు మరియు నేల రకానికి అనుగుణంగా రసాయన మరియు సేంద్రీయ ఎరువుల మోతాదును లెక్కించండి.",
+    "use-weather-title": "వాతావరణ ప్రమాద హెచ్చరికలు",
+    "use-weather-desc": "ఫంగస్ మరియు బ్యాక్టీరియా వ్యాప్తిని నివారించడానికి స్థానిక ఉష్ణోగ్రత మరియు తేమను పర్యవేక్షించండి.",
+    "use-contact-title": "వ్యవసాయ సలహాదారులు",
+    "use-contact-desc": "అర్హత కలిగిన వ్యవసాయ నిపుణుల నుండి నేరుగా ఫోన్ ద్వారా సలహాలు పొందడానికి పంట వ్యాధి ఫోటోలను పంపండి.",
+    "use-yield-title": "ఎదుగుదల మైలురాళ్లు",
+    "use-yield-desc": "విత్తిన తేదీలు, శాఖీయ దశలు, పూత దశ మరియు కోత సమయ అంచనాలను నిజ సమయంలో ట్రాక్ చేయండి.",
 
     "test-sec-title": "రైతులు ఏమంటున్నారు",
     "test-sec-subtitle": "తమ పొలాల్లో రైతుమిత్రను ఉపయోగిస్తున్న రైతుల నిజమైన అనుభవాలు మరియు అభిప్రాయాలు.",
@@ -387,22 +393,25 @@ const translations = {
     "sta-sec-title": "कृषि सांख्यिकी",
     "sta-sec-subtitle": "फसलों की वृद्धि दर और रोग नियंत्रण की सफलता को दर्शाते हुए हमारे विश्लेषणात्मक आँकड़े।",
     "sta-chart-crop": "फसल स्वास्थ्य वितरण (%)",
-    "sta-chart-dis": "सामान्य बीमारियों का प्रकोप",
-    "sta-chart-yield": "औसत फसल पैदावार में सुधार",
-    "lbl-bar-rice": "धान",
-    "lbl-bar-cotton": "कपास",
-    "lbl-bar-wheat": "गेहूं",
-    "lbl-bar-maize": "मक्का",
-    "lbl-bar-tomato": "टमाटर",
-    "lbl-leg-spot": "पत्ती का धब्बा",
-    "lbl-leg-mildew": "पाउडर फफूंदी",
-    "lbl-leg-healthy": "स्वस्थ पत्तियां",
-    "lbl-yield-y1": "वर्ष 1 (प्रारंभिक AI तकनीक अपनाना)",
-    "lbl-yield-y2": "वर्ष 2 (उचित पोषण संतुलन)",
-    "lbl-yield-y3": "वर्ष 3 (उन्नत कृषि परिपक्वता)",
-    "lbl-yield-desc1": "शीघ्र रोग निदान से बचत",
-    "lbl-yield-desc2": "उर्वरक की सही मात्रा",
-    "lbl-yield-desc3": "अधिकतम पैदावार और न्यूनतम नुकसान",
+    "sta-chart-dis": "ऋतुओं के अनुसार मासिक रोग निदान",
+    "sta-chart-yield": "मुख्य प्रणाली क्षमताएं",
+    "stats-lbl-accuracy": "सत्यापित रोग निदान सटीकता",
+    "stats-lbl-speed": "त्वरित ऑफलाइन प्रतिक्रिया",
+    "stats-lbl-users": "वैश्विक स्तर पर पूर्ण स्कैन",
+    "lbl-badge-rice": "90% उच्चतम",
+    "lbl-grp-rabi": "रबी (सर्दियों में)",
+    "lbl-grp-kharif": "खरीफ (मानसून में)",
+    "lbl-grp-zaid": "जायद (गर्मियों में)",
+    "use-offline-title": "100% ऑफलाइन मोड",
+    "use-offline-desc": "मोबाइल नेटवर्क या इंटरनेट के बिना भी सीधे खेतों में फसल रोगों का तुरंत पता लगाएं।",
+    "use-soil-title": "NPK मिट्टी पोषक तत्व संतुलन",
+    "use-soil-desc": "अपनी मिट्टी की गुणवत्ता और फसलों के अनुसार रासायनिक और जैविक उर्वरक खुराक की गणना करें।",
+    "use-weather-title": "मौसम जोखिम चेतावनी",
+    "use-weather-desc": "फंगल और बैक्टीरियल रोगों के प्रकोप से बचने के लिए स्थानीय तापमान और आर्द्रता की निगरानी करें।",
+    "use-contact-title": "कृषि सलाहकार",
+    "use-contact-desc": "योग्य कृषि विशेषज्ञों से सीधे फोन पर मार्गदर्शन प्राप्त करने के लिए फसल रोगों की तस्वीरें भेजें।",
+    "use-yield-title": "फसल प्रगति के चरण",
+    "use-yield-desc": "बोने की तारीख, वानस्पतिक चरण, फूल आने का समय और कटाई के पूर्वानुमानों को वास्तविक समय में ट्रैक करें।",
 
     "test-sec-title": "किसानों की राय",
     "test-sec-subtitle": "ऋतुमित्र का उपयोग करने वाले किसानों के वास्तविक अनुभव और प्रतिक्रिया।",
@@ -536,22 +545,25 @@ const translations = {
     "sta-sec-title": "விவசாய புள்ளிவிவரங்கள்",
     "sta-sec-subtitle": "எங்கள் பகுப்பாய்வு மூலம் சேகரிக்கப்பட்ட பயிர் வளர்ச்சி விகிதம் மற்றும் நோய் கட்டுப்பாட்டு வெற்றிகள்.",
     "sta-chart-crop": "பயிர் சுகாதார விநியோகம் (%)",
-    "sta-chart-dis": "பொதுவான நோய்களின் பரவல்",
-    "sta-chart-yield": "சராசரி பயிர் விளைச்சல் மேம்பாடு",
-    "lbl-bar-rice": "நெல்",
-    "lbl-bar-cotton": "பருத்தி",
-    "lbl-bar-wheat": "கோதுமை",
-    "lbl-bar-maize": "சோளம்",
-    "lbl-bar-tomato": "தக்காளி",
-    "lbl-leg-spot": "இலைப்புள்ளி நோய்",
-    "lbl-leg-mildew": "சாம்பல் நோய்",
-    "lbl-leg-healthy": "ஆரோக்கியமான இலைகள்",
-    "lbl-yield-y1": "ஆண்டு 1 (ஆரம்ப AI பயன்பாடு)",
-    "lbl-yield-y2": "ஆண்டு 2 (முறையான ஊட்டச்சத்துக்கள்)",
-    "lbl-yield-y3": "ஆண்டு 3 (அதிநவீன விவசாய முதிர்ச்சி)",
-    "lbl-yield-desc1": "முன்கூட்டியே கண்டறிந்து சேமிப்பு",
-    "lbl-yield-desc2": "முறையான உரப் பயன்பாடு",
-    "lbl-yield-desc3": "அதிகபட்ச விளைச்சல் & குறைந்த சேதம்",
+    "sta-chart-dis": "பருவகால வாரியாக மாதாந்திர நோய் கண்டறிதல்",
+    "sta-chart-yield": "முக்கிய கணினி திறன்கள்",
+    "stats-lbl-accuracy": "சரிபார்க்கப்பட்ட நோய் கண்டறிதல் துல்லியம்",
+    "stats-lbl-speed": "உடனடி ஆஃப்லைன் பதில்",
+    "stats-lbl-users": "உலகளாவிய பயிர் ஸ்கேன்கள்",
+    "lbl-badge-rice": "90% உச்சம்",
+    "lbl-grp-rabi": "ரபி (குளிர்காலம்)",
+    "lbl-grp-kharif": "காரிஃப் (மழைக்காலம்)",
+    "lbl-grp-zaid": "செய்ட் (கோடைகாலம்)",
+    "use-offline-title": "100% ஆஃப்லைன் பயன்முறை",
+    "use-offline-desc": "இணைய இணைப்பு இல்லாவிட்டாலும் நேரடியாக வயல்வெளிகளிலேயே பயிர் நோய்களை உடனடியாகக் கண்டறியவும்.",
+    "use-soil-title": "NPK மண் ஊட்டச்சத்து சமநிலை",
+    "use-soil-desc": "மண் வளம் மற்றும் பயிர்களுக்கு ஏற்ப ரசாயன மற்றும் இயற்கை உர அளவை துல்லியமாக கணக்கிடுங்கள்.",
+    "use-weather-title": "வானிலை ஆபத்து எச்சரிக்கைகள்",
+    "use-weather-desc": "பூஞ்சை மற்றும் பாக்டீரியா தொற்றுகளைத் தவிர்க்க உள்ளூர் வெப்பநிலை மற்றும் ஈரப்பதத்தைக் கண்காணிக்கவும்.",
+    "use-contact-title": "வேளாண் ஆலோசகர்கள்",
+    "use-contact-desc": "தகுதிவாய்ந்த வேளாண் நிபுணர்களிடம் இருந்து நேரடியாக தொலைபேசி வழிகட்டுதலைப் பெற புகைப்படங்களை அனுப்பவும்.",
+    "use-yield-title": "வளர்ச்சி மைல்கற்கள்",
+    "use-yield-desc": "விதைப்பு தேதிகள், வளர்ச்சி நிலைகள் மற்றும் அறுவடை நேர கணிப்புகளை நிகழ்நேரத்தில் கண்காணிக்கவும்.",
 
     "test-sec-title": "விவசாயிகள் என்ன சொல்கிறார்கள்",
     "test-sec-subtitle": "தங்கள் வயல்களில் உழவன்மித்ராவைப் பயன்படுத்தும் விவசாயிகளின் அனுபவங்கள் மற்றும் கருத்துக்கள்.",
@@ -684,22 +696,25 @@ const translations = {
     "sta-sec-title": "കാർഷിക സ്ഥിതിവിവരക്കണക്കുകൾ",
     "sta-sec-subtitle": "വിളകളുടെ വളർച്ചാ നിരക്കും കീടനിയന്ത്രണ വിജയവും വ്യക്തമാക്കുന്ന സ്ഥിതിവിവരക്കണക്കുകൾ.",
     "sta-chart-crop": "വിള ആരോഗ്യ വിതരണം (%)",
-    "sta-chart-dis": "സാധാരണ രോഗബാധകൾ",
-    "sta-chart-yield": "ശരാശരി വിളവ് വർദ്ധനവ്",
-    "lbl-bar-rice": "നെല്ല്",
-    "lbl-bar-cotton": "പരുത്തി",
-    "lbl-bar-wheat": "ഗോതമ്പ്",
-    "lbl-bar-maize": "ചോളം",
-    "lbl-bar-tomato": "തക്കാളി",
-    "lbl-leg-spot": "ഇലപ്പുള്ളി രോഗം",
-    "lbl-leg-mildew": "പൂപ്പൽ രോഗം",
-    "lbl-leg-healthy": "ആരോഗ്യമുള്ള ഇലകൾ",
-    "lbl-yield-y1": "വർഷം 1 (പ്രാരംഭ AI ഉപയോഗം)",
-    "lbl-yield-y2": "വർഷം 2 (മണ്ണിലെ പോഷക സമതുലിതാവസ്ഥ)",
-    "lbl-yield-y3": "വർഷം 3 (സ്മാർട്ട് കൃഷി വളർച്ച)",
-    "lbl-yield-desc1": "രോഗങ്ങൾ നേരത്തെ കണ്ടെത്തുന്നത് വഴി ലാഭം",
-    "lbl-yield-desc2": "കൃത്യമായ വളപ്രയോഗം വഴി",
-    "lbl-yield-desc3": "ഉയർന്ന വിളവും കുറഞ്ഞ നാശനഷ്ടവും",
+    "sta-chart-dis": "സീസൺ അനുസരിച്ചുള്ള പ്രതിമാസ രോഗനിർണ്ണയം",
+    "sta-chart-yield": "പ്രധാന സിസ്റ്റം സവിശേഷതകൾ",
+    "stats-lbl-accuracy": "സ്ഥിരീകരിച്ച രോഗനിർണ്ണയ കൃത്യത",
+    "stats-lbl-speed": "ഉടനടി ഓഫ്ലൈൻ മറുപടി",
+    "stats-lbl-users": "ആഗോള തലത്തിൽ പൂർത്തിയാക്കിയ സ്കാനുകൾ",
+    "lbl-badge-rice": "90% പരമാവധി",
+    "lbl-grp-rabi": "രബി (ശീതകാലം)",
+    "lbl-grp-kharif": "ഖരീഫ് (വർഷാകാലം)",
+    "lbl-grp-zaid": "സെയ്ദ് (വേനൽക്കാലം)",
+    "use-offline-title": "100% ഓഫ്ലൈൻ മോഡ്",
+    "use-offline-desc": "നെറ്റ്‌വർക്കോ ഇന്റർനെറ്റോ ഇല്ലാത്ത കൃഷിയിടങ്ങളിലും വിളരോഗങ്ങൾ ഉടനടി കണ്ടെത്തുക.",
+    "use-soil-title": "NPK മണ്ണിലെ പോഷക സമതുലിതാവസ്ഥ",
+    "use-soil-desc": "മണ്ണിന്റെ ഗുണനിലവാരത്തിനും വിളകൾക്കും അനുസൃതമായി വളത്തിന്റെ അളവ് കണക്കാക്കുക.",
+    "use-weather-title": "കാലാവസ്ഥാ മുന്നറിയിപ്പുകൾ",
+    "use-weather-desc": "ഫംഗസ് രോഗങ്ങൾ പടരുന്നത് തടയാൻ അന്തരീക്ഷ താപനിലയും ഈർപ്പവും നിരീക്ഷിക്കുക.",
+    "use-contact-title": "കാർഷിക വിദഗ്ദ്ധർ",
+    "use-contact-desc": "വിദഗ്ദ്ധരായ കൃഷി ഓഫീസർമാരിൽ നിന്ന് നേരിട്ട് ഫോൺ വഴി നിർദ്ദേശങ്ങൾ ലഭിക്കുന്നതിന് ചിത്രങ്ങൾ അയക്കുക.",
+    "use-yield-title": "വിള വളർച്ചാ ഘട്ടങ്ങൾ",
+    "use-yield-desc": "വിതച്ച തീയതികൾ, വളർച്ചാ ഘട്ടങ്ങൾ, വിളവെടുപ്പ് സമയം എന്നിവ തത്സമയം ട്രാക്ക് ചെയ്യുക.",
 
     "test-sec-title": "കർഷകരുടെ അഭിപ്രായങ്ങൾ",
     "test-sec-subtitle": "തങ്ങളുടെ കൃഷിയിടങ്ങളിൽ ഞങ്ങളുടെ ആപ്ലിക്കേഷൻ ഉപയോഗിക്കുന്ന കർഷകരുടെ അനുഭവങ്ങൾ.",
@@ -833,22 +848,25 @@ const translations = {
     "sta-sec-title": "ಕೃಷಿ ಅಂಕಿಅಂಶಗಳು",
     "sta-sec-subtitle": "ಬೆಳೆಗಳ ಬೆಳವಣಿಗೆ ದರ ಮತ್ತು ರೋಗ ನಿಯಂತ್ರಣ ಯಶಸ್ಸನ್ನು ತೋರಿಸುವ ವಿಶ್ಲೇಷಣಾತ್ಮಕ ಅಂಕಿಅಂಶಗಳು.",
     "sta-chart-crop": "ಬೆಳೆ ಆರೋಗ್ಯ ಹಂಚಿಕೆ (%)",
-    "sta-chart-dis": "ಸಾಮಾನ್ಯ ರೋಗಗಳ ಹರಡುವಿಕೆ",
-    "sta-chart-yield": "ಸರಾಸರಿ ಬೆಳೆ ಇಳುವರಿ ಸುಧಾರಣೆ",
-    "lbl-bar-rice": "ಭತ್ತ",
-    "lbl-bar-cotton": "ಹತ್ತಿ",
-    "lbl-bar-wheat": "ಗೋಧಿ",
-    "lbl-bar-maize": "ಮೆಕ್ಕೆಜೋಳ",
-    "lbl-bar-tomato": "ಟೊಮೆಟೊ",
-    "lbl-leg-spot": "ಎಲೆ ಚುಕ್ಕೆ ರೋಗ",
-    "lbl-leg-mildew": "ಬೂದಿ ರೋಗ",
-    "lbl-leg-healthy": "ಆರೋಗ್ಯಕರ ಎಲೆಗಳು",
-    "lbl-yield-y1": "ವರ್ಷ 1 (ಆರಂಭಿಕ AI ತಂತ್ರಜ್ಞಾನ ದತ್ತು)",
-    "lbl-yield-y2": "ವರ್ಷ 2 (ಸೂಕ್ತ ಪೋಷಕಾಂಶಗಳ ಸಮತೋಲನ)",
-    "lbl-yield-y3": "ವರ್ಷ 3 (ಸುಧಾರಿತ ಕೃಷಿ ಪಕ್ವತೆ)",
-    "lbl-yield-desc1": "ರೋಗಗಳ ಆರಂಭಿಕ ಪತ್ತೆಯಿಂದ ಉಳಿತಾಯ",
-    "lbl-yield-desc2": "ಗೊಬ್ಬರದ ಸರಿಯಾದ ಬಳಕೆ",
-    "lbl-yield-desc3": "ಗರಿಷ್ಠ ಇಳುವರಿ ಮತ್ತು ಕನಿಷ್ಠ ನಷ್ಟ",
+    "sta-chart-dis": "ಋತುಮಾನದ ಪ್ರಕಾರ ಮಾಸಿಕ ರೋಗ ಪತ್ತೆ",
+    "sta-chart-yield": "ಮುಖ್ಯ ವ್ಯವಸ್ಥೆಯ ಸಾಮರ್ಥ್ಯಗಳು",
+    "stats-lbl-accuracy": "ದೃಢೀಕೃತ ರೋಗ ಪತ್ತೆ ನಿಖರತೆ",
+    "stats-lbl-speed": "ತಕ್ಷಣದ ಆಫ್‌ಲೈನ್ ಪ್ರತಿಕ್ರಿಯೆ",
+    "stats-lbl-users": "ಜಾಗತಿಕವಾಗಿ ಬೆಳೆ ಸ್ಕ್ಯಾನ್‌ಗಳು",
+    "lbl-badge-rice": "90% ಗರಿಷ್ಠ",
+    "lbl-grp-rabi": "ರಬಿ (ಚಳಿಗಾಲ)",
+    "lbl-grp-kharif": "ಖಾರಿಫ್ (ಮುಂಗಾರು)",
+    "lbl-grp-zaid": "ಜೈದ್ (ಬೇಸಿಗೆಕಾಲ)",
+    "use-offline-title": "100% ಆಫ್‌ಲೈನ್ ಮೋಡ್",
+    "use-offline-desc": "ಇಂಟರ್ನೆಟ್ ಸಂಪರ್ಕವಿಲ್ಲದಿದ್ದರೂ ಜಮೀನುಗಳಲ್ಲಿಯೇ ಬೆಳೆ ರೋಗಗಳನ್ನು ತಕ್ಷಣವೇ ಪತ್ತೆ ಮಾಡಿ.",
+    "use-soil-title": "NPK ಮಣ್ಣಿನ ಪೋಷಕಾಂಶ ಸಮತೋಲನ",
+    "use-soil-desc": "ನಿಮ್ಮ ಮಣ್ಣಿನ ಪ್ರಕಾರ ಮತ್ತು ಬೆಳೆಗೆ ತಕ್ಕಂತೆ ಸಾವಯವ ಹಾಗೂ ರಾಸಾಯನಿಕ ಗೊಬ್ಬರ ಪ್ರಮಾಣ ಲೆಕ್ಕಹಾಕಿ.",
+    "use-weather-title": "ಹವಾಮಾನ ಅಪಾಯದ ಎಚ್ಚರಿಕೆಗಳು",
+    "use-weather-desc": "ಶಿಲೀಂಧ್ರ ರೋಗಗಳ ಹರಡುವಿಕೆ ತಪ್ಪಿಸಲು ಸ್ಥಳೀಯ ತಾಪಮಾನ ಮತ್ತು ತೇವಾಂಶವನ್ನು ಪರ್ಯವೇಕ್ಷಿಸಿ.",
+    "use-contact-title": "ಕೃಷಿ ಸಲಹೆಗಾರರು",
+    "use-contact-desc": "ಕೃಷಿ ತಜ್ಞರಿಂದ ನೇರವಾಗಿ ಫೋನ್ ಮೂಲಕ ಮಾರ್ಗದರ್ಶನ ಪಡೆಯಲು ಬೆಳೆ ರೋಗಗಳ ಚಿತ್ರಗಳನ್ನು ಕಳುಹಿಸಿ.",
+    "use-yield-title": "ಬೆಳವಣಿಗೆಯ ಮೈಲಿಗಲ್ಲುಗಳು",
+    "use-yield-desc": "ಬಿತ್ತನೆ ದಿನಾಂಕಗಳು, ಬೆಳವಣಿಗೆಯ ಹಂತಗಳು ಹಾಗೂ ಕಟಾವಿನ ಅಂದಾಜು ಸಮಯವನ್ನು ನೈಜ ಸಮಯದಲ್ಲಿ ಮೇಲ್ವಿಚಾರಣೆ ಮಾಡಿ.",
 
     "test-sec-title": "ರೈತರ ಅಭಿಪ್ರಾಯಗಳು",
     "test-sec-subtitle": "ತಮ್ಮ ಜಮೀನುಗಳಲ್ಲಿ ಋತುಮಿತ್ರವನ್ನು ಬಳಸುತ್ತಿರುವ ರೈತರ ನೈಜ ಅನುಭವಗಳು.",
@@ -1074,6 +1092,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initFAQAccordion();
   initContactForm();
   initNearbyCenters();
+  initStatsIntersectionObserver();
 });
 
 // --- Sticky Navigation & Hamburger Menu ---
@@ -1773,25 +1792,60 @@ function initContactForm() {
   });
 }
 
-// --- Statistics Chart Visual Animation ---
-window.addEventListener("load", () => {
-  // Animate Crop health bar charts columns on page load
-  const barRice = document.getElementById("bar-rice");
-  const barCotton = document.getElementById("bar-cotton");
-  const barWheat = document.getElementById("bar-wheat");
-  const barMaize = document.getElementById("bar-maize");
-  const barTomato = document.getElementById("bar-tomato");
+// --- Statistics Chart Visual Animation via Scroll Grow ---
+function initStatsIntersectionObserver() {
+  const statsSection = document.getElementById("statistics");
+  if (!statsSection) return;
 
-  if (barRice) {
-    setTimeout(() => {
-      barRice.style.height = "90%";
-      barCotton.style.height = "75%";
-      barWheat.style.height = "88%";
-      barMaize.style.height = "82%";
-      barTomato.style.height = "68%";
-    }, 400);
-  }
-});
+  const heights = {
+    // Single bar chart
+    "bar-rice": "90%",
+    "bar-cotton": "75%",
+    "bar-wheat": "88%",
+    "bar-maize": "82%",
+    "bar-tomato": "68%",
+    
+    // Grouped bar chart (Rabi)
+    "grp-r-rice": "45%",
+    "grp-r-wheat": "85%",
+    "grp-r-tomato": "30%",
+    
+    // Grouped bar chart (Kharif)
+    "grp-k-rice": "90%",
+    "grp-k-wheat": "15%",
+    "grp-k-tomato": "55%",
+    
+    // Grouped bar chart (Zaid)
+    "grp-z-rice": "20%",
+    "grp-z-wheat": "35%",
+    "grp-z-tomato": "80%"
+  };
+
+  const observerOptions = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.15
+  };
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Animate all bars in heights dictionary
+        Object.keys(heights).forEach(id => {
+          const el = document.getElementById(id);
+          if (el) {
+            el.style.height = heights[id];
+            el.classList.add("animated");
+          }
+        });
+        // Disconnect after triggering once
+        obs.disconnect();
+      }
+    });
+  }, observerOptions);
+
+  observer.observe(statsSection);
+}
 
 // --- Nearby Agriculture Support Centers Module ---
 
