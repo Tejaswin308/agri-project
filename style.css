@@ -246,7 +246,7 @@ header.scrolled {
   display: flex;
   list-style: none;
   align-items: center;
-  gap: 24px;
+  gap: 16px;
 }
 
 .nav-links a {
@@ -254,6 +254,7 @@ header.scrolled {
   color: var(--text-main);
   padding: 6px 4px;
   position: relative;
+  font-size: 0.9rem;
 }
 
 .nav-links a::after {
@@ -1436,37 +1437,89 @@ input:checked+.slider:before {
   background-color: var(--white);
 }
 
+/* Premium Row of Stats Cards (calqo.in Style) */
+.stats-premium-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin-bottom: 50px;
+}
+
+.stats-card-premium {
+  background-color: var(--white);
+  padding: 30px 24px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.stats-card-premium:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.stats-card-icon-wrapper {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.stats-card-info h3 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--primary-dark);
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+
+.stats-card-info p {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+/* Redesigned Charts Layout Grid */
 .charts-layout-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
 }
 
-.chart-card {
+.chart-card-premium {
   background-color: var(--bg-soft);
   padding: 40px;
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
 }
 
-.chart-card h3 {
+.chart-card-premium h3 {
   font-size: 1.4rem;
-  margin-bottom: 24px;
+  margin-bottom: 30px;
   text-align: center;
 }
 
-/* Chart 1: Bar Chart Crop Health */
-.bar-chart-container {
+/* Chart 1: Bar Chart Crop Health (Premium styling) */
+.bar-chart-container-premium {
   display: flex;
   justify-content: space-around;
   align-items: flex-end;
-  height: 240px;
+  height: 250px;
   border-bottom: 2px solid var(--border-color);
   padding-bottom: 10px;
   margin-bottom: 15px;
 }
 
-.bar-column {
+.bar-column-premium {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1475,18 +1528,37 @@ input:checked+.slider:before {
   justify-content: flex-end;
 }
 
-.bar-fill {
-  width: 80%;
+.bar-wrapper-premium {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: relative;
+}
+
+.bar-fill-premium {
+  width: 70%;
   background: linear-gradient(to top, var(--primary), var(--secondary));
   border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+ 
   transition: height 1.5s cubic-bezier(0.4, 0, 0.2, 1);
   height: 0%;
   /* Dynamic */
+  transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: bottom;
+  transform: scaleY(0); /* Controlled by JS IntersectionObserver */
+  height: 100%; /* Filled based on style="height: X%" on element */
+  
   position: relative;
-  box-shadow: 0 4px 10px rgba(27, 94, 32, 0.1);
+  box-shadow: 0 4px 12px rgba(27, 94, 32, 0.12);
 }
 
-.bar-val {
+.bar-fill-premium.animated {
+  transform: scaleY(1);
+}
+
+.bar-val-premium {
   position: absolute;
   top: -24px;
   left: 50%;
@@ -1496,22 +1568,34 @@ input:checked+.slider:before {
   color: var(--primary-dark);
 }
 
-.bar-label {
-  margin-top: 8px;
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: var(--text-muted);
+.peak-badge-premium {
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--accent-gold);
+  color: var(--text-main);
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-sm);
+  white-space: nowrap;
 }
 
-/* Chart 2: Donut Circular Chart (Disease Occurrence) */
-.donut-chart-flex {
+/* Chart 2: Grouped Bar Chart (Monthly diagnostics by Crop) */
+.grouped-chart-container {
   display: flex;
-  align-items: center;
   justify-content: space-around;
-  gap: 20px;
-  height: 240px;
+  align-items: flex-end;
+  height: 250px;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+  position: relative;
 }
 
+ vahida-changes
 .donut-graphic {
   position: relative;
   width: 180px;
@@ -1521,106 +1605,235 @@ input:checked+.slider:before {
   background: conic-gradient(var(--primary) 0% 45%,
       var(--secondary) 45% 75%,
       var(--accent-gold) 75% 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: var(--shadow-sm);
-  transition: var(--transition-slow);
-}
 
-.donut-inner-hole {
-  width: 110px;
-  height: 110px;
-  background-color: var(--bg-soft);
-  border-radius: 50%;
+.group-column {
+ main
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 25%;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.grouped-bars {
+  display: flex;
+  align-items: flex-end;
   justify-content: center;
+vahida-changes
   box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.06);
+
+  gap: 6px;
+  width: 100%;
+  height: 100%;
+ main
 }
 
-.donut-inner-hole span {
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: var(--primary-dark);
-}
-
-.donut-inner-hole label {
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-.donut-legend {
+.bar-group-wrapper {
+  height: 100%;
   display: flex;
-  flex-direction: column;
-  gap: 12px;
+  align-items: flex-end;
+  width: 24%;
 }
 
-.legend-item {
+.bar-group-fill {
+  width: 100%;
+  border-radius: 3px 3px 0 0;
+  transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: bottom;
+  transform: scaleY(0); /* Controlled by JS IntersectionObserver */
+  height: 100%;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+.bar-group-fill.animated {
+  transform: scaleY(1);
+}
+
+.grp-bar-val {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-main);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.bar-group-fill:hover .grp-bar-val {
+  opacity: 1;
+}
+
+/* Colors for grouped bars */
+.color-rice {
+  background: linear-gradient(to top, var(--primary-dark), var(--primary));
+}
+.color-wheat {
+  background: linear-gradient(to top, #c79100, var(--accent-gold));
+}
+.color-tomato {
+  background: linear-gradient(to top, #d84315, #ff7043);
+}
+
+/* Legend for Grouped Chart */
+.grouped-legend {
+  position: absolute;
+  top: -20px;
+  right: 0;
+  display: flex;
+  gap: 15px;
+}
+
+.g-legend-item {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 0.88rem;
+  gap: 6px;
+  font-size: 0.8rem;
   font-weight: 600;
 }
 
-.legend-color {
-  width: 14px;
-  height: 14px;
-  border-radius: 4px;
+.g-legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
 }
 
-.legend-val {
-  margin-left: auto;
-  font-weight: 800;
-  color: var(--primary-dark);
+/* ==========================================================================
+   Tilted Fan-Out Use Case Cards Deck (calqo.in Style)
+   ========================================================================== */
+.deck-title-wrapper {
+  margin-top: 60px;
+  margin-bottom: 40px;
 }
 
-/* Yield improvement: comparison columns */
-.yield-comparison {
-  grid-column: span 2;
-  background-color: var(--bg-soft);
-  padding: 40px;
+.deck-title-wrapper h3 {
+  font-size: 1.8rem;
+  position: relative;
+  display: inline-block;
+}
+
+.deck-title-wrapper h3::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: var(--secondary);
+  margin: 8px auto 0 auto;
+  border-radius: var(--radius-full);
+}
+
+.tilted-card-deck-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  overflow: visible;
+  padding: 20px 0;
+}
+
+.tilted-card-deck {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 20px;
+  width: 100%;
+  max-width: 1100px;
+}
+
+.deck-card {
+  flex: 1;
   border-radius: var(--radius-lg);
-  border: 1px solid var(--border-color);
-  margin-top: 20px;
+  padding: 35px 28px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), z-index 0.1s ease;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
 }
 
-.yield-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+/* Custom background color schemes for cards */
+.card-sage {
+  background-color: #E8EFE9; /* Sage green tint */
+  color: #2E4F33;
+}
+.card-sage h4, .card-sage .deck-card-icon svg {
+  color: #1B5E20;
+  fill: #1B5E20;
 }
 
-.yield-card {
-  background-color: var(--white);
-  padding: 24px;
-  border-radius: var(--radius-md);
-  text-align: center;
-  border: 1px solid var(--border-color);
+.card-blue {
+  background-color: #E3F2FD; /* Soft blue */
+  color: #1A3F5C;
+}
+.card-blue h4, .card-blue .deck-card-icon svg {
+  color: #1565C0;
+  fill: #1565C0;
 }
 
-.yield-card h4 {
-  font-size: 1.15rem;
-  color: var(--text-muted);
-  margin-bottom: 15px;
+.card-beige {
+  background-color: #FFF8E1; /* Soft warm gold/beige */
+  color: #5D4037;
+}
+.card-beige h4, .card-beige .deck-card-icon svg {
+  color: #FF8F00;
+  fill: #FF8F00;
 }
 
-.yield-percentage {
-  font-size: 2.8rem;
-  font-weight: 800;
-  color: var(--primary);
-  line-height: 1;
-  margin-bottom: 8px;
+.card-peach {
+  background-color: #FBE9E7; /* Warm peach */
+  color: #5E2E21;
+}
+.card-peach h4, .card-peach .deck-card-icon svg {
+  color: #D84315;
+  fill: #D84315;
 }
 
-.yield-card p {
+.card-lavender {
+  background-color: #F3E5F5; /* Muted lavender */
+  color: #4A148C;
+}
+.card-lavender h4, .card-lavender .deck-card-icon svg {
+  color: #7B1FA2;
+  fill: #7B1FA2;
+}
+
+/* Staggered CSS Rotations (Tilted fan-out effect) */
+.tilted-card-deck .deck-card:nth-child(1) { transform: rotate(-3deg); }
+.tilted-card-deck .deck-card:nth-child(2) { transform: rotate(-1.5deg); }
+.tilted-card-deck .deck-card:nth-child(3) { transform: rotate(0deg); }
+.tilted-card-deck .deck-card:nth-child(4) { transform: rotate(1.5deg); }
+.tilted-card-deck .deck-card:nth-child(5) { transform: rotate(3deg); }
+
+/* Hover animations - elevates cleanly, straightens rotation and pulls forward */
+.deck-card:hover {
+  transform: translateY(-15px) scale(1.05) rotate(0deg) !important;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+  z-index: 10;
+}
+
+.deck-card-icon {
+  margin-bottom: 20px;
+}
+
+.deck-card-icon svg {
+  width: 36px;
+  height: 36px;
+}
+
+.deck-card h4 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  font-family: var(--font-title);
+}
+
+.deck-card p {
   font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--secondary);
+  line-height: 1.5;
+  opacity: 0.9;
 }
 
 /* ==========================================================================
@@ -2186,6 +2399,35 @@ footer {
   .yield-comparison {
     grid-column: span 1;
   }
+
+  .stats-premium-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tilted-card-deck-wrapper {
+    overflow-x: auto;
+    padding: 20px 10px;
+    justify-content: flex-start;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+  }
+
+  .tilted-card-deck {
+    width: max-content;
+    gap: 15px;
+    padding: 0 10px;
+  }
+
+  .tilted-card-deck .deck-card {
+    width: 280px;
+    flex: 0 0 280px;
+    scroll-snap-align: start;
+    transform: rotate(0deg) !important;
+  }
+
+  .deck-card:hover {
+    transform: translateY(-5px) !important;
+  }
 }
 
 @media (max-width: 768px) {
@@ -2285,6 +2527,13 @@ footer {
     grid-template-columns: 1fr;
   }
 
+ vahida-changes
+
+  .stats-premium-row {
+    grid-template-columns: 1fr;
+  }
+  
+main
   .presets-grid {
     grid-template-columns: 1fr;
   }
@@ -2333,6 +2582,7 @@ footer {
 }
 
 /* ==========================================================================
+vahida-changes
    Audio / Read Aloud Button & Wave Animation
    ========================================================================== */
 .audio-btn {
@@ -2397,3 +2647,303 @@ footer {
   from { transform: scaleY(0.5); opacity: 0.7; }
   to   { transform: scaleY(1.4); opacity: 1; }
 }
+
+   Nearby Agriculture Centers Styles
+   ========================================================================== */
+.nearby-centers-container {
+  animation: slideInUp 0.5s ease;
+}
+
+.recommendations-card {
+  background-color: var(--accent);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  border: 1px solid var(--secondary-light);
+  margin-bottom: 30px;
+}
+
+.recommendations-title {
+  color: var(--primary);
+  font-family: var(--font-title);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.recommendations-desc {
+  color: var(--text-main);
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+}
+
+.recommendations-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.recommendation-badge {
+  background-color: var(--primary);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-sm);
+  display: inline-flex;
+  align-items: center;
+}
+
+.centers-search-header {
+  margin-bottom: 20px;
+}
+
+.centers-search-header h3 {
+  font-family: var(--font-title);
+  font-size: 1.6rem;
+  color: var(--text-main);
+  margin-bottom: 10px;
+}
+
+/* Loading spinner */
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  font-weight: 600;
+  background-color: var(--bg-soft);
+  padding: 12px 20px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  width: fit-content;
+}
+
+.loading-spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(27, 94, 32, 0.1);
+  border-radius: 50%;
+  border-top-color: var(--primary);
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Error message box */
+.error-msg-box {
+  display: flex;
+  align-items: center;
+  color: var(--offline);
+  background-color: #ffebee;
+  border: 1px solid #ffcdd2;
+  padding: 14px 20px;
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+/* Grid layout */
+.nearby-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 30px;
+  align-items: start;
+}
+
+.map-wrapper {
+  background-color: var(--bg-card);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  padding: 10px;
+}
+
+#nearby-map {
+  height: 450px;
+  width: 100%;
+  border-radius: var(--radius-sm);
+  z-index: 1; /* Keep leaflet controls below navbar overlays */
+}
+
+/* Leaflet style tweaks to fit website theme */
+.leaflet-bar a {
+  background-color: var(--white) !important;
+  color: var(--text-main) !important;
+  border-bottom: 1px solid var(--border-color) !important;
+  transition: var(--transition-fast);
+}
+
+.leaflet-bar a:hover {
+  background-color: var(--bg-soft) !important;
+  color: var(--primary) !important;
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+  color: var(--text-muted) !important;
+  padding: 6px 6px 0 0 !important;
+}
+
+/* Cards List */
+.centers-list-wrapper {
+  max-height: 472px; /* matches map height + padding */
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.centers-list-wrapper::-webkit-scrollbar {
+  width: 6px;
+}
+
+.centers-list-wrapper::-webkit-scrollbar-track {
+  background: var(--bg-soft);
+  border-radius: var(--radius-full);
+}
+
+.centers-list-wrapper::-webkit-scrollbar-thumb {
+  background: var(--secondary-light);
+  border-radius: var(--radius-full);
+}
+
+.centers-list-wrapper::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary);
+}
+
+.centers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Center Card styling */
+.center-card {
+  position: relative;
+  background-color: var(--bg-card);
+  border-radius: var(--radius-sm);
+  padding: 20px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.center-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--secondary-light);
+}
+
+/* Highlight recommended card */
+.center-card.recommended-card {
+  border: 2px dashed var(--accent-gold);
+  background-color: #fffde7; /* extremely light warm gold background */
+}
+
+.center-card.recommended-card:hover {
+  border-color: var(--accent-gold);
+  box-shadow: 0 10px 25px rgba(255, 179, 0, 0.15);
+}
+
+.rec-card-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: var(--accent-gold);
+  color: var(--text-main);
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-sm);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.card-name {
+  font-family: var(--font-title);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 4px;
+  padding-right: 100px; /* space for badge */
+}
+
+.card-category {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.card-address {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+
+.card-meta {
+  display: flex;
+  gap: 20px;
+  font-size: 0.85rem;
+  color: var(--text-main);
+  border-top: 1px solid var(--border-color);
+  padding-top: 10px;
+}
+
+.card-distance strong {
+  color: var(--primary);
+}
+
+.card-rating {
+  font-weight: 700;
+  color: var(--accent-gold);
+}
+
+.card-directions-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 10px 16px;
+  width: 100%;
+  border-radius: var(--radius-sm);
+  transition: var(--transition-fast);
+}
+
+/* Responsive Overrides */
+@media (max-width: 768px) {
+  .nearby-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  #nearby-map {
+    height: 350px;
+  }
+
+  .centers-list-wrapper {
+    max-height: none;
+    overflow-y: visible;
+  }
+  
+  .card-name {
+    padding-right: 0;
+    margin-top: 20px; /* space under badge */
+  }
+}
+ main
