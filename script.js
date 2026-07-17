@@ -915,6 +915,12 @@ const translations = {
 const diseaseDatabase = {
   leaf_spot: {
     diseaseName: "Early Leaf Spot (Septoria)",
+    diseaseNameLocalized: {
+      en: "Early Leaf Spot (Septoria)",
+      te: "ప్రారంభ ఆకుమచ్చ (సెప్టోరియా)",
+      hi: "प्रारंभिक पत्ती धब्बा (सेप्टोरिया)",
+      ta: "ஆரம்ப இலைப்புள்ளி (செப்டோரியா)"
+    },
     confidence: "95%",
     severity: "high",
     severityVal: 85,
@@ -954,13 +960,28 @@ const diseaseDatabase = {
       en: "Avoid sprinkler watering (water roots directly), practice crop rotation, weed cleanups, and leave spacing between plants.",
       te: "చిలకరింపు నీటి పద్ధతిని నివారించండి (నేరుగా వేర్లకు నీరు పెట్టండి), పంట మార్పిడి చేయండి మరియు మొక్కల మధ్య తగిన దూరం ఉంచండి.",
       hi: "छिड़काव विधि से सिंचाई से बचें (सीधे जड़ों में पानी दें), फसल चक्र अपनाएं और पौधों के बीच पर्याप्त दूरी रखें।",
+ vahida-changes
+      ta: "தெளிப்பு நீர் பாசனத்தை தவிர்க்கவும் (நேரடியாக வேர்களுக்கு நீர் பாய்ச்சவும்), பயிர் சுழற்சி முறை மற்றும் பயிர்களுக்கு இடையே இடைவெளி விடவும்."
+    },
+    organicDosage: "Neem oil 5ml/L, every 7 days",
+    chemicalDosage: "Mancozeb 2.5g/L, every 10 days",
+    organicCost: "\u20B9800\u2013\u20B91,200 / acre",
+    chemicalCost: "\u20B91,500\u2013\u20B92,500 / acre"
+
       ta: "தெளிப்பு நீர் பாசனத்தை தவிர்க்கவும் (நேரடியாக வேர்களுக்கு நீர் பாய்ச்சவும்), பயிர் சுழற்சி முறை மற்றும் பயிர்களுக்கு இடையே இடைவெளி விடவும்.",
       ml: "സ്പ്രിംഗ്ലർ നനയ്ക്കൽ ഒഴിവാക്കുക (നേരിട്ട് വേരുകൾക്ക് നനയ്ക്കുക), വിള ചക്രം നിലനിർത്തുക, കളകൾ വൃത്തിയാക്കുക, ചെടികൾക്കിടയിൽ അകലം പാലിക്കുക.",
       kn: "ತುಂತುರು ನೀರಾವರಿ ತಪ್ಪಿಸಿ (ನೇರವಾಗಿ ಬೇರುಗಳಿಗೆ ನೀರು ಕೊಡಿ), ಬೆಳೆ ಸರದಿ ಮಾಡಿ ಮತ್ತು ಗಿಡಗಳ ನಡುವೆ ಸೂಕ್ತ ಅಂತರವಿಡಿ."
     }
+ main
   },
   mildew: {
     diseaseName: "Powdery Mildew Fungal Infection",
+    diseaseNameLocalized: {
+      en: "Powdery Mildew Fungal Infection",
+      te: "పొడి బూజు తెగులు",
+      hi: "पाउडर फफूंद संक्रमण",
+      ta: "சாம்பல் நோய் பூஞ்சை தொற்று"
+    },
     confidence: "88%",
     severity: "medium",
     severityVal: 55,
@@ -1000,13 +1021,28 @@ const diseaseDatabase = {
       en: "Plant disease-resistant crop varieties in open areas with high solar exposure. Avoid high nitrogen fertilizer excess.",
       te: "ఎండ బాగా తగిలే ప్రదేశాలలో తెగుళ్లను తట్టుకునే రకాలను నాటండి. నత్రజని ఎరువుల అధిక వినియోగాన్ని నివారించండి.",
       hi: "तेज धूप वाले क्षेत्रों में रोग-प्रतिरोधी किस्में लगाएं। नाइट्रोजन युक्त उर्वरकों के अत्यधिक उपयोग से बचें।",
+vahida-changes
+      ta: "சூரிய ஒளி நன்றாக படும் இடங்களில் நோய் எதிர்ப்பு ரகங்களை பயிரிடவும். நைட்ரஜன் உரங்களை அதிகமாக பயன்படுத்துவதை தவிர்க்கவும்."
+    },
+    organicDosage: "Potassium bicarbonate 5g/L, every 5 days",
+    chemicalDosage: "Myclobutanil 1g/L, every 14 days",
+    organicCost: "\u20B9600\u2013\u20B9900 / acre",
+    chemicalCost: "\u20B91,200\u2013\u20B92,000 / acre"
+
       ta: "சூரிய ஒளி நன்றாக படும் இடங்களில் நோய் எதிர்ப்பு ரகங்களை பயிரிடவும். நைட்ரஜன் உரங்களை அதிகமாக பயன்படுத்துவதை தவிர்க்கவும்.",
       ml: "തുറന്നതും സൂര്യപ്രകാശം ലഭിക്കുന്നതുമായ സ്ഥലങ്ങളിൽ രോഗപ്രതിരോധ ശേഷിയുള്ള വിളയിനങ്ങൾ നടുക. അമിതമായ നൈട്രജൻ വളപ്രയോഗം ഒഴിവാക്കുക.",
       kn: "ಬಿಸಿಲು ಬೀಳುವ ಜಾಗದಲ್ಲಿ ರೋಗನಿರೋಧಕ ತಳಿಗಳನ್ನು ಬೆಳೆಸಿ. ಸಾರಜನಕಯುಕ್ತ ಗೊಬ್ಬರದ ಅತಿಯಾದ ಬಳಕೆಯನ್ನು ತಪ್ಪಿಸಿ."
     }
+ main
   },
   healthy: {
     diseaseName: "Healthy Leaf Structure",
+    diseaseNameLocalized: {
+      en: "Healthy Leaf Structure",
+      te: "ఆరోగ్యకరమైన ఆకు నిర్మాణం",
+      hi: "स्वस्थ पत्ती संरचना",
+      ta: "ஆரோக்கியமான இலை அமைப்பு"
+    },
     confidence: "97%",
     severity: "low",
     severityVal: 10,
@@ -1046,10 +1082,19 @@ const diseaseDatabase = {
       en: "Maintain weed-free crop fields, regular crop rotation, and periodic monitoring.",
       te: "పొలంలో కలుపు లేకుండా చూసుకోండి, క్రమబద్ధమైన పంట మార్పిడి మరియు పంటను గమనిస్తూ ఉండటం మంచిది.",
       hi: "खेतों को खरपतवार मुक्त रखें, फसल चक्र का पालन करें और नियमित रूप से फसल की जांच करते रहें।",
+vahida-changes
+      ta: "வயலில் களைகள் இல்லாமல் பார்த்துக் கொள்ளவும், பயிர் சுழற்சி முறை மற்றும் இலைகளை தொடர்ந்து கண்காணிக்கவும்."
+    },
+    organicDosage: "Compost / organic mulch, routine schedule",
+    chemicalDosage: "Not applicable",
+    organicCost: "\u20B9200\u2013\u20B9400 / acre",
+    chemicalCost: "Not required"
+
       ta: "வயலில் களைகள் இல்லாமல் பார்த்துக் கொள்ளவும், பயிர் சுழற்சி முறை மற்றும் இலைகளை தொடர்ந்து கண்காணிக்கவும்.",
       ml: "പൊലത്തിൽ കളകൾ ഇല്ലാതിരിക്കാൻ ശ്രദ്ധിക്കുക, വിള ചക്രം നിലനിർത്തുക, ഇടയ്ക്കിടെ വിളകൾ നിരീക്ഷിക്കുക.",
       kn: "ಜಮೀನಿನಲ್ಲಿ ಕಳೆ ಬೆಳೆಯದಂತೆ ನೋಡಿಕೊಳ್ಳಿ, ಬೆಳೆ ಸರದಿ ಮಾಡಿ ಮತ್ತು ನಿಯಮಿತವಾಗಿ ಪರಿಶೀಲಿಸಿ."
     }
+ main
   }
 };
 
@@ -1081,6 +1126,11 @@ let currentLanguage = "en";
 
 // --- Document Loaded Initializer ---
 document.addEventListener("DOMContentLoaded", () => {
+  // Pre-load speech synthesis voices (critical for Edge/Chrome async voice load)
+  if (typeof window.speechSynthesis !== "undefined" && window.speechSynthesis.getVoices) {
+    window.speechSynthesis.getVoices();
+  }
+
   initNavbar();
   initLanguageSwitcher();
   initOfflineDetector();
@@ -1152,6 +1202,15 @@ function initLanguageSwitcher() {
   langSelect.addEventListener("change", (e) => {
     currentLanguage = e.target.value;
     updateUILanguage(currentLanguage);
+    updateReadButtonLabel();
+    // Stop any in-progress speech when language is switched
+    if (window.speechSynthesis && window.speechSynthesis.speaking) {
+      window.speechSynthesis.cancel();
+      const readBtn = document.getElementById("btn-read-telugu");
+      if (readBtn) readBtn.classList.remove("speaking");
+      const waveEl = document.getElementById("audio-wave");
+      if (waveEl) waveEl.style.display = "none";
+    }
   });
 }
 
@@ -1312,6 +1371,39 @@ function initDiseaseScanner() {
   const presetMildew = document.getElementById("preset-mildew");
   const presetHealthy = document.getElementById("preset-healthy");
 
+  // Read / Speak button
+  const readBtn = document.getElementById("btn-read-telugu");
+  if (readBtn) {
+    readBtn.addEventListener("click", () => {
+      // Use class-based toggle to bypass buggy SpeechSynthesis.speaking status in Edge
+      if (readBtn.classList.contains("speaking")) {
+        window.speechSynthesis.cancel();
+        if (window.activeFallbackAudio) {
+          try {
+            window.activeFallbackAudio.pause();
+          } catch (e) {}
+          window.activeFallbackAudio = null;
+        }
+        readBtn.classList.remove("speaking");
+        const waveEl = document.getElementById("audio-wave");
+        if (waveEl) waveEl.style.display = "none";
+      } else {
+        speakDiseaseResult();
+      }
+    });
+  }
+
+  // Download Report button
+  const dlBtn = document.getElementById("btn-download-report");
+  if (dlBtn) {
+    dlBtn.addEventListener("click", downloadDiseaseReport);
+  }
+
+  // Ensure voices are loaded (Chrome async)
+  if (typeof window.speechSynthesis !== "undefined") {
+    window.speechSynthesis.onvoiceschanged = () => {};
+  }
+
   // Drag & drop triggers
   dropZone.addEventListener("dragover", (e) => {
     e.preventDefault();
@@ -1379,6 +1471,32 @@ function initDiseaseScanner() {
     
     previewBox.style.display = "block";
     imgPreview.src = imageSrc;
+    
+    // Store image source, and try to convert it to base64 Data URL if it's a relative path
+    window.lastScannedImageSrc = imageSrc;
+    if (imageSrc && !imageSrc.startsWith("data:")) {
+      const img = new Image();
+      img.crossOrigin = "anonymous";
+      img.onload = function() {
+        try {
+          const canvas = document.createElement("canvas");
+          canvas.width = img.width;
+          canvas.height = img.height;
+          const ctx = canvas.getContext("2d");
+          ctx.drawImage(img, 0, 0);
+          window.lastScannedImageSrc = canvas.toDataURL("image/png");
+        } catch (e) {
+          console.warn("Could not convert scanned preset image to data URL:", e);
+          try {
+            window.lastScannedImageSrc = new URL(imageSrc, window.location.href).href;
+          } catch (err) {
+            // Keep original
+          }
+        }
+      };
+      img.src = imageSrc;
+    }
+    
     scannerLine.style.display = "block";
     scanningMsg.style.display = "flex";
     
@@ -1420,6 +1538,440 @@ function initDiseaseScanner() {
   }
 }
 
+// --- Read Aloud (Text-to-Speech) ---
+function getSpeechLang(lang) {
+  const map = { en: "en-IN", te: "te-IN", hi: "hi-IN", ta: "ta-IN" };
+  return map[lang] || "en-IN";
+}
+
+function logSpeechDebug(msg) {
+  let dbg = document.getElementById("speech-debug-panel");
+  if (!dbg) {
+    dbg = document.createElement("div");
+    dbg.id = "speech-debug-panel";
+    dbg.style.position = "fixed";
+    dbg.style.bottom = "10px";
+    dbg.style.right = "10px";
+    dbg.style.width = "300px";
+    dbg.style.height = "160px";
+    dbg.style.background = "rgba(0,0,0,0.85)";
+    dbg.style.color = "#00ff00";
+    dbg.style.fontFamily = "monospace";
+    dbg.style.fontSize = "11px";
+    dbg.style.padding = "10px";
+    dbg.style.borderRadius = "8px";
+    dbg.style.overflowY = "auto";
+    dbg.style.zIndex = "10000";
+    dbg.style.border = "1px solid #00ff00";
+    document.body.appendChild(dbg);
+  }
+  const time = new Date().toLocaleTimeString();
+  dbg.innerHTML += `<div>[${time}] ${msg}</div>`;
+  dbg.scrollTop = dbg.scrollHeight;
+}
+
+function playFallbackTtsAudio(text, langCode) {
+  logSpeechDebug("playFallbackTtsAudio called for lang: " + langCode);
+  
+  // Stop any active fallback audio first
+  if (window.activeFallbackAudio) {
+    try {
+      window.activeFallbackAudio.pause();
+    } catch (e) {}
+    window.activeFallbackAudio = null;
+  }
+  
+  // Split text into chunks of max 150 characters to stay safely below Google Translate's 200-char limit
+  const chunks = [];
+  const sentences = text.split(/[.,!?;|]/);
+  let currentChunk = "";
+  
+  sentences.forEach(s => {
+    s = s.trim();
+    if (!s) return;
+    if ((currentChunk + " " + s).length > 150) {
+      if (currentChunk) chunks.push(currentChunk);
+      currentChunk = s;
+    } else {
+      currentChunk = currentChunk ? (currentChunk + ". " + s) : s;
+    }
+  });
+  if (currentChunk) chunks.push(currentChunk);
+  
+  if (chunks.length === 0) {
+    logSpeechDebug("No text to play in fallback audio");
+    return;
+  }
+  
+  logSpeechDebug("Split text into " + chunks.length + " chunks");
+  
+  let currentIdx = 0;
+  // Use createElement + referrerpolicy to strip the localhost Referer header,
+  // which causes Google Translate TTS to reject the request with 403/no-source.
+  const audio = document.createElement("audio");
+  audio.setAttribute("referrerpolicy", "no-referrer");
+  
+  const playNextChunk = () => {
+    if (currentIdx >= chunks.length) {
+      logSpeechDebug("All fallback audio chunks finished playing");
+      const readBtn = document.getElementById("btn-read-telugu");
+      const waveEl = document.getElementById("audio-wave");
+      readBtn.classList.remove("speaking");
+      if (waveEl) waveEl.style.display = "none";
+      window.activeFallbackAudio = null;
+      return;
+    }
+    
+    const chunkText = chunks[currentIdx];
+    const encodedText = encodeURIComponent(chunkText);
+    const url = `https://translate.google.com/translate_tts?ie=UTF-8&tl=${langCode}&client=tw-ob&q=${encodedText}`;
+    
+    logSpeechDebug(`Playing chunk ${currentIdx + 1}/${chunks.length}...`);
+    audio.src = url;
+    audio.play().then(() => {
+      const readBtn = document.getElementById("btn-read-telugu");
+      const waveEl = document.getElementById("audio-wave");
+      readBtn.classList.add("speaking");
+      if (waveEl) waveEl.style.display = "flex";
+    }).catch(err => {
+      logSpeechDebug(`Error playing chunk ${currentIdx + 1}: ${err.message}`);
+      currentIdx++;
+      playNextChunk();
+    });
+  };
+  
+  audio.onended = () => {
+    currentIdx++;
+    playNextChunk();
+  };
+  
+  audio.onerror = (e) => {
+    logSpeechDebug(`Audio element error: ${e.type}`);
+    currentIdx++;
+    playNextChunk();
+  };
+  
+  window.activeFallbackAudio = audio;
+  playNextChunk();
+}
+
+function speakDiseaseResult() {
+  logSpeechDebug("speakDiseaseResult called");
+  if (!window.lastDetectedDisease) {
+    logSpeechDebug("No lastDetectedDisease found");
+    return;
+  }
+  const data = diseaseDatabase[window.lastDetectedDisease];
+  if (!data) {
+    logSpeechDebug("No database entry found for " + window.lastDetectedDisease);
+    return;
+  }
+
+  // Stop any ongoing speech first and force resume state to resolve Chromium/Edge stalling issues
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.resume();
+
+  // Stop active audio fallback if playing
+  if (window.activeFallbackAudio) {
+    try {
+      window.activeFallbackAudio.pause();
+    } catch (e) {}
+    window.activeFallbackAudio = null;
+  }
+
+  const lang = currentLanguage;
+  const diseaseName = data.diseaseNameLocalized ? (data.diseaseNameLocalized[lang] || data.diseaseName) : data.diseaseName;
+  const symptoms  = data.symptoms[lang]   || data.symptoms["en"];
+  const causes    = data.causes[lang]     || data.causes["en"];
+  const organic   = data.organic[lang]    || data.organic["en"];
+  const chemical  = data.chemical[lang]   || data.chemical["en"];
+  const prevention = data.prevention[lang] || data.prevention["en"];
+
+  const labelMap = {
+    en: { disease: "Disease Detected", symptoms: "Symptoms", causes: "Causes", organic: "Organic Treatment", chemical: "Chemical Treatment", prevention: "Prevention" },
+    te: { disease: "గుర్తించిన వ్యాధి", symptoms: "లక్షణాలు", causes: "కారణాలు", organic: "సేంద్రీయ చికిత్స", chemical: "రసాయన చికిత్స", prevention: "నివారణ" },
+    hi: { disease: "पहचाना गया रोग", symptoms: "लक्षण", causes: "कारण", organic: "जैविक उपचार", chemical: "रासायनिक उपचार", prevention: "रोकथाम" },
+    ta: { disease: "கண்டறியப்பட்ட நோய்", symptoms: "அறிகுறிகள்", causes: "காரணங்கள்", organic: "இயற்கை சிகிச்சை", chemical: "இரசாயன சிகிச்சை", prevention: "தடுப்பு" }
+  };
+  const lbl = labelMap[lang] || labelMap["en"];
+
+  const script = `${lbl.disease}: ${diseaseName}. ${lbl.symptoms}: ${symptoms}. ${lbl.causes}: ${causes}. ${lbl.organic}: ${organic}. ${lbl.chemical}: ${chemical}. ${lbl.prevention}: ${prevention}.`;
+
+  // Sanitize text: replace Devanagari full stop with standard period, strip parenthesis/dash
+  const cleanScript = script
+    .replace(/।/g, ". ")
+    .replace(/[()]/g, " ")
+    .replace(/[\u2013\u2014]/g, " ");
+
+  logSpeechDebug("Prepared text length: " + cleanScript.length);
+
+  const utterance = new SpeechSynthesisUtterance(cleanScript);
+  utterance.lang = getSpeechLang(lang);
+  utterance.rate = 0.92;
+  utterance.pitch = 1;
+
+  const readBtn  = document.getElementById("btn-read-telugu");
+  const waveEl   = document.getElementById("audio-wave");
+
+  // Animate wave while speaking
+  utterance.onstart = () => {
+    logSpeechDebug("Utterance speech started");
+    readBtn.classList.add("speaking");
+    if (waveEl) waveEl.style.display = "flex";
+  };
+  utterance.onend = () => {
+    logSpeechDebug("Utterance speech finished normally");
+    readBtn.classList.remove("speaking");
+    if (waveEl) waveEl.style.display = "none";
+  };
+  
+  utterance.onerror = (event) => {
+    logSpeechDebug("Utterance speech error: " + event.error);
+    console.error("SpeechSynthesisUtterance error:", event);
+    readBtn.classList.remove("speaking");
+    if (waveEl) waveEl.style.display = "none";
+    
+    // Fallback: trigger Google Translate TTS audio download & play directly
+    logSpeechDebug("Triggering Google Translate TTS fallback stream...");
+    playFallbackTtsAudio(cleanScript, lang);
+  };
+
+  // Get voices list
+  const voices = window.speechSynthesis.getVoices();
+  logSpeechDebug("Voices available count: " + voices.length);
+  const langPrefix = getSpeechLang(lang).split("-")[0];
+  
+  // Try to find a local/offline voice first (to avoid Microsoft Edge online voice service issues)
+  let match = voices.find(v => 
+    v.lang.startsWith(langPrefix) && 
+    !v.name.includes("Online") && 
+    !v.name.includes("Natural")
+  );
+  
+  if (match) {
+    logSpeechDebug("Selected local voice: " + match.name);
+  } else {
+    // Fallback to any voice matching the language
+    match = voices.find(v => v.lang.startsWith(langPrefix));
+    if (match) {
+      logSpeechDebug("Selected online fallback voice: " + match.name);
+    } else {
+      logSpeechDebug("No voices matched prefix: " + langPrefix);
+    }
+  }
+  
+  if (match) {
+    utterance.voice = match;
+  }
+
+  window.speechSynthesis.resume();
+  window.speechSynthesis.speak(utterance);
+  logSpeechDebug("synth.speak triggered");
+}
+
+// Update the "Read in …" button label based on current language
+function updateReadButtonLabel() {
+  const btnText = document.getElementById("btn-read-telugu-text");
+  if (!btnText) return;
+  const labels = { en: "Read in English", te: "తెలుగులో చదవండి", hi: "हिन्दी में पढ़ें", ta: "தமிழில் படிக்கவும்" };
+  btnText.textContent = labels[currentLanguage] || labels["en"];
+}
+
+// --- Download Report (HTML) ---
+function downloadDiseaseReport() {
+  if (!window.lastDetectedDisease) {
+    alert("Please run a scan first before downloading the report.");
+    return;
+  }
+  const data = diseaseDatabase[window.lastDetectedDisease];
+  if (!data) return;
+
+  const lang = currentLanguage;
+  const diseaseName = data.diseaseNameLocalized
+    ? (data.diseaseNameLocalized[lang] || data.diseaseName)
+    : data.diseaseName;
+  const symptoms   = data.symptoms[lang]   || data.symptoms["en"];
+  const causes     = data.causes[lang]     || data.causes["en"];
+  const organic    = data.organic[lang]    || data.organic["en"];
+  const chemical   = data.chemical[lang]   || data.chemical["en"];
+  const prevention = data.prevention[lang] || data.prevention["en"];
+
+  // Plant Health Score = inverse of severity
+  const healthScore = 100 - data.severityVal;
+  const healthLabel = data.severity === "high" ? "Severe" : (data.severity === "medium" ? "Moderate" : "Good");
+  const sevColor    = data.severity === "high" ? "#c0392b" : (data.severity === "medium" ? "#e67e22" : "#27ae60");
+
+  // Formatted date
+  const now = new Date();
+  const dateStr = now.toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" });
+  const timeStr = now.toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit", hour12: true });
+
+  // Leaf image — use scanned or fall back to preset asset
+  const imgSrc = window.lastScannedImageSrc || "";
+  const imgTag = imgSrc
+    ? `<img src="${imgSrc}" alt="Scanned Leaf" style="width:100%;border-radius:6px;display:block;">`
+    : `<div style="width:100%;height:180px;background:#e8f5e9;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#2E7D32;font-size:0.85rem;">No Image</div>`;
+
+  const disclaimerText = {
+    en: "AI provides an estimate based on the uploaded image. If the infection is severe or the confidence is low, consult a local agricultural expert before taking action.",
+    te: "ఈ నివేదిక చిత్రాన్ని విశ్లేషించి రూపొందించబడింది. తీవ్రమైన సమస్యలకు వ్యవసాయ నిపుణులను సంప్రదించండి.",
+    hi: "यह एआई रिपोर्ट छवि विश्లेषण पर आधारित है। गंभीर संक्रमण के लिए कृषि विशेषज्ञ से परामर्श करें।",
+    ta: "இந்த அறிக்கை படம் பகுப்பாய்வின் அடிப்படையில் தயாரிக்கப்பட்டுள்ளது. தீவிர தொற்றுகளுக்கு வேளாண் நிபுணரை அணுகவும்."
+  };
+
+  const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Crop Disease Analysis Report – RythuMitra</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Plus Jakarta Sans',sans-serif;background:#f4f7f4;color:#1c281e;min-height:100vh;}
+  .report-wrap{max-width:740px;margin:32px auto;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 8px 40px rgba(27,94,32,.12);}
+  /* Header */
+  .rpt-header{background:#1B5E20;padding:28px 32px 22px;}
+  .rpt-header h1{font-family:'Outfit',sans-serif;color:#fff;font-size:1.55rem;font-weight:800;letter-spacing:.5px;}
+  .rpt-header p{color:#a5d6a7;font-size:0.82rem;margin-top:4px;}
+  /* Date bar */
+  .rpt-date{padding:12px 32px;background:#f0f4f0;font-size:0.82rem;color:#5f6e61;border-bottom:1px solid #dde8dd;}
+  /* Info table */
+  .rpt-info{margin:22px 32px;border:1px solid #dde8dd;border-radius:10px;overflow:hidden;}
+  .rpt-info table{width:100%;border-collapse:collapse;}
+  .rpt-info td{padding:11px 18px;font-size:0.875rem;border-bottom:1px solid #eef2ee;}
+  .rpt-info tr:last-child td{border-bottom:none;}
+  .rpt-info .lbl{color:#5f6e61;font-weight:600;width:25%;white-space:nowrap;}
+  .rpt-info .val{color:#1c281e;font-weight:500;}
+  .disease-val{color:#c0392b;font-weight:700;font-size:0.95rem;}
+  /* Content grid */
+  .rpt-content{display:grid;grid-template-columns:1fr 1.4fr;gap:20px;margin:0 32px 22px;align-items:start;}
+  .rpt-img{border-radius:8px;overflow:hidden;border:1px solid #dde8dd;}
+  .rpt-text h3{font-family:'Outfit',sans-serif;font-size:1rem;font-weight:700;color:#1B5E20;margin-bottom:6px;}
+  .rpt-text p{font-size:0.82rem;color:#3a4d3c;line-height:1.65;margin-bottom:14px;}
+  /* Section title */
+  .rpt-section-title{margin:4px 32px 14px;font-family:'Outfit',sans-serif;font-size:1.05rem;font-weight:700;color:#1c281e;border-bottom:2px solid #e8f5e9;padding-bottom:8px;}
+  /* Treatment cards */
+  .rpt-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:0 32px 26px;}
+  .rpt-card{border:1px solid #dde8dd;border-radius:10px;overflow:hidden;}
+  .rpt-card-header{padding:10px 16px;font-family:'Outfit',sans-serif;font-size:0.9rem;font-weight:700;}
+  .rpt-card-header.green{background:#e8f5e9;color:#1B5E20;}
+  .rpt-card-header.red{background:#fdecea;color:#c0392b;}
+  .rpt-card-body{padding:14px 16px;font-size:0.8rem;color:#3a4d3c;line-height:1.6;min-height:110px;}
+  .rpt-card-footer{padding:12px 16px;border-top:1px solid #eef2ee;font-size:0.78rem;}
+  .rpt-card-footer .foot-lbl{color:#5f6e61;font-weight:600;margin-bottom:2px;}
+  .rpt-card-footer .foot-val{color:#1c281e;font-weight:600;}
+  .foot-cost{color:${sevColor};font-weight:700;margin-top:8px;}
+  /* Disclaimer */
+  .rpt-disclaimer{margin:0 32px 28px;background:#fffbf0;border-left:4px solid #e67e22;border-radius:0 8px 8px 0;padding:14px 18px;}
+  .rpt-disclaimer strong{color:#b7630a;font-size:0.82rem;display:block;margin-bottom:4px;}
+  .rpt-disclaimer p{font-size:0.78rem;color:#5f6e61;line-height:1.55;}
+  /* Footer */
+  .rpt-footer{background:#f0f4f0;padding:12px 32px;text-align:center;font-size:0.75rem;color:#8a9e8c;border-top:1px solid #dde8dd;}
+  @media print{
+    body{background:#fff;}
+    .report-wrap{box-shadow:none;margin:0;border-radius:0;}
+    .rpt-print-btn{display:none!important;}
+  }
+  .rpt-print-btn{display:block;margin:0 32px 20px;padding:10px 0;background:#1B5E20;color:#fff;text-align:center;border:none;border-radius:8px;font-family:'Outfit',sans-serif;font-size:0.9rem;font-weight:600;cursor:pointer;letter-spacing:.3px;}
+  .rpt-print-btn:hover{background:#2E7D32;}
+</style>
+</head>
+<body>
+<div class="report-wrap">
+  <!-- Header -->
+  <div class="rpt-header">
+    <h1>CROP DISEASE ANALYSIS REPORT</h1>
+    <p>RythuMitra AI &bull; Smart Crop Health Platform</p>
+  </div>
+
+  <!-- Date/time bar -->
+  <div class="rpt-date">Date &amp; Time: ${dateStr} at ${timeStr}</div>
+
+  <!-- Info table -->
+  <div class="rpt-info">
+    <table>
+      <tr>
+        <td class="lbl">Disease Name:</td>
+        <td class="val disease-val" colspan="3">${diseaseName}</td>
+      </tr>
+      <tr>
+        <td class="lbl">Plant Health Score:</td>
+        <td class="val" style="color:${sevColor};font-weight:700;">${healthScore}% &mdash; ${healthLabel}</td>
+        <td class="lbl" style="color:#5f6e61;">Confidence Score:</td>
+        <td class="val">${data.confidence}</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Leaf image + symptoms/causes -->
+  <div class="rpt-content">
+    <div class="rpt-img">${imgTag}</div>
+    <div class="rpt-text">
+      <h3>Symptoms</h3>
+      <p>${symptoms}</p>
+      <h3>Causes</h3>
+      <p>${causes}</p>
+    </div>
+  </div>
+
+  <!-- Treatment section title -->
+  <div class="rpt-section-title">Organic &amp; Chemical Controls</div>
+
+  <!-- Treatment cards -->
+  <div class="rpt-cards">
+    <div class="rpt-card">
+      <div class="rpt-card-header green">Organic Control Plan</div>
+      <div class="rpt-card-body">${organic}</div>
+      <div class="rpt-card-footer">
+        <div class="foot-lbl">Recommended Dosage:</div>
+        <div class="foot-val">${data.organicDosage || "As directed"}</div>
+        <div class="foot-cost">Estimated Treatment Cost:<br>${data.organicCost || "Varies"}</div>
+      </div>
+    </div>
+    <div class="rpt-card">
+      <div class="rpt-card-header red">Chemical Control Plan</div>
+      <div class="rpt-card-body">${chemical}</div>
+      <div class="rpt-card-footer">
+        <div class="foot-lbl">Recommended Dosage:</div>
+        <div class="foot-val">${data.chemicalDosage || "As per label"}</div>
+        <div class="foot-cost" style="color:${sevColor}">Estimated Treatment Cost:<br>${data.chemicalCost || "Varies"}</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Disclaimer -->
+  <div class="rpt-disclaimer">
+    <strong>⚠ Disclaimer</strong>
+    <p>${disclaimerText[lang] || disclaimerText["en"]}</p>
+  </div>
+
+  <!-- Print button -->
+  <button class="rpt-print-btn" onclick="window.print()">🖨 Print / Save as PDF</button>
+
+  <!-- Footer -->
+  <div class="rpt-footer">Generated by RythuMitra AI Smart Assistant</div>
+</div>
+</body>
+</html>`;
+
+  // Direct download of the HTML file
+  const blob = new Blob([html], { type: "text/html;charset=utf-8" });
+  const url  = URL.createObjectURL(blob);
+  const anchor = document.createElement("a");
+  anchor.href = url;
+  
+  // Clean disease name for use in the filename
+  const cleanDiseaseName = diseaseName.replace(/[^a-zA-Z0-9]/g, "_").replace(/__+/g, "_");
+  anchor.download = `RythuMitra_Report_${cleanDiseaseName}.html`;
+  
+  document.body.appendChild(anchor);
+  anchor.click();
+  document.body.removeChild(anchor);
+  
+  setTimeout(() => URL.revokeObjectURL(url), 60000);
+}
+
 function displayDiseaseResult(diseaseKey) {
   const data = diseaseDatabase[diseaseKey];
   const resultCard = document.getElementById("scan-result-card");
@@ -1428,8 +1980,14 @@ function displayDiseaseResult(diseaseKey) {
 
   resultCard.style.display = "block";
 
-  // Update headers
-  document.getElementById("lbl-result-title").textContent = data.diseaseName;
+  // Update headers — show localized name + English name in brackets for non-English
+  const localizedName = data.diseaseNameLocalized
+    ? (data.diseaseNameLocalized[currentLanguage] || data.diseaseName)
+    : data.diseaseName;
+  const displayName = (currentLanguage !== "en" && localizedName !== data.diseaseName)
+    ? `${localizedName} (${data.diseaseName})`
+    : data.diseaseName;
+  document.getElementById("lbl-result-title").textContent = displayName;
   document.getElementById("lbl-confidence").textContent = `${data.confidence} ${currentLanguage === "te" ? "ఖచ్చితత్వం" : (currentLanguage === "hi" ? "सटीकता" : (currentLanguage === "ta" ? "துல்லியம்" : "Confidence"))}`;
 
   // Update Severity Meter
