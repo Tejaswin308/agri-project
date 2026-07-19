@@ -208,4 +208,4 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
-*Built with ❤️ for the farming community of India.*
+Built with ❤️ for the farming community of India
