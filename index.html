@@ -54,6 +54,29 @@
           </select>
         </div>
 
+        <!-- Profile Dropdown (visible when signed in) -->
+        <div class="profile-dropdown" id="profile-dropdown" hidden>
+          <button class="profile-btn" id="profile-btn" aria-label="User Profile" aria-haspopup="true" aria-expanded="false">
+            <span class="profile-initial" id="profile-initial">U</span>
+            <svg class="profile-chevron" viewBox="0 0 24 24" width="16" height="16">
+              <path d="M7 10l5 5 5-5z" fill="currentColor"/>
+            </svg>
+          </button>
+          <div class="profile-menu" id="profile-menu">
+            <div class="profile-menu-header">
+              <span class="profile-role">Verified Farmer</span>
+              <p class="profile-email" id="profile-email-display">farmer@example.com</p>
+            </div>
+            <div class="profile-menu-divider"></div>
+            <button type="button" class="profile-menu-item" id="header-signout-btn">
+              <svg viewBox="0 0 24 24" width="16" height="16">
+                <path d="M16 17v-3H9v-4h7V7l5 5-5 5M14 2a2 2 0 0 1 2 2v2h-2V4H5v16h9v-2h2v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9z" fill="currentColor"/>
+              </svg>
+              <span>Sign Out</span>
+            </button>
+          </div>
+        </div>
+
         <button class="menu-toggle" id="menu-toggle-btn" aria-label="Toggle Menu">
           <span></span>
           <span></span>
@@ -73,7 +96,7 @@
   <!-- ==========================================
        Authentication Section
        ========================================== -->
-  <section class="auth-section">
+  <section class="auth-section" id="auth-section">
     <div class="container">
       <div class="auth-card" id="auth-card">
         <div class="auth-header">

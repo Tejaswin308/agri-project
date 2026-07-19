@@ -1192,6 +1192,14 @@ function initAuth() {
   const authEmailInput = document.getElementById("auth-email");
   const authPasswordInput = document.getElementById("auth-password");
 
+  // Elements for header profile dropdown and auth section
+  const authSection = document.getElementById("auth-section");
+  const profileDropdown = document.getElementById("profile-dropdown");
+  const profileBtn = document.getElementById("profile-btn");
+  const profileEmailDisplay = document.getElementById("profile-email-display");
+  const profileInitial = document.getElementById("profile-initial");
+  const headerSignOutBtn = document.getElementById("header-signout-btn");
+
   if (!authTabs.length || !authForm || !authSubmitBtn || !authStatus || !authMessage || !authLoggedIn || !authFormPanel || !authUserEmail || !authSignOutBtn || !authEmailInput || !authPasswordInput) {
     return;
   }
@@ -1215,6 +1223,10 @@ function initAuth() {
       authFormPanel.hidden = true;
       if (appContent) appContent.hidden = false;
       if (appLocked) appLocked.hidden = true;
+      if (authSection) authSection.style.display = "none";
+      if (profileDropdown) profileDropdown.hidden = false;
+      if (profileEmailDisplay) profileEmailDisplay.textContent = user.email;
+      if (profileInitial) profileInitial.textContent = user.email.charAt(0).toUpperCase();
       setAuthMessage("");
     } else {
       authStatus.textContent = "Sign in to continue";
@@ -1222,6 +1234,8 @@ function initAuth() {
       authFormPanel.hidden = false;
       if (appContent) appContent.hidden = true;
       if (appLocked) appLocked.hidden = false;
+      if (authSection) authSection.style.display = "";
+      if (profileDropdown) profileDropdown.hidden = true;
       setAuthMessage("");
     }
   }
@@ -1280,6 +1294,32 @@ function initAuth() {
       setAuthMessage(error.message || "Could not sign out.", true);
     }
   });
+
+  // Handle profile dropdown toggle
+  if (profileBtn && profileDropdown) {
+    profileBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      profileDropdown.classList.toggle("open");
+      const isOpen = profileDropdown.classList.contains("open");
+      profileBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+
+    // Close dropdown on click outside
+    document.addEventListener("click", (e) => {
+      if (!profileDropdown.contains(e.target)) {
+        profileDropdown.classList.remove("open");
+        profileBtn.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
+
+  // Handle header Sign Out button click (proxy to the original authSignOutBtn)
+  if (headerSignOutBtn && authSignOutBtn) {
+    headerSignOutBtn.addEventListener("click", () => {
+      if (profileDropdown) profileDropdown.classList.remove("open");
+      authSignOutBtn.click();
+    });
+  }
 
   if (supabaseClient) {
     if (window.location.protocol === 'file:') {
