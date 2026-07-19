@@ -2,6 +2,55 @@
    RythuMitra – Smart Farming Assistant Client Logic
    ========================================================================== */
 
+// --- Supabase Configuration ---
+const SUPABASE_URL = window.SUPABASE_URL || "https://your-project-ref.supabase.co";
+const SUPABASE_ANON_KEY = window.SUPABASE_ANON_KEY || "your-anon-key";
+const supabaseClient = window.supabase && window.supabase.createClient
+  ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+  : null;
+
+let lastScanUploadFile = null;
+
+async function uploadCropImage(file) {
+  if (!supabaseClient) throw new Error("Supabase is not configured.");
+  console.log("Supabase upload starting", { bucket: "crop-images", name: file.name, size: file.size });
+  const fileName = `crop-${Date.now()}-${file.name.replace(/\s+/g, "_")}`;
+
+  const { data, error: uploadError } = await supabaseClient.storage
+    .from("crop-images")
+    .upload(fileName, file, { cacheControl: "3600", upsert: false });
+
+  if (uploadError) {
+    console.error("Supabase storage upload failed", uploadError);
+    throw uploadError;
+  }
+
+  console.log("Supabase upload succeeded", data);
+  const { data: urlData, error: urlError } = await supabaseClient.storage
+    .from("crop-images")
+    .getPublicUrl(data.path);
+
+  if (urlError) {
+    console.error("Supabase getPublicUrl failed", urlError);
+    throw urlError;
+  }
+
+  console.log("Supabase public URL", urlData.publicUrl);
+  return urlData.publicUrl;
+}
+
+async function saveScanResult(resultData) {
+  console.log("Saving scan result", resultData);
+  if (!supabaseClient) {
+    console.warn("Supabase is not configured. Scan result will not be saved.");
+    return null;
+  }
+
+  const { error } = await supabaseClient.from("crop_scans").insert([resultData]);
+  if (error) throw error;
+  return true;
+}
+
 // --- Translation Dictionaries ---
 const translations = {
   en: {
@@ -1347,12 +1396,15 @@ function initDiseaseScanner() {
 
   // Presets load triggers
   presetSpot.addEventListener("click", () => {
+    lastScanUploadFile = null;
     runMockScan("assets/leaf_spot.png", "leaf_spot");
   });
   presetMildew.addEventListener("click", () => {
+    lastScanUploadFile = null;
     runMockScan("assets/powdery_mildew.png", "mildew");
   });
   presetHealthy.addEventListener("click", () => {
+    lastScanUploadFile = null;
     runMockScan("assets/healthy_leaf.png", "healthy");
   });
 
@@ -1361,8 +1413,10 @@ function initDiseaseScanner() {
       alert("Please upload a valid image file (PNG, JPG).");
       return;
     }
+    lastScanUploadFile = file;
     const reader = new FileReader();
     reader.onload = (e) => {
+      console.log("User selected image for upload", file.name);
       // Randomly assign one of the disease states for user uploaded file
       const diseases = ["leaf_spot", "mildew", "healthy"];
       const randomDisease = diseases[Math.floor(Math.random() * diseases.length)];
@@ -1407,7 +1461,7 @@ function initDiseaseScanner() {
     }, 500);
 
     // End scanning after 2 seconds
-    setTimeout(() => {
+    setTimeout(async () => {
       clearInterval(interval);
       scannerLine.style.display = "none";
       scanningMsg.style.display = "none";
@@ -1415,12 +1469,41 @@ function initDiseaseScanner() {
       // Store globally for lang swap redraw
       window.lastDetectedDisease = diseaseKey;
       
-      displayDiseaseResult(diseaseKey);
+      await displayDiseaseResult(diseaseKey);
+
+      const data = diseaseDatabase[diseaseKey];
+      const imageUrl = lastScanUploadFile ? await uploadCropImage(lastScanUploadFile).catch((err) => {
+        console.warn("Image upload failed:", err);
+        return null;
+      }) : null;
+
+      const savePayload = {
+        name: null,
+        phone: null,
+        crop: lastScanUploadFile ? "user_upload" : (diseaseKey === "leaf_spot" ? "tomato" : diseaseKey === "mildew" ? "wheat" : "rice"),
+        disease: data.diseaseName,
+        confidence: data.confidence,
+        symptoms: data.symptoms.en,
+        treatments: `${data.organic.en} \n${data.chemical.en}`,
+        image_url: imageUrl
+      };
+
+      const saveSuccess = await saveScanResult(savePayload).catch((err) => {
+        console.error("Failed to save scan result:", err);
+        return false;
+      });
+
+      if (saveSuccess) {
+        alert(currentLanguage === "te" ? "స్కాన్ ఫలితం విజయవంతంగా సేవ్ చేశారు." : (currentLanguage === "hi" ? "स्कैन परिणाम सफलतापूर्वक सेव हो गया है।" : (currentLanguage === "ta" ? "ஸ்கேன் முடிவு வெற்றிகரமாக சேமிக்கப்பட்டது." : "Scan result saved successfully.")));
+      }
+
+      // Clear upload file pointer after save so language refresh doesn't re-save
+      lastScanUploadFile = null;
     }, 2000);
   }
 }
 
-function displayDiseaseResult(diseaseKey) {
+async function displayDiseaseResult(diseaseKey) {
   const data = diseaseDatabase[diseaseKey];
   const resultCard = document.getElementById("scan-result-card");
   
@@ -1762,7 +1845,7 @@ function initContactForm() {
   const modal = document.getElementById("success-modal-overlay");
   const closeBtn = document.getElementById("success-modal-close-btn");
 
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
     
     // Check mobile number validity (10 digits)
@@ -1774,8 +1857,29 @@ function initContactForm() {
       return;
     }
 
-    // Success popup display trigger
-    modal.classList.add("active");
+    if (!supabaseClient) {
+      alert(currentLanguage === "te" ? "సుప్రాబేస్ కనెక్ట్ కావడంలో విఫలమైంది. దయచేసి URL మరియు అనాన్ కీని సెటప్ చేయండి." : (currentLanguage === "hi" ? "Supabase कनेक्ट नहीं हो सका। कृपया URL और anon key सेट करें।" : "Supabase is not configured yet. Please set your URL and anon key first."));
+      return;
+    }
+
+    try {
+      const { error } = await supabaseClient.from("farmer_enquiries").insert([
+        {
+          name: document.getElementById("contact-name").value.trim(),
+          phone: phoneInput,
+          crop: document.getElementById("contact-crop").value,
+          message: document.getElementById("contact-message").value.trim()
+        }
+      ]);
+
+      if (error) throw error;
+
+      modal.classList.add("active");
+      form.reset();
+    } catch (error) {
+      console.error("Supabase insert failed:", error);
+      alert(currentLanguage === "te" ? "మీ సందేశం సేవ్ కాలేదు. దయచేసి Supabase సెటప్లను తనిఖీ చేయండి." : (currentLanguage === "hi" ? "आपका संदेश सेव नहीं हुआ। कृपया Supabase सेटिंग्स जांचें।" : "Your enquiry could not be saved. Please check your Supabase setup."));
+    }
   });
 
   closeBtn.addEventListener("click", () => {
