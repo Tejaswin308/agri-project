@@ -51,6 +51,40 @@ async function saveScanResult(resultData) {
   return true;
 }
 
+async function signInWithSupabase(email, password) {
+  if (!supabaseClient) throw new Error("Supabase is not configured.");
+
+  const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
+  if (error) throw error;
+  return data;
+}
+
+async function signUpWithSupabase(email, password) {
+  if (!supabaseClient) throw new Error("Supabase is not configured.");
+
+  // Use the current page URL as the redirect destination if not browsing locally via file://
+  const redirectUrl = window.location.origin + window.location.pathname;
+  const options = {};
+  if (window.location.protocol !== 'file:') {
+    options.redirectTo = redirectUrl;
+  }
+
+  const { data, error } = await supabaseClient.auth.signUp({
+    email,
+    password,
+    options: options
+  });
+  if (error) throw error;
+  return data;
+}
+
+async function signOutFromSupabase() {
+  if (!supabaseClient) throw new Error("Supabase is not configured.");
+
+  const { error } = await supabaseClient.auth.signOut();
+  if (error) throw error;
+}
+
 // --- Translation Dictionaries ---
 const translations = {
   en: {
@@ -1131,6 +1165,7 @@ let currentLanguage = "en";
 // --- Document Loaded Initializer ---
 document.addEventListener("DOMContentLoaded", () => {
   initNavbar();
+  initAuth();
   initLanguageSwitcher();
   initOfflineDetector();
   initCounters();
@@ -1143,6 +1178,126 @@ document.addEventListener("DOMContentLoaded", () => {
   initNearbyCenters();
   initStatsIntersectionObserver();
 });
+
+function initAuth() {
+  const authTabs = document.querySelectorAll(".auth-tab");
+  const authForm = document.getElementById("auth-form");
+  const authSubmitBtn = document.getElementById("auth-submit-btn");
+  const authStatus = document.getElementById("auth-status");
+  const authMessage = document.getElementById("auth-message");
+  const authLoggedIn = document.getElementById("auth-logged-in");
+  const authFormPanel = document.getElementById("auth-form-panel");
+  const authUserEmail = document.getElementById("auth-user-email");
+  const authSignOutBtn = document.getElementById("auth-signout-btn");
+  const authEmailInput = document.getElementById("auth-email");
+  const authPasswordInput = document.getElementById("auth-password");
+
+  if (!authTabs.length || !authForm || !authSubmitBtn || !authStatus || !authMessage || !authLoggedIn || !authFormPanel || !authUserEmail || !authSignOutBtn || !authEmailInput || !authPasswordInput) {
+    return;
+  }
+
+  let authMode = "signin";
+
+  function setAuthMessage(text, isError = false) {
+    authMessage.textContent = text || "";
+    authMessage.classList.toggle("error", isError);
+  }
+
+  function renderAuthState(session) {
+    const user = session?.user;
+    const appContent = document.getElementById("app-content");
+    const appLocked = document.getElementById("app-locked");
+
+    if (user) {
+      authStatus.textContent = `Signed in as ${user.email}`;
+      authUserEmail.textContent = user.email;
+      authLoggedIn.hidden = false;
+      authFormPanel.hidden = true;
+      if (appContent) appContent.hidden = false;
+      if (appLocked) appLocked.hidden = true;
+      setAuthMessage("");
+    } else {
+      authStatus.textContent = "Sign in to continue";
+      authLoggedIn.hidden = true;
+      authFormPanel.hidden = false;
+      if (appContent) appContent.hidden = true;
+      if (appLocked) appLocked.hidden = false;
+      setAuthMessage("");
+    }
+  }
+
+  authTabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      authTabs.forEach((item) => item.classList.remove("active"));
+      tab.classList.add("active");
+      authMode = tab.dataset.mode;
+      authSubmitBtn.textContent = authMode === "signup" ? "Create Account" : "Sign In";
+      setAuthMessage("");
+    });
+  });
+
+  authForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    setAuthMessage("Working...");
+
+    try {
+      const email = authEmailInput.value.trim();
+      const password = authPasswordInput.value;
+
+      if (!email || !password) {
+        throw new Error("Please enter both your email and password.");
+      }
+
+      if (authMode === "signup") {
+        await signUpWithSupabase(email, password);
+        setAuthMessage("Account created. Check your email to confirm before signing in.");
+      } else {
+        await signInWithSupabase(email, password);
+        setAuthMessage("Signed in successfully.");
+      }
+
+      authForm.reset();
+    } catch (error) {
+      console.error("Auth failed", error);
+      const message = error?.message || "Authentication failed.";
+      const isRateLimited = /rate limit|temporarily blocked|too many signup attempts|too many requests|too many attempts/i.test(message);
+      const isInvalidCredentials = /invalid login credentials|invalid credentials|email or password|not found|user not found/i.test(message);
+      const friendlyMessage = isRateLimited
+        ? "Signup is temporarily blocked by Supabase because too many sign-up attempts were sent. Please wait a few minutes and try again with a different email, or switch to Sign In if you already created an account."
+        : isInvalidCredentials
+          ? "Invalid email or password. Please check your details and try again."
+          : message;
+      setAuthMessage(friendlyMessage, true);
+    }
+  });
+
+  authSignOutBtn.addEventListener("click", async () => {
+    try {
+      await signOutFromSupabase();
+      setAuthMessage("Signed out successfully.");
+    } catch (error) {
+      console.error("Sign out failed", error);
+      setAuthMessage(error.message || "Could not sign out.", true);
+    }
+  });
+
+  if (supabaseClient) {
+    if (window.location.protocol === 'file:') {
+      setAuthMessage("Warning: Supabase Auth does not support local files (file://). You must run the website using a local server (e.g., Live Server or npx serve) for redirects and sessions to work correctly.", true);
+    }
+
+    supabaseClient.auth.getSession().then(({ data }) => {
+      renderAuthState(data.session);
+    });
+
+    supabaseClient.auth.onAuthStateChange((_event, session) => {
+      renderAuthState(session);
+    });
+  } else {
+    authStatus.textContent = "Supabase is not configured yet";
+    setAuthMessage("Add your Supabase URL and anon key to enable authentication.", true);
+  }
+}
 
 // --- Sticky Navigation & Hamburger Menu ---
 function initNavbar() {

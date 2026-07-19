@@ -63,6 +63,53 @@
     </div>
   </header>
 
+  <div id="app-locked" class="app-locked">
+    <div class="app-locked-card">
+      <h2>Please sign in to access the dashboard</h2>
+      <p>Only authenticated farmers can view disease detection, weather alerts, and other features.</p>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       Authentication Section
+       ========================================== -->
+  <section class="auth-section">
+    <div class="container">
+      <div class="auth-card" id="auth-card">
+        <div class="auth-header">
+          <h3>Farmer Account</h3>
+          <p>Create an account to save your scans and enquiries securely with Supabase.</p>
+        </div>
+
+        <div class="auth-status" id="auth-status">Sign in to continue</div>
+
+        <div id="auth-logged-in" class="auth-logged-in" hidden>
+          <p class="auth-user-email" id="auth-user-email"></p>
+          <button type="button" class="btn btn-secondary" id="auth-signout-btn">Sign Out</button>
+        </div>
+
+        <div id="auth-form-panel">
+          <div class="auth-tabs" role="tablist" aria-label="Authentication mode">
+            <button type="button" class="auth-tab active" data-mode="signin">Sign In</button>
+            <button type="button" class="auth-tab" data-mode="signup">Sign Up</button>
+          </div>
+
+          <form id="auth-form" class="auth-form">
+            <label class="auth-label" for="auth-email">Email</label>
+            <input id="auth-email" name="email" type="email" placeholder="farmer@example.com" required>
+
+            <label class="auth-label" for="auth-password">Password</label>
+            <input id="auth-password" name="password" type="password" placeholder="At least 6 characters" minlength="6" required>
+
+            <button type="submit" class="btn btn-primary" id="auth-submit-btn">Sign In</button>
+            <p id="auth-message" class="auth-message" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="app-content" hidden>
   <!-- ==========================================
        Hero Section
        ========================================== -->
@@ -1009,6 +1056,8 @@
       <p>&copy; 2026 RythuMitra. All rights reserved. Empowering farmers with AI-based agriculture assistants.</p>
     </div>
   </footer>
+
+  </div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
