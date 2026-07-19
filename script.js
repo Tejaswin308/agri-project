@@ -1214,7 +1214,6 @@ function initAuth() {
   function renderAuthState(session) {
     const user = session?.user;
     const appContent = document.getElementById("app-content");
-    const appLocked = document.getElementById("app-locked");
 
     if (user) {
       authStatus.textContent = `Signed in as ${user.email}`;
@@ -1222,7 +1221,6 @@ function initAuth() {
       authLoggedIn.hidden = false;
       authFormPanel.hidden = true;
       if (appContent) appContent.hidden = false;
-      if (appLocked) appLocked.hidden = true;
       if (authSection) authSection.style.display = "none";
       if (profileDropdown) profileDropdown.hidden = false;
       if (profileEmailDisplay) profileEmailDisplay.textContent = user.email;
@@ -1233,7 +1231,6 @@ function initAuth() {
       authLoggedIn.hidden = true;
       authFormPanel.hidden = false;
       if (appContent) appContent.hidden = true;
-      if (appLocked) appLocked.hidden = false;
       if (authSection) authSection.style.display = "";
       if (profileDropdown) profileDropdown.hidden = true;
       setAuthMessage("");
