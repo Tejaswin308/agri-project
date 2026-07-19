@@ -13,7 +13,7 @@ const translations = {
     "nav-stats": "Statistics",
     "nav-faq": "FAQs",
     "nav-contact": "Contact",
-
+    
     "hero-tag": "Empowering Farmers with AI-Based Crop Health Monitoring",
     "hero-title": "Protect Your Crops with Smart Disease Detection",
     "hero-subtitle": "Upload crop photos, identify diseases, get treatment suggestions, and improve crop yield.",
@@ -37,7 +37,7 @@ const translations = {
     "lbl-preset-spot": "Tomato (Leaf Spot)",
     "lbl-preset-mildew": "Wheat (Mildew)",
     "lbl-preset-healthy": "Rice (Healthy)",
-
+    
     "lbl-result-title": "Scan Result",
     "lbl-severity-txt": "Severity Status",
     "lbl-symptoms-title": "Symptoms",
@@ -154,25 +154,7 @@ const translations = {
     "lbl-recommend-desc": "Based on the detected disease, we recommend visiting the following support centers:",
     "lbl-nearby-title": "Nearby Agriculture Centers",
     "lbl-loading-text": "Searching for nearby agriculture centers...",
-    "lbl-error-gps": "Location access was denied. Please enable GPS location permissions to find agricultural support centers near you.",
-    "lbl-btn-download-report": "Download Disease Report",
-    "pdf-title": "RythuMitra - Smart Farming Assistant",
-    "pdf-report-title": "Crop Health & Disease Analysis Report",
-    "pdf-date": "Date and Time of Analysis",
-    "pdf-disease-name": "Detected Disease Name",
-    "pdf-health-percent": "Plant Health Percentage",
-    "pdf-confidence": "Confidence Score",
-    "pdf-severity": "Severity Level",
-    "pdf-symptoms": "Symptoms",
-    "pdf-organic-treat": "Organic Treatment Recommendations",
-    "pdf-chemical-treat": "Chemical Treatment Recommendations",
-    "pdf-chemical-name": "Recommended Chemical Name",
-    "pdf-dosage": "Recommended Dosage",
-    "pdf-sprays-interval": "Number of Sprays & Interval",
-    "pdf-est-cost": "Estimated Treatment Cost (INR)",
-    "pdf-disclaimer-title": "Disclaimer",
-    "pdf-prevention": "Prevention Recommendations",
-    "pdf-not-available": "Not available"
+    "lbl-error-gps": "Location access was denied. Please enable GPS location permissions to find agricultural support centers near you."
   },
   te: {
     "nav-home": "హోమ్",
@@ -324,25 +306,7 @@ const translations = {
     "lbl-recommend-desc": "గుర్తించిన వ్యాధి ఆధారంగా, మేము ఈ క్రింది సహాయ కేంద్రాలను సందర్శించాల్సిందిగా సిఫార్సు చేస్తున్నాము:",
     "lbl-nearby-title": "సమీప వ్యవసాయ కేంద్రాలు",
     "lbl-loading-text": "సమీప వ్యవసాయ కేంద్రాల కోసం శోధిస్తోంది...",
-    "lbl-error-gps": "స్థాన ప్రాప్యత నిరాకరించబడింది. మీ సమీపంలో ఉన్న వ్యవసాయ సహాయ కేంద్రాలను కనుగొనడానికి దయచేసి GPS స్థాన అనుమతులను ప్రారంభించండి.",
-    "lbl-btn-download-report": "డౌన్‌లోడ్ రిపోర్ట్",
-    "pdf-title": "రైతుమిత్ర - స్మార్ట్ వ్యవసాయ సహాయకుడు",
-    "pdf-report-title": "పంట ఆరోగ్యం & వ్యాధి విశ్లేషణ నివేదిక",
-    "pdf-date": "విశ్లేషణ చేసిన తేదీ మరియు సమయం",
-    "pdf-disease-name": "గుర్తించిన వ్యాధి పేరు",
-    "pdf-health-percent": "పంట ఆరోగ్య శాతం",
-    "pdf-confidence": "ఖచ్చితత్వ శాతం",
-    "pdf-severity": "తీవ్రత స్థాయి",
-    "pdf-symptoms": "లక్షణాలు",
-    "pdf-organic-treat": "సేంద్రీయ చికిత్స సిఫార్సులు",
-    "pdf-chemical-treat": "రసాయన చికిత్స సిఫార్సులు",
-    "pdf-chemical-name": "సిఫార్సు చేసిన రసాయన పేరు",
-    "pdf-dosage": "సిఫార్సు చేసిన మోతాదు",
-    "pdf-sprays-interval": "పిచికారీలు & వ్యవధి",
-    "pdf-est-cost": "అంచనా వేసిన చికిత్స ఖర్చు (INR)",
-    "pdf-disclaimer-title": "నిరాకరణ",
-    "pdf-prevention": "నివారణ సిఫార్సులు",
-    "pdf-not-available": "అందుబాటులో లేదు"
+    "lbl-error-gps": "స్థాన ప్రాప్యత నిరాకరించబడింది. మీ సమీపంలో ఉన్న వ్యవసాయ సహాయ కేంద్రాలను కనుగొనడానికి దయచేసి GPS స్థాన అనుమతులను ప్రారంభించండి."
   },
   hi: {
     "nav-home": "होम",
@@ -494,25 +458,7 @@ const translations = {
     "lbl-recommend-desc": "पता लगाई गई बीमारी के आधार पर, हम निम्नलिखित सहायता केंद्रों पर जाने की सलाह देते हैं:",
     "lbl-nearby-title": "समीप कृषि केंद्र",
     "lbl-loading-text": "समीप कृषि केंद्रों की खोज की जा रही है...",
-    "lbl-error-gps": "स्थान पहुंच अस्वीकार कर दी गई। कृपया अपने आस-पास कृषि सहायता केंद्र खोजने के लिए जीपीएस स्थान अनुमति सक्षम करें।",
-    "lbl-btn-download-report": "रिपोर्ट डाउनलोड करें",
-    "pdf-title": "कृषि मित्र - स्मार्ट खेती सहायक",
-    "pdf-report-title": "फसल स्वास्थ्य एवं रोग विश्लेषण रिपोर्ट",
-    "pdf-date": "विश्लेषण की तिथि और समय",
-    "pdf-disease-name": "पता चला रोग का नाम",
-    "pdf-health-percent": "पौधों का स्वास्थ्य प्रतिशत",
-    "pdf-confidence": "सटीकता स्कोर",
-    "pdf-severity": "तीव्रता का स्तर",
-    "pdf-symptoms": "लक्षण",
-    "pdf-organic-treat": "जैविक उपचार सिफारिशें",
-    "pdf-chemical-treat": "रासायनिक उपचार सिफारिशें",
-    "pdf-chemical-name": "अनुशंसित रासायनिक नाम",
-    "pdf-dosage": "अनुशंसित खुराक",
-    "pdf-sprays-interval": "स्प्रे की संख्या और अंतराल",
-    "pdf-est-cost": "अनुमानित उपचार लागत (INR)",
-    "pdf-disclaimer-title": "अस्वीकरण",
-    "pdf-prevention": "रोकथाम सिफारिशें",
-    "pdf-not-available": "उपलब्ध नहीं"
+    "lbl-error-gps": "स्थान पहुंच अस्वीकार कर दी गई। कृपया अपने आस-पास कृषि सहायता केंद्र खोजने के लिए जीपीएस स्थान अनुमति सक्षम करें।"
   },
   ta: {
     "nav-home": "முகப்பு",
@@ -664,25 +610,7 @@ const translations = {
     "lbl-recommend-desc": "கண்டறியப்பட்ட நோயின் அடிப்படையில், பின்வரும் உதவி மையங்களுக்குச் செல்ல பரிந்துரைக்கிறோம்:",
     "lbl-nearby-title": "அருகிலுள்ள விவசாய மையங்கள்",
     "lbl-loading-text": "அருகிலுள்ள விவசாய மையங்களைத் தேடுகிறது...",
-    "lbl-error-gps": "இருப்பிட அணுகல் மறுக்கப்பட்டது. உங்களுக்கு அருகிலுள்ள விவசாய உதவி மையங்களைக் கண்டறிய ஜிபிஎஸ் இருப்பிட அனுமதிகளை இயக்கவும்.",
-    "lbl-btn-download-report": "அறிக்கையைப் பதிவிறக்குக",
-    "pdf-title": "உழவன் நண்பன் - ஸ்மார்ட் விவசாய உதவியாளர்",
-    "pdf-report-title": "பயிர் ஆரோக்கியம் மற்றும் நோய் பகுப்பாய்வு அறிக்கை",
-    "pdf-date": "பகுப்பாய்வு தேதி மற்றும் நேரம்",
-    "pdf-disease-name": "கண்டறியப்பட்ட நோயின் பெயர்",
-    "pdf-health-percent": "பயிர் ஆரோக்கிய சதவீதம்",
-    "pdf-confidence": "நம்பகத்தன்மை மதிப்பெண்",
-    "pdf-severity": "தீவிரத்தன்மை நிலை",
-    "pdf-symptoms": "அறிகுறிகள்",
-    "pdf-organic-treat": "இயற்கை சிகிச்சை பரிந்துரைகள்",
-    "pdf-chemical-treat": "இரசாயன சிகிச்சை பரிந்துரைகள்",
-    "pdf-chemical-name": "பரிந்துரைக்கப்படும் இரசாயன பெயர்",
-    "pdf-dosage": "பரிந்துரைக்கப்படும் அளவு",
-    "pdf-sprays-interval": "தெளிப்புகளின் எண்ணிக்கை மற்றும் இடைவெளி",
-    "pdf-est-cost": "மதிப்பிடப்பட்ட சிகிச்சை செலவு (INR)",
-    "pdf-disclaimer-title": "பொறுப்புத் துறப்பு",
-    "pdf-prevention": "தடுப்பு பரிந்துரைகள்",
-    "pdf-not-available": "கிடைக்கவில்லை"
+    "lbl-error-gps": "இருப்பிட அணுகல் மறுக்கப்பட்டது. உங்களுக்கு அருகிலுள்ள விவசாய உதவி மையங்களைக் கண்டறிய ஜிபிஎஸ் இருப்பிட அனுமதிகளை இயக்கவும்."
   },
   ml: {
     "nav-home": "ഹോം",
@@ -833,25 +761,7 @@ const translations = {
     "lbl-recommend-desc": "കണ്ടെത്തിയ രോഗത്തിന്റെ അടിസ്ഥാനത്തിൽ, താഴെ പറയുന്ന സഹായ കേന്ദ്രങ്ങൾ സന്ദർശിക്കാൻ ഞങ്ങൾ ശുപാർശ ചെയ്യുന്നു:",
     "lbl-nearby-title": "സമീപത്തുള്ള കാർഷിക കേന്ദ്രങ്ങൾ",
     "lbl-loading-text": "സമീപത്തുള്ള കാർഷിക കേന്ദ്രങ്ങൾക്കായി തിരയുന്നു...",
-    "lbl-error-gps": "ലൊക്കേഷൻ അനുമതി നിരസിച്ചു. നിങ്ങളുടെ സമീപത്തുള്ള കാർഷിക സഹായ കേന്ദ്രങ്ങൾ കണ്ടെത്തുന്നതിന് ദയവായി ജിപിഎസ് ലൊക്കേഷൻ അനുമതികൾ അനുവദിക്കുക.",
-    "lbl-btn-download-report": "റിപ്പോർട്ട് ഡൗൺലോഡ് ചെയ്യുക",
-    "pdf-title": "കൃഷിമിത്ര - സ്മാർട്ട് ഫാമിംഗ് അസിസ്റ്റന്റ്",
-    "pdf-report-title": "വിള ആരോഗ്യവും രോഗ വിശകലന റിപ്പോർട്ടും",
-    "pdf-date": "വിശകലനം ചെയ്ത തീയതിയും സമയവും",
-    "pdf-disease-name": "കണ്ടെത്തിയ രോഗത്തിന്റെ പേര്",
-    "pdf-health-percent": "വിള ആരോഗ്യ ശതമാനം",
-    "pdf-confidence": "കൃത്യത സ്കോർ",
-    "pdf-severity": "തീവ്രത നില",
-    "pdf-symptoms": "ലക്ഷണങ്ങൾ",
-    "pdf-organic-treat": "ജൈവ ചികിത്സാ നിർദ്ദേശങ്ങൾ",
-    "pdf-chemical-treat": "രാസ ചികിത്സാ നിർദ്ദേശങ്ങൾ",
-    "pdf-chemical-name": "രാസവസ്തുവിന്റെ പേര്",
-    "pdf-dosage": "നിർദ്ദേശിച്ച അളവ്",
-    "pdf-sprays-interval": "തളിക്കേണ്ട തവണയും ഇടവേളയും",
-    "pdf-est-cost": "ചികിത്സാ ചിലവ് (INR)",
-    "pdf-disclaimer-title": "നിരാകരണം",
-    "pdf-prevention": "പ്രതിരോധ മാർഗ്ഗങ്ങൾ",
-    "pdf-not-available": "ലഭ്യമല്ല"
+    "lbl-error-gps": "ലൊക്കേഷൻ അനുമതി നിരസിച്ചു. നിങ്ങളുടെ സമീപത്തുള്ള കാർഷിക സഹായ കേന്ദ്രങ്ങൾ കണ്ടെത്തുന്നതിന് ദയവായി ജിപിഎസ് ലൊക്കേഷൻ അനുമതികൾ അനുവദിക്കുക."
   },
   kn: {
     "nav-home": "ಹೋಮ್",
@@ -997,26 +907,7 @@ const translations = {
     "footer-desc": "ಆಫ್‌ಲೈನ್ ರೋಗ ಪತ್ತೆ, ಹವಾಮಾನ ಮುನ್ನೆಚ್ಚರಿಕೆ ಮತ್ತು ಕೃಷಿ ಸಲಹೆಗಳ ಮೂಲಕ ರೈತರ ಬೆಳೆಗಳನ್ನು ರಕ್ಷಿಸಲು ಸಹಾಯ ಮಾಡುತ್ತದೆ.",
     "footer-lbl-links": "ತ್ವರಿತ ಕೊಂಡಿಗಳು",
     "footer-lbl-social": "ಸಾಮಾಜಿಕ ಮಾಧ್ಯಮ",
-    "footer-social-desc": "ಕೃಷಿ ಸುದ್ದಿಗಳು ಮತ್ತು ತರಬೇತಿಗಳಿಗಾಗಿ ನಮ್ಮನ್ನು ಅನುಸರಿಸಿ.",
-    "lbl-btn-download-report": "ವರದಿ ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ",
-    "pdf-title": "ರೈತಮಿತ್ರ - ಸ್ಮಾರ್ಟ್ ಕೃಷಿ ಸಹಾಯಕ",
-    "pdf-report-title": "ಬೆಳೆ ಆರೋಗ್ಯ ಮತ್ತು ರೋಗ ವಿಶ್ಲೇಷಣೆ ವರದಿ",
-    "pdf-date": "ವಿಶ್ಲೇಷಣೆಯ ದಿನಾಂಕ ಮತ್ತು ಸಮಯ",
-    "pdf-disease-name": "ಗುರುತಿಸಲಾದ ರೋಗದ ಹೆಸರು",
-    "pdf-health-percent": "ಬೆಳೆ ಆರೋಗ್ಯದ ಶೇಕಡಾವಾರು",
-    "pdf-confidence": "ನಿಖರತೆಯ ಸ್ಕೋರ್",
-    "pdf-severity": "ತೀವ್ರತೆಯ ಮಟ್ಟ",
-    "pdf-symptoms": "ಲಕ್ಷಣಗಳು",
-    "pdf-organic-treat": "ಸಾವಯವ ಚಿಕಿತ್ಸಾ ಶಿಫಾರಸುಗಳು",
-    "pdf-chemical-treat": "ರಾಸಾಯನಿಕ ಚಿಕಿತ್ಸಾ ಶಿಫಾರಸುಗಳು",
-    "pdf-chemical-name": "ಶಿಫಾರಸು ಮಾಡಿದ ರಾಸಾಯನಿಕ ಹೆಸರು",
-    "pdf-dosage": "ಶಿಫಾರಸು ಮಾಡಿದ ಪ್ರಮಾಣ",
-    "pdf-sprays-interval": "ಸಿಂಪಡಣೆಯ ಸಂಖ್ಯೆ ಮತ್ತು ಅಂತರ",
-    "pdf-est-cost": "ಅಂದಾಜು ಚಿಕಿತ್ಸಾ ವೆಚ್ಚ (INR)",
-    "pdf-disclaimer-title": "ಹಕ್ಕುತ್ಯಾಗ",
-    "pdf-prevention": "ತಡೆಗಟ್ಟುವ ಶಿಫಾರಸುಗಳು",
-    "pdf-not-available": "ಲಭ್ಯವಿಲ್ಲ"
-
+    "footer-social-desc": "ಕೃಷಿ ಸುದ್ದಿಗಳು ಮತ್ತು ತರಬೇತಿಗಳಿಗಾಗಿ ನಮ್ಮನ್ನು ಅನುಸರಿಸಿ."
   }
 };
 
@@ -1027,38 +918,6 @@ const diseaseDatabase = {
     confidence: "95%",
     severity: "high",
     severityVal: 85,
-    chemicalName: {
-      en: "Mancozeb",
-      te: "మాంకోజెబ్",
-      hi: "मैनकोज़ेब",
-      ta: "மாங்கோசெப்",
-      ml: "മാങ്കോസെബ്",
-      kn: "ಮ್ಯಾಂಕೋಜೆಬ್"
-    },
-    dosage: {
-      en: "2 g per litre of water",
-      te: "1 లీటరు నీటికి 2 గ్రాములు",
-      hi: "1 लीटर पानी में 2 ग्राम",
-      ta: "1 லிட்டர் தண்ணீருக்கு 2 கிராம்",
-      ml: "1 ലിറ്റർ വെള്ളത്തിന് 2 ഗ്രാം",
-      kn: "1 ಲೀಟರ್ ನೀರಿಗೆ 2 ಗ್ರಾಂ"
-    },
-    spraysInterval: {
-      en: "3 sprays, 7 days apart",
-      te: "3 పిచికారీలు, 7 రోజులు క్రమం",
-      hi: "3 छिड़काव, 7 दिनों के अंतराल पर",
-      ta: "3 தெளிப்புகள், 7 நாட்கள் இடைவெளி",
-      ml: "3 തളിച്ചെടുപ്പുകൾ, 7 ദിവസങ്ങൾ ഇടവിട്ട്",
-      kn: "3 ಸಿಂಪಡಣೆ, 7 ದಿನಗಳ ಅಂತರ"
-    },
-    estCost: {
-      en: "₹1,500",
-      te: "₹1,500",
-      hi: "₹1,500",
-      ta: "₹1,500",
-      ml: "₹1,500",
-      kn: "₹1,500"
-    },
     symptoms: {
       en: "Small circular dark spots appearing first on older lower leaves, developing yellow halos. Leaves eventually yellow and drop.",
       te: "ఆకులపై చిన్న చిన్న గుండ్రటి నల్లటి మచ్చలు ఏర్పడి పసుపు రంగు వలయాలుగా మారుతాయి. ఆకులు ఎండిపోయి రాలిపోతాయి.",
@@ -1105,38 +964,6 @@ const diseaseDatabase = {
     confidence: "88%",
     severity: "medium",
     severityVal: 55,
-    chemicalName: {
-      en: "Myclobutanil",
-      te: "మైక్లోబుటానిల్",
-      hi: "माइक्लोबुटानिल",
-      ta: "மைக்ளோபுடானில்",
-      ml: "മൈക്ലോബുട്ടാനിൽ",
-      kn: "ಮೈಕ್ಲೋಬುಟಾನಿಲ್"
-    },
-    dosage: {
-      en: "1.5 ml per litre of water",
-      te: "1 లీటరు నీటికి 1.5 ml",
-      hi: "1 लीटर पानी में 1.5 मिलीलीटर",
-      ta: "1 லிட்டர் தண்ணீருக்கு 1.5 ml",
-      ml: "1 ലിറ്റർ വെള്ളത്തിന് 1.5 ml",
-      kn: "1 ಲೀಟರ್ ನೀರಿಗೆ 1.5 ml"
-    },
-    spraysInterval: {
-      en: "2 sprays, 10 days apart",
-      te: "2 పిచికారీలు, 10 రోజులు వ్యవధి",
-      hi: "2 छिड़काव, 10 दिनों के अंतराल पर",
-      ta: "2 தெளிப்புகள், 10 நாட்கள் இடைவெளி",
-      ml: "2 തളിച്ചെടുപ്പുകൾ, 10 ദിവസം ഇടവിട്ട്",
-      kn: "2 ಸಿಂಪಡಣೆ, 10 ದಿನಗಳ ಅಂತರ"
-    },
-    estCost: {
-      en: "₹1,200",
-      te: "₹1,200",
-      hi: "₹1,200",
-      ta: "₹1,200",
-      ml: "₹1,200",
-      kn: "₹1,200"
-    },
     symptoms: {
       en: "White powdery talcum-like spots on upper leaf surfaces and stems. Foliage turns brown, curled, and growth is stunted.",
       te: "ఆకుల పైభాగంలో మరియు కాండం మీద తెల్లటి బూజు లాంటి మచ్చలు ఏర్పడతాయి. ఆకులు ముడుచుకుపోయి పెరుగుదల ఆగిపోతుంది.",
@@ -1183,38 +1010,6 @@ const diseaseDatabase = {
     confidence: "97%",
     severity: "low",
     severityVal: 10,
-    chemicalName: {
-      en: "None required",
-      te: "ఏదీ అవసరం లేదు",
-      hi: "कोई आवश्यकता नहीं",
-      ta: "எதுவும் தேவையில்லை",
-      ml: "അവശ്യമില്ല",
-      kn: "ಯಾವುದೂ ಅಗತ್ಯವಿಲ್ಲ"
-    },
-    dosage: {
-      en: "Not available",
-      te: "అందుబాటులో లేదు",
-      hi: "उपलब्ध नहीं",
-      ta: "கிடைக்கவில்லை",
-      ml: "ലഭ്യമല്ല",
-      kn: "ಲಭ್ಯವಿಲ್ಲ"
-    },
-    spraysInterval: {
-      en: "No sprays required",
-      te: "పిచికారీ అవసరం లేదు",
-      hi: "किसी छिड़काव की आवश्यकता नहीं",
-      ta: "தெளிப்பு தேவையில்லை",
-      ml: "തളിക്കുന്നതിന്റെ ആവശ്യമില്ല",
-      kn: "ಸಿಂಪಡಣೆ ಅಗತ್ಯವಿಲ್ಲ"
-    },
-    estCost: {
-      en: "₹0",
-      te: "₹0",
-      hi: "₹0",
-      ta: "₹0",
-      ml: "₹0",
-      kn: "₹0"
-    },
     symptoms: {
       en: "No visual spots, lesions, or molds. Natural rich chlorophyll green color and normal robust vein texture.",
       te: "ఎటువంటి మచ్చలు, బూజు లేదా గాయాలు లేవు. ఆకు సహజమైన పచ్చటి రంగుతో ఆరోగ్యంగా బలంగా ఉంది.",
@@ -1298,7 +1093,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initContactForm();
   initNearbyCenters();
   initStatsIntersectionObserver();
-  initDownloadReport();
 });
 
 // --- Sticky Navigation & Hamburger Menu ---
@@ -1306,7 +1100,7 @@ function initNavbar() {
   const header = document.getElementById("main-header");
   const menuToggle = document.getElementById("menu-toggle-btn");
   const navLinksMenu = document.getElementById("nav-links-menu");
-
+  
   // Sticky scroll background
   window.addEventListener("scroll", () => {
     if (window.scrollY > 50) {
@@ -1314,7 +1108,7 @@ function initNavbar() {
     } else {
       header.classList.remove("scrolled");
     }
-
+    
     // Auto active navbar link highlighting
     highlightActiveLink();
   });
@@ -1363,7 +1157,7 @@ function initLanguageSwitcher() {
 
 function updateUILanguage(lang) {
   const dict = translations[lang] || translations["en"];
-
+  
   // Update elements by ID matching dictionary keys
   Object.keys(dict).forEach(id => {
     const el = document.getElementById(id);
@@ -1446,7 +1240,7 @@ function initOfflineDetector() {
 function initCounters() {
   const counters = document.querySelectorAll(".counter");
   const percents = document.querySelectorAll(".counter-percent");
-
+  
   const animateStats = (entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -1455,7 +1249,7 @@ function initCounters() {
           const target = +counter.getAttribute("data-target");
           let count = 0;
           const speed = target / 80; // duration speed adjustment
-
+          
           const updateCount = () => {
             count += speed;
             if (count < target) {
@@ -1472,7 +1266,7 @@ function initCounters() {
         percents.forEach(percent => {
           const target = +percent.getAttribute("data-target");
           let count = 0;
-
+          
           const updatePercent = () => {
             count++;
             if (count <= target) {
@@ -1493,7 +1287,7 @@ function initCounters() {
 
   const observerOptions = { threshold: 0.1 };
   const observer = new IntersectionObserver(animateStats, observerOptions);
-
+  
   // Target dashboard stats block
   const statsSection = document.querySelector(".dashboard-sec");
   if (statsSection) {
@@ -1582,12 +1376,12 @@ function initDiseaseScanner() {
     dragText.style.display = "none";
     fileTypesText.style.display = "none";
     if (uploadIcon) uploadIcon.style.display = "none";
-
+    
     previewBox.style.display = "block";
     imgPreview.src = imageSrc;
     scannerLine.style.display = "block";
     scanningMsg.style.display = "flex";
-
+    
     // Hide previous result card
     document.getElementById("scan-result-card").style.display = "none";
 
@@ -1601,10 +1395,10 @@ function initDiseaseScanner() {
 
     const currentMsgs = scanningMessages[currentLanguage] || scanningMessages["en"];
     const textLabel = document.getElementById("lbl-scanning-msg");
-
+    
     let step = 0;
     textLabel.textContent = currentMsgs[0];
-
+    
     const interval = setInterval(() => {
       step++;
       if (step < currentMsgs.length) {
@@ -1617,35 +1411,10 @@ function initDiseaseScanner() {
       clearInterval(interval);
       scannerLine.style.display = "none";
       scanningMsg.style.display = "none";
-
+      
       // Store globally for lang swap redraw
       window.lastDetectedDisease = diseaseKey;
-
-      // Store the image for PDF.
-      // If it's already a dataURL (user upload), store directly.
-      // If it's a local asset path (preset), convert via Image+canvas to base64
-      // so the PDF can embed it inline (fetch won't work on file:// URLs).
-      if (imageSrc && imageSrc.startsWith("data:")) {
-        window.lastUploadedImageDataURL = imageSrc;
-      } else if (imageSrc) {
-        const tempImg = new Image();
-        tempImg.crossOrigin = "anonymous";
-        tempImg.onload = function () {
-          try {
-            const c = document.createElement("canvas");
-            c.width = tempImg.naturalWidth;
-            c.height = tempImg.naturalHeight;
-            c.getContext("2d").drawImage(tempImg, 0, 0);
-            window.lastUploadedImageDataURL = c.toDataURL("image/png");
-          } catch (e) {
-            // Canvas tainted (file:// CORS) – store raw path as fallback, image won't appear in PDF
-            window.lastUploadedImageDataURL = imageSrc;
-          }
-        };
-        tempImg.onerror = function () { window.lastUploadedImageDataURL = imageSrc; };
-        tempImg.src = imageSrc;
-      }
-
+      
       displayDiseaseResult(diseaseKey);
     }, 2000);
   }
@@ -1654,7 +1423,7 @@ function initDiseaseScanner() {
 function displayDiseaseResult(diseaseKey) {
   const data = diseaseDatabase[diseaseKey];
   const resultCard = document.getElementById("scan-result-card");
-
+  
   if (!data) return;
 
   resultCard.style.display = "block";
@@ -1666,14 +1435,14 @@ function displayDiseaseResult(diseaseKey) {
   // Update Severity Meter
   const severityText = document.getElementById("lbl-severity-level");
   const severityBar = document.getElementById("severity-bar");
-
+  
   // Clear classes
   severityBar.className = "severity-bar-fill";
-
-  const sevLabel = currentLanguage === "te" ?
-    { low: "తక్కువ", medium: "మధ్యస్థం", high: "అధికం" } :
-    (currentLanguage === "hi" ?
-      { low: "कम", medium: "मध्यम", high: "उच्च" } :
+  
+  const sevLabel = currentLanguage === "te" ? 
+    { low: "తక్కువ", medium: "మధ్యస్థం", high: "అధికం" } : 
+    (currentLanguage === "hi" ? 
+      { low: "कम", medium: "मध्यम", high: "उच्च" } : 
       (currentLanguage === "ta" ?
         { low: "குறைவு", medium: "நடுத்தரம்", high: "அதிதீவிரம்" } :
         { low: "Low", medium: "Medium", high: "High" }
@@ -1705,7 +1474,7 @@ function displayDiseaseResult(diseaseKey) {
   document.getElementById("res-treat-org").textContent = data.organic[currentLanguage] || data.organic["en"];
   document.getElementById("res-treat-chem").textContent = data.chemical[currentLanguage] || data.chemical["en"];
   document.getElementById("res-treat-prev").textContent = data.prevention[currentLanguage] || data.prevention["en"];
-
+  
   // Smooth scroll down to results
   resultCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
@@ -1718,13 +1487,13 @@ function initFertilizerAdvisor() {
   cropSelect.addEventListener("change", (e) => {
     const val = e.target.value;
     const data = fertilizerDatabase[val];
-
+    
     if (data) {
       resultBox.style.display = "block";
-
+      
       // Update results
       document.getElementById("fert-val-type").textContent = data.type;
-
+      
       // Localized translations for quantity and time variables if needed
       document.getElementById("fert-val-quantity").textContent = translateVariableString(data.quantity);
       document.getElementById("fert-val-time").textContent = translateVariableString(data.time);
@@ -1792,7 +1561,7 @@ function initGrowthTracker() {
 
     const sowingDate = new Date(dateVal);
     const currentDate = new Date();
-
+    
     // Time difference calculation
     const timeDiff = currentDate.getTime() - sowingDate.getTime();
     const daysElapsed = Math.floor(timeDiff / (1000 * 3600 * 24));
@@ -1803,7 +1572,7 @@ function initGrowthTracker() {
     }
 
     resultBox.style.display = "block";
-
+    
     // Update elapsed days text
     const labelDays = currentLanguage === "te" ? "రోజులు" : (currentLanguage === "hi" ? "दिन" : (currentLanguage === "ta" ? "நாட்கள்" : "Days"));
     daysText.textContent = `${daysElapsed} ${labelDays}`;
@@ -1883,7 +1652,7 @@ function initWeatherAlerts() {
 
       // Update Card Visuals & Class Colors
       alertCard.className = "alert-box " + simData.alertClass;
-
+      
       // Update Header Text with Icon
       let iconSvg = "";
       if (simData.alertClass === "safe") {
@@ -1965,7 +1734,7 @@ function initFAQAccordion() {
     header.addEventListener("click", () => {
       const item = header.parentElement;
       const content = item.querySelector(".faq-content");
-
+      
       // Close other panels
       const allItems = document.querySelectorAll(".faq-item");
       allItems.forEach(i => {
@@ -1977,7 +1746,7 @@ function initFAQAccordion() {
 
       // Toggle current panel
       item.classList.toggle("active");
-
+      
       if (item.classList.contains("active")) {
         content.style.maxHeight = content.scrollHeight + "px";
       } else {
@@ -1995,7 +1764,7 @@ function initContactForm() {
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-
+    
     // Check mobile number validity (10 digits)
     const phoneInput = document.getElementById("contact-phone").value.trim();
     const phonePattern = /^[0-9]{10}$/;
@@ -2035,17 +1804,17 @@ function initStatsIntersectionObserver() {
     "bar-wheat": "88%",
     "bar-maize": "82%",
     "bar-tomato": "68%",
-
+    
     // Grouped bar chart (Rabi)
     "grp-r-rice": "45%",
     "grp-r-wheat": "85%",
     "grp-r-tomato": "30%",
-
+    
     // Grouped bar chart (Kharif)
     "grp-k-rice": "90%",
     "grp-k-wheat": "15%",
     "grp-k-tomato": "55%",
-
+    
     // Grouped bar chart (Zaid)
     "grp-z-rice": "20%",
     "grp-z-wheat": "35%",
@@ -2088,10 +1857,10 @@ function initNearbyCenters() {
     // Reset state elements
     document.getElementById("nearby-error-box").style.display = "none";
     document.getElementById("nearby-status-msg").style.display = "flex";
-
+    
     const container = document.getElementById("nearby-centers-container");
     container.style.display = "block";
-
+    
     // Clear list cards
     document.getElementById("centers-list-cards").innerHTML = "";
 
@@ -2116,10 +1885,10 @@ function initNearbyCenters() {
           console.warn("Geolocation permission denied or error. Using regional default coordinates.", error);
           const fallbackLat = 16.3067; // Guntur regional farming hub
           const fallbackLon = 80.4365;
-
+          
           document.getElementById("nearby-status-msg").style.display = "none";
           document.getElementById("nearby-error-box").style.display = "flex";
-
+          
           fetchNearbyCenters(fallbackLat, fallbackLon, true);
         },
         { timeout: 8000, enableHighAccuracy: true }
@@ -2128,10 +1897,10 @@ function initNearbyCenters() {
       console.warn("Geolocation API not supported. Using regional default coordinates.");
       const fallbackLat = 16.3067;
       const fallbackLon = 80.4365;
-
+      
       document.getElementById("nearby-status-msg").style.display = "none";
       document.getElementById("nearby-error-box").style.display = "flex";
-
+      
       fetchNearbyCenters(fallbackLat, fallbackLon, true);
     }
   });
@@ -2140,7 +1909,7 @@ function initNearbyCenters() {
 function fetchNearbyCenters(lat, lon, isFallback = false) {
   // Render recommendations box first
   renderRecommendations(window.lastDetectedDisease || "healthy");
-
+  
   // Set up the Leaflet Map
   initMap(lat, lon);
 
@@ -2190,10 +1959,10 @@ function fetchNearbyCenters(lat, lon, isFallback = false) {
             const catKey = getCategoryKeyFromTags(el.tags);
             const name = el.tags.name || el.tags.operator || getLocalizedCategory(catKey);
             const distance = calculateDistance(lat, lon, latVal, lonVal);
-
+            
             // Generate stable mock rating for realism
             const rating = el.tags.rating || (4.0 + (latVal * 1000 % 10) / 10).toFixed(1);
-
+            
             // Build address
             let address = el.tags["addr:full"] || el.tags["addr:street"] || "";
             const city = el.tags["addr:city"] || el.tags["addr:suburb"] || el.tags["addr:town"] || "";
@@ -2211,7 +1980,7 @@ function fetchNearbyCenters(lat, lon, isFallback = false) {
             });
           }
         });
-
+        
         // Sort by distance
         centers.sort((a, b) => a.distance - b.distance);
       }
@@ -2242,7 +2011,7 @@ function initMap(lat, lon) {
     window.nearbyMap.remove();
     window.nearbyMap = null;
   }
-
+  
   window.nearbyMap = L.map("nearby-map", {
     scrollWheelZoom: false
   }).setView([lat, lon], 13);
@@ -2278,7 +2047,7 @@ function plotMarkers(centers, userLat, userLon) {
     const isRecommended = recKeys.includes(c.categoryKey);
     // Green pin for standard, Gold pin for recommended
     const pinColor = isRecommended ? "#FFB300" : "#1B5E20";
-
+    
     const centerIcon = L.divIcon({
       className: `custom-marker-center-${c.categoryKey}`,
       html: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30">
@@ -2310,7 +2079,7 @@ function renderRecommendations(diseaseKey) {
   badgeList.innerHTML = "";
 
   const recKeys = getRecommendedCategoryKeys(diseaseKey);
-
+  
   recKeys.forEach(key => {
     const badge = document.createElement("span");
     badge.className = "recommendation-badge";
@@ -2343,7 +2112,7 @@ function renderNearbyCards(centers) {
 
     const card = document.createElement("div");
     card.className = `center-card ${isRecommended ? "recommended-card" : ""}`;
-
+    
     let badgeHtml = "";
     if (isRecommended) {
       badgeHtml = `<span class="rec-card-badge">${activeLabels.recBadge}</span>`;
@@ -2422,11 +2191,11 @@ function getMockCenters(lat, lon) {
     const centerLat = lat + offsetLat;
     const centerLon = lon + offsetLon;
     const distance = calculateDistance(lat, lon, centerLat, centerLon);
-
+    
     // Stable random-looking values
     const rating = (4.1 + (idx * 0.17) % 0.8).toFixed(1);
     const doorNo = 12 + idx * 8;
-
+    
     const streetNames = {
       en: `${doorNo} Farming Road, Regional Hub`,
       te: `${doorNo} వ్యవసాయ రోడ్, ప్రాంతీయ కేంద్రం`,
@@ -2435,7 +2204,7 @@ function getMockCenters(lat, lon) {
       ml: `${doorNo} കൃഷി റോഡ്, റീജിയണൽ ഹബ്`,
       kn: `${doorNo} ಕೃಷಿ ರಸ್ತೆ, ಪ್ರಾದೇಶಿಕ ಕೇಂದ್ರ`
     };
-
+    
     return {
       name: template.name[currentLanguage] || template.name["en"],
       categoryKey: template.key,
@@ -2452,9 +2221,9 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
   const R = 6371; // Earth radius in km
   const dLat = (lat2 - lat1) * Math.PI / 180;
   const dLon = (lon2 - lon1) * Math.PI / 180;
-  const a =
+  const a = 
     Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-    Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+    Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * 
     Math.sin(dLon / 2) * Math.sin(dLon / 2);
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
   const d = R * c;
@@ -2465,446 +2234,4 @@ function isAppOffline() {
   const simSwitch = document.getElementById("online-switch");
   const offlineSimulated = simSwitch ? !simSwitch.checked : false;
   return offlineSimulated || !navigator.onLine;
-}
-
-function escapeHtml(value) {
-  return String(value)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/\"/g, "&quot;")
-    .replace(/'/g, "&#39;");
-}
-
-function getLocalizedText(value, fallback) {
-  if (!value) return fallback;
-  if (typeof value === "string") return value;
-  if (typeof value === "object") return value[currentLanguage] || value.en || fallback;
-  return fallback;
-}
-
-function getSeverityLabel(severity) {
-  const labels = {
-    low: { en: "Low", te: "తక్కువ", hi: "कम", ta: "குறைவு", ml: "കുറവ്", kn: "ಕಡಿಮೆ" },
-    medium: { en: "Medium", te: "మధ్యస్థం", hi: "मध्यम", ta: "நடுத்தரம்", ml: "മധ്യസ്ഥം", kn: "ಮಧ್ಯಮ" },
-    high: { en: "High", te: "అధికం", hi: "उच्च", ta: "அதிகம்", ml: "ഉயർന്നது", kn: "అధిక" }
-  };
-  const selected = labels[severity] || labels.low;
-  return selected[currentLanguage] || selected.en;
-}
-
-function getDisclaimerText() {
-  const texts = {
-    en: "AI provides an estimate based on the uploaded image. If the infection is severe or the confidence is low, consult a local agricultural expert before taking action.",
-    te: "AI అప్‌లోడ్ చేసిన చిత్రంపై ఆధారపడిన అంచనా మాత్రమే ఇస్తుంది. ఇన్ఫెక్షన్ తీవ్రంగా ఉంటే లేదా ఖచ్చితత్వం తక్కువగా ఉంటే, చర్య తీసుకునే ముందు స్థానిక వ్యవసాయ నిపుణులను సంప్రదించండి.",
-    hi: "AI अपलोड की गई तस्वीर के आधार पर अनुमान देता है। यदि संक्रमण गंभीर है या सटीकता कम है, तो कार्रवाई करने से पहले स्थानीय कृषि विशेषज्ञ से सलाह लें।",
-    ta: "AI பதிவேற்றிய படத்தின் அடிப்படையில் மதிப்பீட்டை வழங்குகிறது. நோய் தீவிரமாக இருந்தால் அல்லது நம்பகத்தன்மை குறைவாக இருந்தால், நடவடிக்கை எடுப்பதற்கு முன் உள்ளூர் வேளாண்மை நிபுணரை அணுகவும்.",
-    ml: "AI അപ്ലോഡ് ചെയ്ത ഇമേജിന്റെ അടിസ്ഥാനത്തിൽ ഒരു കൃത്യമായ കണക്കാക്കിയ അంచനം നൽകുന്നു. രോഗം ഗുരുതരമായിരുന്നാൽ അല്ലെങ്കിൽ കൃത്യത കുറവായാൽ, നടപടി తీసుకునുന്നതിന് മുമ്പ് പ്രാദേശിക കൃഷിഅനുഭവക്കാരനുമായി సంపർക്കുക.",
-    kn: "AI ಅಪ್ಲೋഡ് ಮಾಡಿದ ಚಿತ್ರದ ಆಧಾರದ ಮೇಲೆ ಅಂದಾಜು ನೀಡುತ್ತದೆ. ಸೋಂಕು ತೀವ್ರವಾದರೆ ಅಥವಾ ನಿಖರತೆ ಕಡಿಮೆ ಇದ್ದರೆ, ಕ್ರಮ ತೆಗೆದುಕೊಳ್ಳುವ ಮೊದಲು ಸ್ಥಳೀಯ ಕೃಷಿ ತಜ್ಞರನ್ನು ಸಂಪರ್ಕಿಸಿ."
-  };
-  return texts[currentLanguage] || texts.en;
-}
-
-function formatReportDate(date) {
-  const pad = (n) => String(n).padStart(2, "0");
-  return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())} ${pad(date.getHours())}:${pad(date.getMinutes())}`;
-}
-
-async function getPreviewImageDataUrl() {
-  const preview = document.getElementById("image-preview");
-  if (!preview || !preview.src || preview.src === window.location.href || preview.src === "#") {
-    return window.lastUploadedImageDataURL || null;
-  }
-
-  if (preview.src.startsWith("data:")) {
-    return preview.src;
-  }
-
-  if (preview.complete && preview.naturalWidth > 0) {
-    const canvas = document.createElement("canvas");
-    canvas.width = preview.naturalWidth;
-    canvas.height = preview.naturalHeight;
-    const ctx = canvas.getContext("2d");
-    ctx.drawImage(preview, 0, 0);
-    return canvas.toDataURL("image/png");
-  }
-
-  return new Promise((resolve) => {
-    const img = new Image();
-    img.onload = () => {
-      try {
-        const canvas = document.createElement("canvas");
-        canvas.width = img.naturalWidth;
-        canvas.height = img.naturalHeight;
-        const ctx = canvas.getContext("2d");
-        ctx.drawImage(img, 0, 0);
-        resolve(canvas.toDataURL("image/png"));
-      } catch (err) {
-        resolve(null);
-      }
-    };
-    img.onerror = () => resolve(null);
-    img.src = preview.src;
-  });
-}
-
-const pdfFontCache = {};
-
-function arrayBufferToBase64(buffer) {
-  let binary = "";
-  const bytes = new Uint8Array(buffer);
-  const chunkSize = 0x8000;
-  for (let i = 0; i < bytes.length; i += chunkSize) {
-    const chunk = bytes.subarray(i, i + chunkSize);
-    binary += String.fromCharCode.apply(null, chunk);
-  }
-  return btoa(binary);
-}
-
-async function loadPdfFontForLanguage(doc, language) {
-  if (!window.jspdf || !window.jspdf.jsPDF) {
-    throw new Error("jsPDF is not available");
-  }
-
-  const fontMap = {
-    en: { family: "helvetica", fileName: null, cssUrl: null },
-    te: { family: "NotoSansTelugu", fileName: "NotoSansTelugu-Regular.ttf", cssUrl: "https://fonts.googleapis.com/css2?family=Noto+Sans+Telugu:wght@400;500;600;700" },
-    hi: { family: "NotoSansDevanagari", fileName: "NotoSansDevanagari-Regular.ttf", cssUrl: "https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700" },
-    ta: { family: "NotoSansTamil", fileName: "NotoSansTamil-Regular.ttf", cssUrl: "https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700" },
-    kn: { family: "NotoSansKannada", fileName: "NotoSansKannada-Regular.ttf", cssUrl: "https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@400;500;600;700" },
-    ml: { family: "NotoSansMalayalam", fileName: "NotoSansMalayalam-Regular.ttf", cssUrl: "https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@400;500;600;700" }
-  };
-
-  const fontInfo = fontMap[language] || fontMap.en;
-  if (!fontInfo.fileName) {
-    return "helvetica";
-  }
-
-  try {
-    let base64 = pdfFontCache[fontInfo.family];
-    if (!base64) {
-      const response = await fetch(fontInfo.cssUrl);
-      if (!response.ok) throw new Error(`Font stylesheet download failed: ${response.status}`);
-      const cssText = await response.text();
-      const match = cssText.match(/https:\/\/fonts\.gstatic\.com\/[^\s)]+\.woff2/);
-      if (!match) throw new Error("No font source found in stylesheet");
-      const fontResponse = await fetch(match[0]);
-      if (!fontResponse.ok) throw new Error(`Font download failed: ${fontResponse.status}`);
-      const buffer = await fontResponse.arrayBuffer();
-      base64 = arrayBufferToBase64(buffer);
-      pdfFontCache[fontInfo.family] = base64;
-    }
-
-    doc.addFileToVFS(fontInfo.fileName, base64);
-    doc.addFont(fontInfo.fileName, fontInfo.family, "normal");
-    return fontInfo.family;
-  } catch (error) {
-    console.warn(`Unable to load PDF font for ${language}:`, error);
-    return "helvetica";
-  }
-}
-
-function getReportFontStack() {
-  const fontFamilies = {
-    te: "'Noto Sans Telugu', Arial, sans-serif",
-    hi: "'Noto Sans Devanagari', Arial, sans-serif",
-    ta: "'Noto Sans Tamil', Arial, sans-serif",
-    ml: "'Noto Sans Malayalam', Arial, sans-serif",
-    kn: "'Noto Sans Kannada', Arial, sans-serif"
-  };
-  return fontFamilies[currentLanguage] || "Arial, sans-serif";
-}
-
-function buildReportHtml() {
-  const diseaseKey = window.lastDetectedDisease || "healthy";
-  const data = diseaseDatabase[diseaseKey];
-  if (!data) return null;
-
-  const t = translations[currentLanguage] || translations["en"];
-  const g = (k, fb) => t[k] || fb;
-
-  const pdfTitle = g("pdf-title", "RythuMitra - Smart Farming Assistant");
-  const pdfRepTitle = g("pdf-report-title", "Crop Health & Disease Analysis Report");
-  const pdfDateLbl = g("pdf-date", "Date and Time of Analysis");
-  const pdfDisLbl = g("pdf-disease-name", "Detected Disease Name");
-  const pdfHpLbl = g("pdf-health-percent", "Plant Health Percentage");
-  const pdfConfLbl = g("pdf-confidence", "Confidence Score");
-  const pdfSevLbl = g("pdf-severity", "Severity Level");
-  const pdfSymLbl = g("pdf-symptoms", "Symptoms");
-  const pdfOrgLbl = g("pdf-organic-treat", "Organic Treatment Recommendations");
-  const pdfChemLbl = g("pdf-chemical-treat", "Chemical Treatment Recommendations");
-  const pdfChnLbl = g("pdf-chemical-name", "Recommended Chemical Name");
-  const pdfDosLbl = g("pdf-dosage", "Recommended Dosage");
-  const pdfSprLbl = g("pdf-sprays-interval", "Number of Sprays & Interval");
-  const pdfCostLbl = g("pdf-est-cost", "Estimated Treatment Cost (INR)");
-  const pdfPrevLbl = g("pdf-prevention", "Prevention Recommendations");
-  const pdfDislTitle = g("pdf-disclaimer-title", "Disclaimer");
-  const pdfNotAvail = g("pdf-not-available", "Not available");
-
-  const diseaseName = getLocalizedText(data.diseaseName, pdfNotAvail);
-  const healthPct = Math.max(0, Math.min(100, 100 - (data.severityVal || 0)));
-  const severityLabel = getSeverityLabel(data.severity || "low");
-  const sympText = getLocalizedText(data.symptoms, pdfNotAvail);
-  const orgText = getLocalizedText(data.organic, pdfNotAvail);
-  const chemText = getLocalizedText(data.chemical, pdfNotAvail);
-  const prevText = getLocalizedText(data.prevention, pdfNotAvail);
-  const chemName = getLocalizedText(data.chemicalName, pdfNotAvail);
-  const dosage = getLocalizedText(data.dosage, pdfNotAvail);
-  const sprays = getLocalizedText(data.spraysInterval, pdfNotAvail);
-  const cost = getLocalizedText(data.estCost, pdfNotAvail);
-
-  const now = new Date();
-  const fmtDate = formatReportDate(now);
-  const fmtFile = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}_${String(now.getHours()).padStart(2, "0")}-${String(now.getMinutes()).padStart(2, "0")}`;
-
-  const container = document.createElement("div");
-  container.style.cssText = `
-    width: 794px;
-    max-width: 100%;
-    padding: 24px;
-    background: #ffffff;
-    color: #333333;
-    font-family: ${getReportFontStack()};
-    line-height: 1.5;
-  `;
-
-  const imageDataUrl = window.lastUploadedImageDataURL || null;
-  const imageMarkup = imageDataUrl
-    ? `<img src="${imageDataUrl}" alt="Crop scan preview" style="width: 160px; height: auto; max-height: 180px; border-radius: 8px; margin-bottom: 16px;" />`
-    : "";
-
-  container.innerHTML = `
-    <div style="border: 1px solid #dce8dc; border-radius: 12px; overflow: hidden;">
-      <div style="background: #2e7d32; color: #ffffff; padding: 18px 22px;">
-        <h1 style="margin: 0 0 4px 0; font-size: 22px;">${escapeHtml(pdfTitle)}</h1>
-        <div style="font-size: 12px; opacity: 0.95;">${escapeHtml(pdfRepTitle)}</div>
-      </div>
-      <div style="padding: 20px 22px;">
-        <div style="font-size: 12px; color: #5f5f5f; margin-bottom: 16px;">${escapeHtml(pdfDateLbl)}: ${escapeHtml(fmtDate)}</div>
-        ${imageMarkup}
-        <div style="background: #f5f5f5; border-radius: 10px; padding: 12px; margin-bottom: 14px;">
-          <div style="display: flex; justify-content: space-between; gap: 16px; margin-bottom: 8px;"><strong>${escapeHtml(pdfDisLbl)}</strong><span>${escapeHtml(diseaseName)}</span></div>
-          <div style="display: flex; justify-content: space-between; gap: 16px; margin-bottom: 8px;"><strong>${escapeHtml(pdfHpLbl)}</strong><span>${healthPct}%</span></div>
-          <div style="display: flex; justify-content: space-between; gap: 16px; margin-bottom: 8px;"><strong>${escapeHtml(pdfConfLbl)}</strong><span>${escapeHtml(data.confidence || pdfNotAvail)}</span></div>
-          <div style="display: flex; justify-content: space-between; gap: 16px;"><strong>${escapeHtml(pdfSevLbl)}</strong><span>${escapeHtml(severityLabel)}</span></div>
-        </div>
-        <div style="margin-bottom: 12px;"><div style="font-weight: 700; color: #2e7d32; margin-bottom: 4px;">${escapeHtml(pdfSymLbl)}</div><div>${escapeHtml(sympText)}</div></div>
-        <div style="margin-bottom: 12px;"><div style="font-weight: 700; color: #2e7d32; margin-bottom: 4px;">${escapeHtml(pdfPrevLbl)}</div><div>${escapeHtml(prevText)}</div></div>
-        <div style="margin-bottom: 12px;"><div style="font-weight: 700; color: #2e7d32; margin-bottom: 4px;">${escapeHtml(pdfOrgLbl)}</div><div>${escapeHtml(orgText)}</div></div>
-        <div style="margin-bottom: 14px;"><div style="font-weight: 700; color: #2e7d32; margin-bottom: 4px;">${escapeHtml(pdfChemLbl)}</div><div>${escapeHtml(chemText)}</div></div>
-        <div style="background: #f1f8e9; border-radius: 10px; padding: 12px;">
-          <div style="margin-bottom: 6px;"><strong>${escapeHtml(pdfChnLbl)}:</strong> ${escapeHtml(chemName)}</div>
-          <div style="margin-bottom: 6px;"><strong>${escapeHtml(pdfDosLbl)}:</strong> ${escapeHtml(dosage)}</div>
-          <div style="margin-bottom: 6px;"><strong>${escapeHtml(pdfSprLbl)}:</strong> ${escapeHtml(sprays)}</div>
-          <div><strong>${escapeHtml(pdfCostLbl)}:</strong> ${escapeHtml(cost)}</div>
-        </div>
-        <div style="background: #fffde7; border-radius: 10px; padding: 12px; margin-top: 14px;">
-          <div style="font-weight: 700; color: #e65100; margin-bottom: 4px;">${escapeHtml(pdfDislTitle)}</div>
-          <div style="font-size: 12px; color: #555555;">${escapeHtml(getDisclaimerText())}</div>
-        </div>
-      </div>
-    </div>
-  `;
-
-  container.dataset.filename = `Disease_Report_${fmtFile}.pdf`;
-  return container;
-}
-
-async function generatePDFReportFixed() {
-  const reportElement = buildReportHtml();
-  if (!reportElement) return;
-
-  const fileName = reportElement.dataset.filename || "Disease_Report.pdf";
-
-  if (window.html2pdf) {
-    try {
-      document.body.appendChild(reportElement);
-      await window.html2pdf().set({
-        margin: [10, 10, 10, 10],
-        filename: fileName,
-        image: { type: "jpeg", quality: 0.95 },
-        html2canvas: { scale: 2, useCORS: true, letterRendering: true },
-        jsPDF: { unit: "mm", format: "a4", orientation: "portrait" }
-      }).from(reportElement).save();
-    } finally {
-      reportElement.remove();
-    }
-    return;
-  }
-
-  if (!window.jspdf || !window.jspdf.jsPDF) {
-    console.error("PDF export library is not available");
-    return;
-  }
-
-  const { jsPDF } = window.jspdf;
-  const t = translations[currentLanguage] || translations["en"];
-  const g = (k, fb) => t[k] || fb;
-
-  const pdfTitle = g("pdf-title", "RythuMitra - Smart Farming Assistant");
-  const pdfRepTitle = g("pdf-report-title", "Crop Health & Disease Analysis Report");
-  const pdfDateLbl = g("pdf-date", "Date and Time of Analysis");
-  const pdfDisLbl = g("pdf-disease-name", "Detected Disease Name");
-  const pdfHpLbl = g("pdf-health-percent", "Plant Health Percentage");
-  const pdfConfLbl = g("pdf-confidence", "Confidence Score");
-  const pdfSevLbl = g("pdf-severity", "Severity Level");
-  const pdfSymLbl = g("pdf-symptoms", "Symptoms");
-  const pdfOrgLbl = g("pdf-organic-treat", "Organic Treatment Recommendations");
-  const pdfChemLbl = g("pdf-chemical-treat", "Chemical Treatment Recommendations");
-  const pdfChnLbl = g("pdf-chemical-name", "Recommended Chemical Name");
-  const pdfDosLbl = g("pdf-dosage", "Recommended Dosage");
-  const pdfSprLbl = g("pdf-sprays-interval", "Number of Sprays & Interval");
-  const pdfCostLbl = g("pdf-est-cost", "Estimated Treatment Cost (INR)");
-  const pdfPrevLbl = g("pdf-prevention", "Prevention Recommendations");
-  const pdfDislTitle = g("pdf-disclaimer-title", "Disclaimer");
-  const pdfNotAvail = g("pdf-not-available", "Not available");
-
-  const diseaseKey = window.lastDetectedDisease || "healthy";
-  const data = diseaseDatabase[diseaseKey];
-  const diseaseName = getLocalizedText(data.diseaseName, pdfNotAvail);
-  const healthPct = Math.max(0, Math.min(100, 100 - (data.severityVal || 0)));
-  const severity = data.severity || "low";
-  const severityLabel = getSeverityLabel(severity);
-  const sympText = getLocalizedText(data.symptoms, pdfNotAvail);
-  const orgText = getLocalizedText(data.organic, pdfNotAvail);
-  const chemText = getLocalizedText(data.chemical, pdfNotAvail);
-  const prevText = getLocalizedText(data.prevention, pdfNotAvail);
-  const chemName = getLocalizedText(data.chemicalName, pdfNotAvail);
-  const dosage = getLocalizedText(data.dosage, pdfNotAvail);
-  const sprays = getLocalizedText(data.spraysInterval, pdfNotAvail);
-  const cost = getLocalizedText(data.estCost, pdfNotAvail);
-
-  const now = new Date();
-  const fmtDate = formatReportDate(now);
-  const fmtFile = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}_${String(now.getHours()).padStart(2, "0")}-${String(now.getMinutes()).padStart(2, "0")}`;
-
-  const doc = new jsPDF({ unit: "mm", format: "a4", orientation: "portrait" });
-  const pdfFontFamily = await loadPdfFontForLanguage(doc, currentLanguage);
-  const margin = 14;
-  const pageWidth = 210;
-  const contentWidth = pageWidth - margin * 2;
-  let y = 20;
-
-  const addWrappedText = (text, x, yPos, width, size, color = [40, 40, 40]) => {
-    doc.setFont(pdfFontFamily, "normal");
-    doc.setFontSize(size);
-    doc.setTextColor(...color);
-    const lines = doc.splitTextToSize(text || "", width);
-    doc.text(lines, x, yPos);
-    return lines.length * (size > 11 ? 4.6 : 3.8);
-  };
-
-  const imageDataUrl = await getPreviewImageDataUrl();
-
-  doc.setFillColor(46, 125, 50);
-  doc.rect(0, 0, pageWidth, 28, "F");
-  doc.setTextColor(255, 255, 255);
-  doc.setFont(pdfFontFamily, "normal");
-  doc.setFontSize(16);
-  doc.text(pdfTitle, margin, 13);
-  doc.setFontSize(10);
-  doc.text(pdfRepTitle, margin, 20);
-
-  doc.setTextColor(70, 70, 70);
-  doc.setFont(pdfFontFamily, "normal");
-  doc.setFontSize(9);
-  doc.text(`${pdfDateLbl}: ${fmtDate}`, margin, 34);
-
-  y = 44;
-  if (imageDataUrl) {
-    try {
-      doc.addImage(imageDataUrl, "PNG", margin, y, 50, 50);
-      y += 55;
-    } catch (err) {
-      console.warn("Image could not be embedded in PDF", err);
-    }
-  }
-
-  doc.setFillColor(245, 245, 245);
-  doc.roundedRect(margin, y, contentWidth, 38, 2, 2, "F");
-  doc.setTextColor(60, 60, 60);
-  doc.setFont(pdfFontFamily, "normal");
-  doc.setFontSize(10);
-  const leftColX = margin + 5;
-  const rightColX = margin + 74;
-  doc.text(pdfDisLbl, leftColX, y + 8);
-  doc.text(diseaseName, rightColX, y + 8);
-  doc.text(pdfHpLbl, leftColX, y + 16);
-  doc.text(`${healthPct}%`, rightColX, y + 16);
-  doc.text(pdfConfLbl, leftColX, y + 24);
-  doc.text(data.confidence || pdfNotAvail, rightColX, y + 24);
-  doc.text(pdfSevLbl, leftColX, y + 32);
-  doc.text(severityLabel, rightColX, y + 32);
-
-  y += 48;
-  doc.setFont(pdfFontFamily, "normal");
-  doc.setFontSize(11);
-  doc.setTextColor(46, 125, 50);
-  doc.text(pdfSymLbl, margin, y);
-  y += 6;
-  const symptomHeight = addWrappedText(sympText, margin, y, contentWidth, 10);
-  y += symptomHeight + 4;
-
-  doc.text(pdfPrevLbl, margin, y);
-  y += 6;
-  const prevHeight = addWrappedText(prevText, margin, y, contentWidth, 10);
-  y += prevHeight + 4;
-
-  doc.text(pdfOrgLbl, margin, y);
-  y += 6;
-  const orgHeight = addWrappedText(orgText, margin, y, contentWidth, 10);
-  y += orgHeight + 4;
-
-  doc.text(pdfChemLbl, margin, y);
-  y += 6;
-  const chemHeight = addWrappedText(chemText, margin, y, contentWidth, 10);
-  y += chemHeight + 6;
-
-  doc.setFillColor(241, 248, 233);
-  doc.roundedRect(margin, y, contentWidth, 32, 2, 2, "F");
-  doc.setFont(pdfFontFamily, "normal");
-  doc.setFontSize(10);
-  doc.setTextColor(60, 60, 60);
-  const detailY = y + 8;
-  doc.text(`${pdfChnLbl}: ${chemName}`, margin + 4, detailY);
-  doc.text(`${pdfDosLbl}: ${dosage}`, margin + 4, detailY + 8);
-  doc.text(`${pdfSprLbl}: ${sprays}`, margin + 4, detailY + 16);
-  doc.text(`${pdfCostLbl}: ${cost}`, margin + 4, detailY + 24);
-
-  y += 40;
-  doc.setFillColor(255, 253, 231);
-  doc.roundedRect(margin, y, contentWidth, 24, 2, 2, "F");
-  doc.setFont(pdfFontFamily, "normal");
-  doc.setFontSize(10);
-  doc.setTextColor(230, 81, 0);
-  doc.text(pdfDislTitle, margin + 4, y + 8);
-  doc.setFont(pdfFontFamily, "normal");
-  doc.setFontSize(9);
-  doc.setTextColor(85, 85, 85);
-  addWrappedText(getDisclaimerText(), margin + 4, y + 12, contentWidth - 8, 9);
-
-  doc.save(`Disease_Report_${fmtFile}.pdf`);
-}
-
-function initDownloadReport() {
-  var btn = document.getElementById("btn-download-report");
-  if (!btn) return;
-  btn.addEventListener("click", function() {
-    if (!window.lastDetectedDisease) {
-      const message = currentLanguage === "te"
-        ? "రిపోర్ట్ డౌన్‌లోడ్ చేయడానికి ముందుగా ఆకును స్కాన్ చేయండి."
-        : (currentLanguage === "hi"
-          ? "रिपोर्ट डाउनलोड करने से पहले पहले पत्ती की जांच करें।"
-          : (currentLanguage === "ta"
-            ? "அறிக்கையைப் பதிவிறக்க முன் இலைகளை முதலில் ஸ்கேன் செய்யவும்."
-            : (currentLanguage === "ml"
-              ? "റിപ്പോർട്ട് ഡൗൺലോഡ് ചെയ്യുന്നതിന് മുമ്പ് ഇല സ്കാൻ ചെയ്യേണ്ടതുണ്ട്."
-              : (currentLanguage === "kn"
-                ? "ವರದಿ ಡೌನ್‌ಲೋಡ್ ಮಾಡಲು ಮೊದಲು ಎಲೆಗಳನ್ನು ಸ್ಕ್ಯಾನ್ ಮಾಡಿ."
-                : "Please scan a leaf image first before downloading the report."))));
-      alert(message);
-      return;
-    }
-    generatePDFReportFixed();
-  });
 }
