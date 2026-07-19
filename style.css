@@ -185,6 +185,146 @@ img {
 }
 
 /* ==========================================================================
+   Authentication Section
+   ========================================================================== */
+.auth-section {
+  padding: 40px 20px 0;
+}
+
+.auth-card {
+  max-width: 520px;
+  margin: 0 auto;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: 28px;
+}
+
+.auth-header h3 {
+  margin-bottom: 8px;
+  font-size: 1.5rem;
+}
+
+.auth-header p {
+  color: var(--text-muted);
+  margin-bottom: 18px;
+}
+
+.auth-status {
+  background: var(--accent);
+  color: var(--primary);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+.auth-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.auth-tab {
+  border: 1px solid var(--border-color);
+  background: var(--bg-soft);
+  color: var(--text-main);
+  padding: 8px 14px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.auth-tab.active {
+  background: var(--primary);
+  color: var(--white);
+  border-color: var(--primary);
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.auth-label {
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.auth-form input {
+  padding: 12px 14px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background: var(--white);
+}
+
+.auth-form button {
+  margin-top: 6px;
+}
+
+.btn-google {
+  width: 100%;
+  margin-bottom: 12px;
+  background: #ffffff;
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+  box-shadow: none;
+}
+
+.btn-google:hover {
+  background: var(--accent);
+  transform: translateY(-1px);
+}
+
+.auth-message {
+  min-height: 20px;
+  color: var(--primary);
+  font-size: 0.95rem;
+}
+
+.auth-message.error {
+  color: var(--sev-high);
+}
+
+.auth-logged-in {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.auth-user-email {
+  font-weight: 700;
+  color: var(--primary);
+  word-break: break-all;
+}
+
+.app-locked {
+  padding: 120px 20px 40px;
+  text-align: center;
+}
+
+.app-locked-card {
+  max-width: 560px;
+  margin: 0 auto;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: 32px;
+}
+
+.app-locked-card h2 {
+  margin-bottom: 10px;
+}
+
+.app-locked-card p {
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
    Header / Sticky Navbar
    ========================================================================== */
 header {
