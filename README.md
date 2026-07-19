@@ -170,18 +170,6 @@ Three clickable preset images are included for quick testing without uploading a
 | `treatments` | Text | Treatment recommendation |
 | `image_url` | Text | Uploaded image URL (Supabase Storage) |
 
----
-
-## 📦 Dependencies
-
-| Library | Version | CDN Used |
-|---|---|---|
-| Leaflet.js | 1.9.4 | unpkg.com |
-| Supabase JS | Latest | cdn.jsdelivr.net |
-
-No build tools or npm installs are required for the core application.
-
----
 
 ## 🤝 Contributing
 
