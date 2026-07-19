@@ -95,11 +95,6 @@ npx serve .
 
 # Using Python
 python -m http.server 8080
-```
-
-Then navigate to `http://localhost:8080`.
-
----
 
 ## 🛠️ Tech Stack
 
