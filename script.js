@@ -2521,12 +2521,17 @@ async function getPreviewImageDataUrl() {
   }
 
   if (preview.complete && preview.naturalWidth > 0) {
-    const canvas = document.createElement("canvas");
-    canvas.width = preview.naturalWidth;
-    canvas.height = preview.naturalHeight;
-    const ctx = canvas.getContext("2d");
-    ctx.drawImage(preview, 0, 0);
-    return canvas.toDataURL("image/png");
+    try {
+      const canvas = document.createElement("canvas");
+      canvas.width = preview.naturalWidth;
+      canvas.height = preview.naturalHeight;
+      const ctx = canvas.getContext("2d");
+      ctx.drawImage(preview, 0, 0);
+      return canvas.toDataURL("image/png");
+    } catch (err) {
+      console.warn("Could not export preview image to data URL:", err);
+      return window.lastUploadedImageDataURL || null;
+    }
   }
 
   return new Promise((resolve) => {
@@ -2567,32 +2572,49 @@ async function loadPdfFontForLanguage(doc, language) {
   }
 
   const fontMap = {
-    en: { family: "helvetica", fileName: null, cssUrl: null },
-    te: { family: "NotoSansTelugu", fileName: "NotoSansTelugu-Regular.ttf", cssUrl: "https://fonts.googleapis.com/css2?family=Noto+Sans+Telugu:wght@400;500;600;700" },
-    hi: { family: "NotoSansDevanagari", fileName: "NotoSansDevanagari-Regular.ttf", cssUrl: "https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700" },
-    ta: { family: "NotoSansTamil", fileName: "NotoSansTamil-Regular.ttf", cssUrl: "https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700" },
-    kn: { family: "NotoSansKannada", fileName: "NotoSansKannada-Regular.ttf", cssUrl: "https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@400;500;600;700" },
-    ml: { family: "NotoSansMalayalam", fileName: "NotoSansMalayalam-Regular.ttf", cssUrl: "https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@400;500;600;700" }
+    en: { family: "helvetica", fileName: null, ttfUrl: null },
+    te: {
+      family: "NotoSansTelugu",
+      fileName: "NotoSansTelugu.ttf",
+      ttfUrl: "https://raw.githubusercontent.com/google/fonts/main/ofl/notosanstelugu/NotoSansTelugu%5Bwdth%2Cwght%5D.ttf"
+    },
+    hi: {
+      family: "NotoSansDevanagari",
+      fileName: "NotoSansDevanagari.ttf",
+      ttfUrl: "https://raw.githubusercontent.com/google/fonts/main/ofl/notosansdevanagari/NotoSansDevanagari%5Bwdth%2Cwght%5D.ttf"
+    },
+    ta: {
+      family: "NotoSansTamil",
+      fileName: "NotoSansTamil.ttf",
+      ttfUrl: "https://raw.githubusercontent.com/google/fonts/main/ofl/notosanstamil/NotoSansTamil%5Bwdth%2Cwght%5D.ttf"
+    },
+    kn: {
+      family: "NotoSansKannada",
+      fileName: "NotoSansKannada.ttf",
+      ttfUrl: "https://raw.githubusercontent.com/google/fonts/main/ofl/notosanskannada/NotoSansKannada%5Bwdth%2Cwght%5D.ttf"
+    },
+    ml: {
+      family: "NotoSansMalayalam",
+      fileName: "NotoSansMalayalam.ttf",
+      ttfUrl: "https://raw.githubusercontent.com/google/fonts/main/ofl/notosansmalayalam/NotoSansMalayalam%5Bwdth%2Cwght%5D.ttf"
+    }
   };
 
   const fontInfo = fontMap[language] || fontMap.en;
-  if (!fontInfo.fileName) {
+  if (!fontInfo.ttfUrl) {
     return "helvetica";
   }
 
   try {
     let base64 = pdfFontCache[fontInfo.family];
     if (!base64) {
-      const response = await fetch(fontInfo.cssUrl);
-      if (!response.ok) throw new Error(`Font stylesheet download failed: ${response.status}`);
-      const cssText = await response.text();
-      const match = cssText.match(/https:\/\/fonts\.gstatic\.com\/[^\s)]+\.woff2/);
-      if (!match) throw new Error("No font source found in stylesheet");
-      const fontResponse = await fetch(match[0]);
+      console.log(`[PDF Font] Fetching TTF font for ${language} from: ${fontInfo.ttfUrl}`);
+      const fontResponse = await fetch(fontInfo.ttfUrl);
       if (!fontResponse.ok) throw new Error(`Font download failed: ${fontResponse.status}`);
       const buffer = await fontResponse.arrayBuffer();
       base64 = arrayBufferToBase64(buffer);
       pdfFontCache[fontInfo.family] = base64;
+      console.log(`[PDF Font] Loaded and cached TTF font for ${language}`);
     }
 
     doc.addFileToVFS(fontInfo.fileName, base64);
@@ -2714,23 +2736,10 @@ async function generatePDFReportFixed() {
   const reportElement = buildReportHtml();
   if (!reportElement) return;
 
-  const fileName = reportElement.dataset.filename || "Disease_Report.pdf";
-
-  if (window.html2pdf) {
-    try {
-      document.body.appendChild(reportElement);
-      await window.html2pdf().set({
-        margin: [10, 10, 10, 10],
-        filename: fileName,
-        image: { type: "jpeg", quality: 0.95 },
-        html2canvas: { scale: 2, useCORS: true, letterRendering: true },
-        jsPDF: { unit: "mm", format: "a4", orientation: "portrait" }
-      }).from(reportElement).save();
-    } finally {
-      reportElement.remove();
-    }
-    return;
-  }
+  // NOTE: html2pdf/html2canvas consistently produces blank PDFs in this environment
+  // (html2canvas captures a white/empty canvas regardless of element position, scroll
+  // state, or animation fixes). The jsPDF direct-text path below is fully implemented
+  // and reliably generates the report for all 6 supported languages.
 
   if (!window.jspdf || !window.jspdf.jsPDF) {
     console.error("PDF export library is not available");
@@ -2794,6 +2803,13 @@ async function generatePDFReportFixed() {
     return lines.length * (size > 11 ? 4.6 : 3.8);
   };
 
+  const checkPageBreak = (neededHeight) => {
+    if (y + neededHeight > 275) {
+      doc.addPage();
+      y = 20; // reset y to top margin on the new page
+    }
+  };
+
   const imageDataUrl = await getPreviewImageDataUrl();
 
   doc.setFillColor(46, 125, 50);
@@ -2837,6 +2853,8 @@ async function generatePDFReportFixed() {
   doc.text(severityLabel, rightColX, y + 32);
 
   y += 48;
+
+  checkPageBreak(25);
   doc.setFont(pdfFontFamily, "normal");
   doc.setFontSize(11);
   doc.setTextColor(46, 125, 50);
@@ -2845,21 +2863,25 @@ async function generatePDFReportFixed() {
   const symptomHeight = addWrappedText(sympText, margin, y, contentWidth, 10);
   y += symptomHeight + 4;
 
+  checkPageBreak(25);
   doc.text(pdfPrevLbl, margin, y);
   y += 6;
   const prevHeight = addWrappedText(prevText, margin, y, contentWidth, 10);
   y += prevHeight + 4;
 
+  checkPageBreak(25);
   doc.text(pdfOrgLbl, margin, y);
   y += 6;
   const orgHeight = addWrappedText(orgText, margin, y, contentWidth, 10);
   y += orgHeight + 4;
 
+  checkPageBreak(25);
   doc.text(pdfChemLbl, margin, y);
   y += 6;
   const chemHeight = addWrappedText(chemText, margin, y, contentWidth, 10);
   y += chemHeight + 6;
 
+  checkPageBreak(40);
   doc.setFillColor(241, 248, 233);
   doc.roundedRect(margin, y, contentWidth, 32, 2, 2, "F");
   doc.setFont(pdfFontFamily, "normal");
@@ -2872,6 +2894,8 @@ async function generatePDFReportFixed() {
   doc.text(`${pdfCostLbl}: ${cost}`, margin + 4, detailY + 24);
 
   y += 40;
+
+  checkPageBreak(30);
   doc.setFillColor(255, 253, 231);
   doc.roundedRect(margin, y, contentWidth, 24, 2, 2, "F");
   doc.setFont(pdfFontFamily, "normal");
@@ -2889,7 +2913,7 @@ async function generatePDFReportFixed() {
 function initDownloadReport() {
   var btn = document.getElementById("btn-download-report");
   if (!btn) return;
-  btn.addEventListener("click", function() {
+  btn.addEventListener("click", function () {
     if (!window.lastDetectedDisease) {
       const message = currentLanguage === "te"
         ? "రిపోర్ట్ డౌన్‌లోడ్ చేయడానికి ముందుగా ఆకును స్కాన్ చేయండి."
